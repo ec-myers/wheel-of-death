@@ -1,13 +1,14 @@
 class Turn {
-    constructor(wheel) {
-        this.wheel = wheel
-    }
+  constructor(wheel, currentPlayer) {
+    this.wheel = wheel;
+    this.currentPlayer = currentPlayer;
+  }
 
-    spinWheel() {
+  spinWheel() {
         
-    }
+  }
 }
 
 
 
-export default Turn
+export default Turn;
