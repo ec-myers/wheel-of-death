@@ -1,13 +1,32 @@
+import Player from './Player.js';
+import Game from './Game.js';
+import Puzzle from './Puzzle.js';
+import Wheel from './Wheel.js';
+
 class Turn {
-    constructor(wheel) {
-        this.wheel = wheel
+    constructor(player, wheel) {
+        this.wheel = wheel;
+        this.scoreCount = scoreCount || 0;
+        this.player = player.id;
     }
 
     spinWheel() {
         
     }
+
+    makeGuess() {
+
+    }
+
+    buyVowel() {
+
+    }
+
+    scoreCount() {
+
+    }
 }
 
 
 
-export default Turn
+export default Turn;
