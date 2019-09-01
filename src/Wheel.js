@@ -1,17 +1,17 @@
 class Wheel {
-    constructor(data) {
-        this.data = data;
-    }
+  constructor(data) {
+    this.data = data;
+  }
 
-   makeNewWheel() {
-       let arr = []
-       const pushMe = () => {
-           let randomNum = Math.floor(Math.random() * 22);
-           arr.length < 6 ? (arr.push(obj.wheel[randomNum]) && pushMe()) : arr
-       }
-       pushMe()
-       return arr;
-   }
+  makeNewWheel() {
+    let arr = []
+    const pushMe = () => {
+      let randomNum = Math.floor(Math.random() * 22);
+      arr.length < 6 ? (arr.push(this.data[randomNum]) && pushMe()) : arr;
+    };
+    pushMe();
+    return arr;
+  }
 
 
 }
