@@ -33,4 +33,14 @@ describe('Player', () => {
   it('should have a default grand total of 0', () => {
     expect(player.grandTotal).to.equal(0);
   });
+
+  it('should keep track of the current score', () => {
+    let player = new Player(1, 'Lester', 400, 800);
+    expect(player.currentScore).to.equal(400);
+  });
+
+  it('should keep track of the grand total', () => {
+    let player = new Player(1, 'Lester', 400, 800);
+    expect(player.grandTotal).to.equal(800);
+  });
 });
