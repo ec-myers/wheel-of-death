@@ -3,10 +3,10 @@ const expect = chai.expect;
 import chai from "chai";
 import Puzzle from "../src/Puzzle.js";
 
-describe('Puzzle', function() {
+describe('Puzzle', () => {
   let puzzle;
 
-  beforeEach(function() {
+  beforeEach(() => {
     puzzle = new Puzzle({
       category: 'Around The House',
       number_of_words: 1,

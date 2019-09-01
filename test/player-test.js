@@ -6,7 +6,7 @@ import Player from '../src/Player.js';
 describe('Player', () => {
   let player;
 
-  beforeEach(function() {
+  beforeEach(() => {
     player = new Player(1, 'Lester')
   });
 
