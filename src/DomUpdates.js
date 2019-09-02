@@ -5,7 +5,7 @@ import Puzzle from './Puzzle.js';
 import $ from 'jquery';
 
 
-appendPlayers(players) {
+function appendPlayers(players) {
   players.forEach(player => {
     $(`.player-${player.id}-name`).text(player.name);
   })

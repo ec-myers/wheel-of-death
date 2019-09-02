@@ -7,7 +7,8 @@
 import './css/base.scss';
 import data from './data.js';
 import Game from './Game.js';
-
+import $ from 'jquery';
+import Round from './Round';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/.png'
 
@@ -19,16 +20,14 @@ $('#splash__start--button--js').on('click', function() {
   let playerOne= $('#splash__player--input--one--js').val()
   let playerTwo= $('#splash__player--input--two--js').val()
   let playerThree= $('#splash__player--input--three--js').val()
-  $('#player__one--name--js').text(playerOne);
-  $('#player__one--score--js').text('$0');
-  $('#player__two--name--js').text(playerTwo);
-  $('#player__two--score--js').text('$0');
-  $('#player__three--name--js').text(playerThree);
-  $('#player__three--score--js').text('$0');
-console.log("newGame", newGame.data)
+  $('#ul__player--one--name--js').text(playerOne);
+  $('#ul__player--one--score--js').text('$0');
+  $('#ul__player--two--name--js').text(playerTwo);
+  $('#ul__player--two--score--js').text('$0');
+  $('#ul__player--three--name--js').text(playerThree);
+  $('#ul__player--three--score--js').text('$0');
+  console.log("newGame", newGame.players)
   newGame.createPlayers(playerOne, playerTwo, playerThree);
-
-
 });
 
 

@@ -25,6 +25,18 @@ class Turn {
   scoreCount() {
 
   }
+
+  checkGuess() {
+
+  }
+
+  updateScore() {
+
+  }
+
+  loseTurn() {
+      
+  }
 }
 
 
