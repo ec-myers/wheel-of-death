@@ -4,8 +4,9 @@ import Round from './Round.js';
 
 class Game {
   constructor(data) {
-    this.data = data;
-    // this.game = game;
+    this.puzzles = data.puzzles;
+    this.wheel = data.wheel;
+    this.round;
     this.players = [];
     this.roundCounter = 0;
     // this.puzzleBank = this.createPuzzles(data)
@@ -29,15 +30,15 @@ class Game {
 
 
 
-  startGame() {
-    this.createPlayers(p1, p2, p3)
-    this.createRound()
-  }
+  // startGame() {
+  //   this.createPlayers(p1, p2, p3)
+  //   this.createRound()
+  // }
 
-  createRound() {
+  createRound(currentPlayer) {
     if (this.roundCounter < 4) {
-      let round = new Round(this.players, puzzle, wheel)
-      this.roundCounter++
+      this.round = new Round(this.players, currentPlayer, this.puzzles, this.wheel);
+      this.roundCounter++;
     } //else we'll go to bonus round - need condl logic to kick into that
    
   }
