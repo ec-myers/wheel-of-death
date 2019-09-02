@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title></title>
+    <!-- <link rel="stylesheet" type="text/css" href="base.scss"> -->
+    <title>Wheel of Death</title>
+    <meta charset="UTF-8">
   </head>
   <body>
+  <!-- ***************** SPLASH PAGE *********************** -->
     <header class="header"> 
-      <h1>wheel of death</h1>
+      <h1>Wheel of Death</h1>
     </header>
     <container class='spash__page'>
       <section class='splash__page--header'>
@@ -37,14 +40,48 @@
       <p class='player__one--score' id='player__one--score--js'></p>
     </div>
     <div class='player__two--info' id='player__two--info--js'>
-        <p class='player__two--name' id='player__two--name--js'></p>
+      <p class='player__two--name' id='player__two--name--js'></p>
       <p class='player__two--score' id='player__two--score--js'></p>
     </div>
     <div class='player__three--info' id='player__three--info--js'>
-        <p class='player__three--name' id='player__three--name--js'></p>
+      <p class='player__three--name' id='player__three--name--js'></p>
       <p class='player__three--score' id='player__three--score--js'></p>
     </div>
-
+    <!-- *************** MAIN PAGE****************** -->
+    <main class="body__main">
+      <header class="body__header">
+        <div class="header__div">
+          <h1 class="header__h1--title" id="header__h1--title">Wheel of Death</h1>
+          <button class="header__btn--quit" id="header__btn--quit">Quit</button>
+        </div>
+      </header>
+      <container class="main__container--players">
+        <h2 class="container__h2--contestants">Our Contestants:</h2>
+        <div class="container__div--ul--players">
+          <ul class="container__ul--player--info">
+            <li class="ul__player--one--name" id="ul__player--one--name--js">Player One Name</li>
+            <li class="ul__player--one--score" id="ul__player--one--score--js">Player One Score</li>
+            <li class="ul__player--two--name" id="ul__player--two--name--js">Player Two Name</li>
+            <li class="ul__player--two--score" id="ul__player--two--score--js">Player Two Score</li>
+            <li class="ul__player--three--name" id="ul__player--three--name--js">Player Three Name</li>
+            <li class="ul__player--three--score" id="ul__player--three--score--js">Player Three Score</li>
+          </ul>
+          <button class="container__btn--submit" id="container__btn--submit--js">Submit Guess</button>
+      </div>
+      </container>
+      <p>Wheel Img Here</p>
+      <container class="main__container--puzzle">
+        <div class="container__puzzle--div">
+          <label class="div__puzzle--label">Puzzle:</label>
+          <textarea class="div__textarea--puzzle" id="div__textarea--puzzle--js" rows="6" cols="85">Puzzle</textarea>
+          <label class="div__textarea--letters--label">Letters Guessed</label>
+          <textarea class="div__textarea--letters--used" id="div__textarea--letters--used--js" rows="6" cols="35">Letters Guessed</textarea>
+        </div>
+      </container>
+      <footer class="main__footer">
+        Maybe some random links in the footer?
+      </footer>
+  </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
