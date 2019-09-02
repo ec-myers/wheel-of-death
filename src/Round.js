@@ -6,9 +6,9 @@ import Wheel from './Wheel.js';
 class Round {
   constructor(players, currentPlayer, puzzle, wheel) {
     this.players = players;
+    this.currentPlayer = currentPlayer;
     this.puzzle = puzzle;
     this.wheel = wheel;
-    this.currentPlayer = currentPlayer;
   }
 
   getCurrentPlayer() {
