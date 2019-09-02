@@ -4,27 +4,27 @@ import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
 
 class Turn {
-    constructor(player, wheel) {
-        this.wheel = wheel;
-        this.scoreCount = scoreCount || 0;
-        this.player = player.id;
-    }
+  constructor(player, wheel) {
+    this.wheel = wheel;
+    this.scoreCount = scoreCount || 0;
+    this.player = player.id;
+  }
 
-    spinWheel() {
+  spinWheel() {
         
-    }
+  }
 
-    makeGuess() {
+  makeGuess() {
 
-    }
+  }
 
-    buyVowel() {
+  buyVowel() {
 
-    }
+  }
 
-    scoreCount() {
+  scoreCount() {
 
-    }
+  }
 }
 
 

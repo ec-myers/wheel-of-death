@@ -2,7 +2,7 @@ import Player from './Player.js';
 import Game from './Game.js';
 import Puzzle from './Puzzle.js';
 
-import $ from "jquery";
+import $ from 'jquery';
 
 
 appendPlayers(players) {
