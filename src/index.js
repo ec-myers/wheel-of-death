@@ -15,20 +15,26 @@ import Round from './Round';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-$('#splash__start--button--js').on('click', function() {
-  let newGame = new Game(data);
-  let playerOne= $('#splash__player--input--one--js').val()
-  let playerTwo= $('#splash__player--input--two--js').val()
-  let playerThree= $('#splash__player--input--three--js').val()
+$('#splash__start--button--js').on('click', () => {
+  event.preventDefault();
+  let playerOne = $('#splash__player--input--one--js').val();
+  let playerTwo = $('#splash__player--input--two--js').val();
+  let playerThree = $('#splash__player--input--three--js').val();
   $('#ul__player--one--name--js').text(playerOne);
   $('#ul__player--one--score--js').text('$0');
   $('#ul__player--two--name--js').text(playerTwo);
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  console.log("newGame", newGame.players)
-  newGame.createPlayers(playerOne, playerTwo, playerThree);
+  startGame(data.data, playerOne, playerTwo, playerThree );
 });
+
+function startGame(data, p1, p2, p3) {
+  let newGame = new Game(data);
+  newGame.createPlayers(p1, p2, p3);
+  newGame.createRound(newGame.players[0]);
+  console.log("newGame", newGame.players);
+}
 
 
 
