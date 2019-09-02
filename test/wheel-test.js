@@ -1,7 +1,7 @@
 const expect = chai.expect;
 
-import chai from "chai";
-import Wheel from "../src/Wheel.js";
+import chai from 'chai';
+import Wheel from '../src/Wheel.js';
 
 describe('Wheel', () => {
   let wheel;

@@ -1,9 +1,9 @@
 const expect = chai.expect;
 
-import chai from "chai";
-import Game from "../src/Game.js";
-import Round from "../src/Round.js";
-import Player from "../src/Player.js";
+import chai from 'chai';
+import Game from '../src/Game.js';
+import Round from '../src/Round.js';
+import Player from '../src/Player.js';
 
 describe('Game', function() {
   let game;

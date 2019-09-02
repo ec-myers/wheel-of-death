@@ -1,8 +1,8 @@
 const expect = chai.expect;
 
-import chai from "chai";
-import Turn from "../src/Turn";
-import Player from "../src/Player.js";
+import chai from 'chai';
+import Turn from '../src/Turn';
+import Player from '../src/Player.js';
 
 describe('Turn', function () {
   let turn;
