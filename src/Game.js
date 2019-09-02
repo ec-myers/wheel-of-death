@@ -8,7 +8,7 @@ class Game {
     // this.game = game;
     this.players = [];
     this.roundCounter = 0;
-    this.puzzleBank = this.createPuzzles(data)
+    // this.puzzleBank = this.createPuzzles(data)
   }
 
   createPlayers(p1, p2, p3) {
@@ -18,14 +18,14 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
-  createPuzzles(dataObj) {
-    let oneWordAnswers = Object.values(dataObj.puzzles.one_word_answers.puzzle_bank)
-    let twoWordAnswers = Object.values(dataObj.puzzles.two_word_answers.puzzle_bank)
-    let threeWordAnswers = Object.values(dataObj.puzzles.three_word_answers.puzzle_bank)
-    let fourWordAnswers = Object.values(dataObj.puzzles.four_word_answers.puzzle_bank)
-    let fullPuzzleBank = [...oneWordAnswers,...twoWordAnswers,...threeWordAnswers,...fourWordAnswers];
-    return fullPuzzleBank
-  }
+  // createPuzzles(dataObj) {
+  //   let oneWordAnswers = Object.values(dataObj.puzzles.one_word_answers.puzzle_bank)
+  //   let twoWordAnswers = Object.values(dataObj.puzzles.two_word_answers.puzzle_bank)
+  //   let threeWordAnswers = Object.values(dataObj.puzzles.three_word_answers.puzzle_bank)
+  //   let fourWordAnswers = Object.values(dataObj.puzzles.four_word_answers.puzzle_bank)
+  //   let fullPuzzleBank = [...oneWordAnswers,...twoWordAnswers,...threeWordAnswers,...fourWordAnswers];
+  //   return fullPuzzleBank
+  // }
 
 
 
