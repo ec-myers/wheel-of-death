@@ -6,18 +6,19 @@ import Wheel from './Wheel.js';
 class Round {
   constructor(player, puzzle, game, wheel) {
     this.players = game.players;
-    this.puzzle = puzzle;
+    this.puzzle = this.getNewPuzzle()
     this.wheel = wheel
   
 
   }
 
   getCurrentPlayer() {
-    this.player = 
+    // this.player = 
   }
 
   getNewPuzzle() {
-
+    let randomIndex = Math.floor(Math.random() * game.puzzleBank.length)
+    return game.puzzleBank[randomIndex]
   }
 
   getNewWheel() {
