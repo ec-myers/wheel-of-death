@@ -4,12 +4,11 @@ import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
 
 class Round {
-  constructor(player, puzzle, game, wheel) {
-    this.players = game.players;
-    this.puzzle = this.getNewPuzzle()
-    this.wheel = wheel
-  
-
+  constructor(players, currentPlayer, puzzle, wheel) {
+    this.players = players;
+    this.puzzle = puzzle;
+    this.wheel = wheel;
+    this.currentPlayer = currentPlayer;
   }
 
   getCurrentPlayer() {
@@ -24,6 +23,7 @@ class Round {
   getNewWheel() {
 
   }
+
 
 }
 
