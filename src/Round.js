@@ -24,6 +24,21 @@ class Round {
 
   }
 
+  buyAVowel(vowel) {
+    if (this.currentPlayer.currentScore < 100) {
+      //disable buy a vowel
+    } else {
+      this.currentPlayer.currentScore -= 100;
+      this.lettersUsed.push(vowel);
+      this.puzzle.correctAnswer.forEach(letter => {
+        if (vowel === letter) {
+          //updateDom with vowel
+        } else {
+          //move to next player
+        }
+      });
+    }
+  }
 
 }
 
