@@ -30,5 +30,3 @@ $('#splash__start--button--js').on('click', function() {
   newGame.createPlayers(playerOne, playerTwo, playerThree);
 });
 
-
-
