@@ -16,9 +16,7 @@ import domUpdates from './DomUpdates';
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-$('#splash__start--button--js').click(event => {
-
-  console.log(event);
+$('#splash__start--button--js').on('click', () => {
   event.preventDefault();
   let playerOne = $('#splash__player--input--one--js').val();
   let playerTwo = $('#splash__player--input--two--js').val();
@@ -36,7 +34,7 @@ function startGame(data, p1, p2, p3) {
   let newGame = new Game(data);
   newGame.createPlayers(p1, p2, p3);
   newGame.createRound(newGame.players[0]);
-  console.log("newGame", newGame.round);
+  // console.log("newGame", newGame.round);
   domUpdates.showPuzzle(newGame.round.puzzle);
 }
 
