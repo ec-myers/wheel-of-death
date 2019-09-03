@@ -10,10 +10,15 @@ import Game from './Game.js';
 import $ from 'jquery';
 import Round from './Round';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/.png'
+import './images/back.gif'
+import './images/background.jpg'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
+$(document).ready(function () {
+  $(".body").css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
+});
 
 $('#splash__start--button--js').on('click', function() {
   let newGame = new Game(data);
@@ -29,4 +34,5 @@ $('#splash__start--button--js').on('click', function() {
   console.log("newGame", newGame.players)
   newGame.createPlayers(playerOne, playerTwo, playerThree);
 });
+
 
