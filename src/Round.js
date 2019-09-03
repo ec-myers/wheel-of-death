@@ -4,7 +4,6 @@ import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
 
 class Round {
-
   constructor(players, currentPlayer, puzzles, wheel) {
     this.players = players;
     this.currentPlayer = currentPlayer;
@@ -14,7 +13,7 @@ class Round {
     this.wheel = wheel;
   }
 
-  swithchPlayer() {
+  switchPlayer() {
     if (this.currentPlayer === this.players[0]) {
       return (this.currentPlayer = this.players[1]);
     } else if (this.currentPlayer === this.players[1]) {
