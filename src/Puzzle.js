@@ -1,3 +1,6 @@
+import Game from './Game.js'
+import Round from './Round.js'
+
 class Puzzle {
   constructor(puzzleData) {
     this.category = puzzleData['category'];

@@ -28,6 +28,7 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--three--score--js').text('$0');
   console.log("newGame", newGame.players)
   newGame.createPlayers(playerOne, playerTwo, playerThree);
+  newGame.startGame()
 });
 
 
