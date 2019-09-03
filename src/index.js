@@ -17,23 +17,15 @@ import './images/background.jpg'
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
-<<<<<<< HEAD
 $(document).ready(function () {
   $(".body").css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
 });
 
 $('#splash__start--button--js').on('click', function() {
   let newGame = new Game(data);
-  let playerOne= $('#splash__player--input--one--js').val()
-  let playerTwo= $('#splash__player--input--two--js').val()
-  let playerThree= $('#splash__player--input--three--js').val()
-=======
-$('#splash__start--button--js').on('click', () => {
-  event.preventDefault();
-  let playerOne = $('#splash__player--input--one--js').val();
-  let playerTwo = $('#splash__player--input--two--js').val();
-  let playerThree = $('#splash__player--input--three--js').val();
->>>>>>> 12af8889e44f86981d368b69920171bd9f69eaa7
+  let playerOne= $('#splash__player--input--one--js').val();
+  let playerTwo= $('#splash__player--input--two--js').val();
+  let playerThree= $('#splash__player--input--three--js').val();
   $('#ul__player--one--name--js').text(playerOne);
   $('#ul__player--one--score--js').text('$0');
   $('#ul__player--two--name--js').text(playerTwo);
