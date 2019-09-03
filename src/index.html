@@ -63,19 +63,53 @@
             <li class="ul__player--three--score" id="ul__player--three--score--js">Player Three Score</li>
           </ul>
           <div class='guess__input--div'>
-            <input class='guess__input' id='guess__input--js'>
-            <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
+            <button class='btn__vowel' id='btn__vowel--js'>Buy A Vowel</button>
+            <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
+            <input class='input__solve' id='input__solve--js'>
+            <button class='btn__solve' id='btn__solve--js'>Solve The Puzzle</button>
           </div>
       </div>
       </container>
       <p>Wheel Img Here</p>
       <container class="main__container--puzzle">
-        <div class="container__puzzle--div">
-          <label class="div__puzzle--label">Puzzle:</label>
-          <textarea class="div__textarea--puzzle" id="div__textarea--puzzle--js" rows="6" cols="85">Puzzle</textarea>
+        <section class="container__puzzle--div">
           <label class="div__textarea--letters--label">Letters Guessed</label>
-          <textarea class="div__textarea--letters--used" id="div__textarea--letters--used--js" rows="6" cols="35">Letters Guessed</textarea>
-        </div>
+          <textarea class="div__textarea--letters--used" id="div__textarea--letters--used--js" rows="6" cols="35">Letters Guessed</textarea> 
+          <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
+          <h3>Category: <span class="span__category" id="span__category--js"></span></h3>
+          <section class="section__displayPuzzle" id="section__displayPuzzle--js"></section>
+          <h3>Need a Hint? <span class="span__hint" id="span__hint--js"></span></h3>
+        </section>
+        <section class="section__consonants">
+          <button class="btn__letter" id="consB" disabled>B</button>
+          <button class="btn__letter" id="consC" disabled>C</button>
+          <button class="btn__letter" id="consD" disabled>D</button>
+          <button class="btn__letter" id="consF" disabled>F</button>
+          <button class="btn__letter" id="consG" disabled>G</button>
+          <button class="btn__letter" id="consH" disabled>H</button>
+          <button class="btn__letter" id="consJ" disabled>J</button>
+          <button class="btn__letter" id="consK" disabled>K</button>
+          <button class="btn__letter" id="consL" disabled>L</button>
+          <button class="btn__letter" id="consM" disabled>M</button>
+          <button class="btn__letter" id="consN" disabled>N</button>
+          <button class="btn__letter" id="consP" disabled>P</button>
+          <button class="btn__letter" id="consQ" disabled>Q</button>
+          <button class="btn__letter" id="consR" disabled>R</button>
+          <button class="btn__letter" id="consS" disabled>S</button>
+          <button class="btn__letter" id="consT" disabled>T</button>
+          <button class="btn__letter" id="consV" disabled>V</button>
+          <button class="btn__letter" id="consW" disabled>W</button>
+          <button class="btn__letter" id="consX" disabled>X</button>
+          <button class="btn__letter" id="consY" disabled>Y</button>
+          <button class="btn__letter" id="consZ" disabled>Z</button>
+        </section>
+        <section class="section__vowels">
+          <button class="btn__vowel" id="vowelA" disabled>A</button>
+          <button class="btn__vowel" id="vowelE" disabled>E</button>
+          <button class="btn__vowel" id="vowelI" disabled>I</button>
+          <button class="btn__vowel" id="vowelO" disabled>O</button>
+          <button class="btn_vowel" id="vowelU" disabled>U</button>
+        </section>
       </container>
       <footer class="main__footer">
         Maybe some random links in the footer?
