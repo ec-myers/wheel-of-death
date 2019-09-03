@@ -13,8 +13,14 @@ class Round {
     this.wheel = wheel;
   }
 
-  getCurrentPlayer() {
-    // this.player = 
+  switchPlayer() {
+    if (this.currentPlayer === this.players[0]) {
+      return (this.currentPlayer = this.players[1]);
+    } else if (this.currentPlayer === this.players[1]) {
+      return (this.currentPlayer = this.players[2]);
+    } else {
+      return (this.currentPlayer = this.players[0]);
+    }
   }
 
   getNewPuzzle() {
@@ -31,6 +37,7 @@ class Round {
     let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle));
 }
+
 
   getNewWheel() {
 

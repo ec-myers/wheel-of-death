@@ -19,9 +19,6 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
-
-
-
   // startGame() {
   //   this.createPlayers(p1, p2, p3)
   //   this.createRound()

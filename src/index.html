@@ -2,10 +2,14 @@
 <html lang="en-US">
   <head>
     <!-- <link rel="stylesheet" type="text/css" href="base.scss"> -->
+    <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet">
     <title>Wheel of Death</title>
     <meta charset="UTF-8">
   </head>
-  <body>
+  <body class="body">
+    <div class="home-container">
+      <div class="inner">
+
   <!-- ***************** SPLASH PAGE *********************** -->
     <header class="header"> 
       <h1>Wheel of Death</h1>
@@ -30,7 +34,8 @@
         </div>
         <button class='splash__start--button' id='splash__start--button--js'>Start Game</button>
       </section>
-    </container>
+    </container> 
+    <!-- <div class="player-info">
     <div class='player__one--info' id='player__one--info--js'>
       <p class='player__one--name' id='player__one--name--js'></p>
       <p class='player__one--score' id='player__one--score--js'></p>
@@ -42,12 +47,11 @@
     <div class='player__three--info' id='player__three--info--js'>
       <p class='player__three--name' id='player__three--name--js'></p>
       <p class='player__three--score' id='player__three--score--js'></p>
-    </div>
+    </div> --> -->
     <!-- *************** MAIN PAGE****************** -->
     <main class="body__main">
       <header class="body__header">
         <div class="header__div">
-          <h1 class="header__h1--title" id="header__h1--title">Wheel of Death</h1>
           <button class="header__btn--quit" id="header__btn--quit">Quit</button>
         </div>
       </header>
@@ -116,5 +120,7 @@
       </footer>
   </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
+      </div>
+    </div>
   </body>
 </html>
