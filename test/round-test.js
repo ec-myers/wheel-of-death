@@ -19,7 +19,12 @@ describe('Round', function () {
 
   it.only('should create a puzzle bank', () => {
     round.createPuzzleBank();
-    expect(round.puzzleBank.length).to.eql(192)
+    expect(round.puzzleBank.length).to.eql(192);
+  });
+
+  it.only('should choose a random puzzle', () => {
+    round.getNewPuzzle();
+    expect(typeof(round.puzzle)).to.equal('object');
   });
 
 })
