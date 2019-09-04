@@ -22,6 +22,7 @@ class Game {
     let playerTwo = new Player(2, p2);
     let playerThree = new Player(3, p3);
     this.players.push(playerOne, playerTwo, playerThree);
+    console.log(this.players)
   }
 
   createRound(currentPlayer) {
