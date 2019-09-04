@@ -2,53 +2,5 @@
 $primary-background: rgb(252, 247, 248);
 
 body {
-  // background-color: $primary-background;
-  // background-image: url(https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif);
-// background-color: rgba(252, 247, 248, .5)
-background-repeat: no-repeat; 
-background-position: center; 
-background-size: cover;
-// opacity: .05;
-}
-
-
-
-.header {
-  display: flex;
-  justify-content: center;
-  font-family: 'Creepster', cursive;
-  font-size: 2em;
-  color: #c2c1c0;
-  
-}
-
-.spash__page {
-  display:flex;
-  flex-direction: row; 
-  justify-content: center;
-  border: solid 1px lightgrey; 
-  width: 50%;
-  padding: 8%;
-  margin: auto; 
-  background-color: whitesmoke;
-  opacity: .93;
-  box-shadow: 5px 5px 5px black;
-
-}
-
-.splash__start--button {
-  margin-top: 14px;
-  width: -webkit-fill-available; 
-}
-
-.main__container--players {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container__h2--contestants {
- font-family: 'Creepster', cursive;
- color: #c2c1c0;
- size: 3em;
+  background-color: $primary-background;
 }

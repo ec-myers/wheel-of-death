@@ -14,6 +14,7 @@ import domUpdates from './DomUpdates';
 import './images/back.gif'
 import './images/background.jpg'
 
+let game = new Game(data);
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -32,14 +33,6 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  startGame(data, playerOne, playerTwo, playerThree);
+  domUpdates.startGame(game);
+  game.createPlayers(playerOne, playerTwo, playerThree)
 });
-
-function startGame(data, p1, p2, p3) {
-  let newGame = new Game(data);
-  newGame.createPlayers(p1, p2, p3);
-  newGame.createRound(newGame.players[0]);
-  // console.log("newGame", newGame.round);
-  domUpdates.showPuzzle(newGame.round.puzzle);
-}
-
