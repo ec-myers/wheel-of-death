@@ -44,7 +44,6 @@ describe('Game', function() {
 
   it('should display puzzle', () => {
     domUpdates.startGame(game);
-    expect(domUpdates.startGame).to.have.been.called(1);
+    expect(domUpdates.showPuzzle).to.have.been.called(1);
   });
-
 });

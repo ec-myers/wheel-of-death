@@ -30,12 +30,5 @@ export default {
     letterList += `</ul>`;
     return letterList;
   },
-
-
-
-
-
-
-
 }
 

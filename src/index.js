@@ -36,3 +36,6 @@ $('#splash__start--button--js').on('click', function() {
   domUpdates.startGame(game);
   game.createPlayers(playerOne, playerTwo, playerThree)
 });
+
+
+

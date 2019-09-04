@@ -34,7 +34,6 @@ class Game {
   endGame() {
 
   }
-
 }
 
 export default Game;
