@@ -5,7 +5,7 @@ import Wheel from './Wheel.js';
 import Turn from './Turn.js';
 
 class Round {
-  constructor(players, currentPlayer, puzzles, wheel) {
+  constructor(game, currentPlayer, puzzles, wheel) {
     this.players = game.players;
     this.currentPlayer = currentPlayer;
     this.allPuzzles = puzzles;
