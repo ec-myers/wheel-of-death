@@ -8,17 +8,14 @@ export default {
     this.showPuzzle(game.round.puzzle)
   },
 
-
   showPuzzle(puzzle) {
-    console.log(puzzle.correctAnswer)
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
-    console.log(puzzleAnswer)
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
     // $('#list__displayPuzzle--letter').hide();
     $('#span__category--js').text(puzzle.category);
     $('#span__hint--js').text(puzzle.description);
   },
-
+  
   displayPuzzle(answer) {
     let letterList = `<ul class="container__displayPuzzle">`;
     answer.forEach(letter => {
