@@ -18,7 +18,6 @@ describe('Round', function () {
     round = new Round(players, currentPlayer, puzzles, wheel)
   });
 
-<<<<<<< HEAD
   it.only('should create a puzzle bank', () => {
     round.createPuzzleBank();
     expect(round.puzzleBank.length).to.eql(192);
@@ -29,7 +28,6 @@ describe('Round', function () {
     expect(typeof(round.puzzle)).to.equal('object');
   });
 
-=======
   // it('should show the players', () => {
   //   let game = new Game(); 
   //   let round = new Round();
@@ -39,5 +37,4 @@ describe('Round', function () {
   // it('should show the current player', () => {
   //   expect(swithchPlayer()).to.equal(Game);
   // });
->>>>>>> 478174cd572ec356600ba2748ed0180144db6dbe
 })
