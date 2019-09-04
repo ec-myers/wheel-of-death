@@ -2,7 +2,6 @@ import Player from './Player.js';
 import Game from './Game.js';
 import Puzzle from './Puzzle.js';
 import Wheel from './Wheel.js';
-import { workerData } from 'worker_threads';
 
 class Turn {
   constructor(player, wheel) {
