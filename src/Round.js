@@ -29,8 +29,6 @@ class Round {
     return game.puzzleBank[randomIndex]
   }
 
-<<<<<<< HEAD
-=======
   createPuzzleBank() {
     let oneWordAnswers = this.allPuzzles.one_word_answers.puzzle_bank;
     let twoWordAnswers = this.allPuzzles.two_word_answers.puzzle_bank;
@@ -40,8 +38,6 @@ class Round {
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle));
 }
 
-
->>>>>>> 478174cd572ec356600ba2748ed0180144db6dbe
   getNewWheel() {
 
   }
