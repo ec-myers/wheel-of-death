@@ -5,7 +5,7 @@ class Puzzle {
     this.totalLetters = puzzleData['total_number_of_letters'];
     this.firstWord = puzzleData['first_word'];
     this.description = puzzleData['description'];
-    this.correctAnswer = [...puzzleData.correct_answer.toUpperCase()];
+    this.correctAnswer = puzzleData['correct_answer'];
 
   }
 
