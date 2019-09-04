@@ -1,14 +1,20 @@
 import data from './data.js';
 import Player from './Player.js';
 import Round from './Round.js';
+import domUpdates from './DomUpdates.js';
 
 class Game {
   constructor(data) {
-    this.data = data;
-    // this.game = game;
+    this.puzzles = data.puzzles;
+    this.wheel = data.wheel;
+    this.round;
     this.players = [];
     this.roundCounter = 0;
     // this.puzzleBank = this.createPuzzles(data)
+  }
+
+  startGame() {
+    this.createRound(this.players[0]);
   }
 
   createPlayers(p1, p2, p3) {
@@ -18,28 +24,11 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
-  // createPuzzles(dataObj) {
-  //   let oneWordAnswers = Object.values(dataObj.puzzles.one_word_answers.puzzle_bank)
-  //   let twoWordAnswers = Object.values(dataObj.puzzles.two_word_answers.puzzle_bank)
-  //   let threeWordAnswers = Object.values(dataObj.puzzles.three_word_answers.puzzle_bank)
-  //   let fourWordAnswers = Object.values(dataObj.puzzles.four_word_answers.puzzle_bank)
-  //   let fullPuzzleBank = [...oneWordAnswers,...twoWordAnswers,...threeWordAnswers,...fourWordAnswers];
-  //   return fullPuzzleBank
-  // }
-
-
-
-  startGame() {
-    this.createPlayers(p1, p2, p3)
-    this.createRound()
-  }
-
-  createRound() {
+  createRound(currentPlayer) {
     if (this.roundCounter < 4) {
-      let round = new Round(this.players, puzzle, wheel)
-      this.roundCounter++
+      this.round = new Round(this.players, currentPlayer, this.puzzles, this.wheel);
+      this.roundCounter++;
     } //else we'll go to bonus round - need condl logic to kick into that
-   
   }
 
   endGame() {
