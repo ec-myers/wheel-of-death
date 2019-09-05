@@ -6,11 +6,8 @@ class Puzzle {
     this.firstWord = puzzleData['first_word'];
     this.description = puzzleData['description'];
     this.correctAnswer = [...puzzleData.correct_answer.toUpperCase()];
-
-  }
-
-  getNewPuzzle() {
-
+    this.lettersUsed = [];
+    this.correctGuesses = [];
   }
 }
 

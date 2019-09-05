@@ -1,3 +1,6 @@
+import domUpdates from './DomUpdates.js';
+import Round from './Round.js';
+
 class Player {
 
   constructor(id, name, currentScore, grandTotal) {
@@ -7,11 +10,10 @@ class Player {
     this.grandTotal = grandTotal || 0;
   }
 
+  hasEnoughMoney() {
+    return this.currentScore >= 100;
+  }
 }
 
 
-
-
-if (typeof module !== 'undefined') {
-  module.exports = Player;
-}
+export default Player;

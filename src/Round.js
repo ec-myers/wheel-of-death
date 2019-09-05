@@ -1,5 +1,3 @@
-import Player from './Player';
-
 class Round {
   constructor(players, puzzle, wheel) {
     this.players = [];
@@ -17,11 +15,6 @@ class Round {
     } else {
       return (this.currentPlayer = this.players[0]);
     }
-  }
-
-
-  getNewWheel() {
-
   }
 
   //multiple letters in one word?
@@ -49,8 +42,19 @@ spinWheel() {
   //Each time a player spins the wheel we have         
 }
 
-
-
+  buyAVowel(vowel) {
+    this.currentPlayer.currentScore -= 100;
+    this.puzzle.lettersUsed.push(vowel);
+    //can not break execution of forEach, need traditional for loop
+    for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
+      if (this.puzzle.correctAnswer[i] === vowel) {
+        this.puzzle.correctGuesses.push(vowel);
+        return;
+      }
+    }
+    this.switchPlayer();
+  }
 }
+
 
 export default Round;
