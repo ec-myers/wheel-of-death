@@ -1,5 +1,6 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 // $primary-background: rgb(252, 247, 248);
+@import 'variables';
 
 body {
   margin: 0;
@@ -7,10 +8,10 @@ body {
   // background-color: $primary-background;
   background-image: url(https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif);
 // background-color: rgba(252, 247, 248, .5)
-background-repeat: no-repeat; 
-background-position: center; 
-background-size: cover;
-font-family: 'Concert One', cursive;
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+  font-family: 'Concert One', cursive;
 }
 
 .header {
@@ -37,12 +38,16 @@ font-family: 'Concert One', cursive;
  text-shadow: 2px 2px rgba(53, 52, 52, .5)
 }
 
+.hidden {
+  display: none;
+}
 
-.spash__page {
+.splash__page {
   display:flex;
   flex-direction: row; 
   justify-content: center;
-  width: 35%;
+  width: 80%;
+  height:100%;
   padding: 4%;
   margin: 30px auto; 
   background-color: rgb(64, 48, 78);
