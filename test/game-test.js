@@ -2,6 +2,8 @@ const expect = chai.expect;
 
 import chai from 'chai';
 import Game from '../src/Game.js';
+import Puzzle from '../src/Puzzle.js';
+import Wheel from '../src/Wheel.js';
 import Round from '../src/Round.js';
 import Player from '../src/Player.js';
 import spies from 'chai-spies';
@@ -40,7 +42,22 @@ describe('Game', function() {
   it('should have three players when game starts', () => {
     game.createPlayers('Royce', 'Cliff', 'Jasper');
     expect(game.players.length).to.eql(3);
-  })
+  });
+
+  it('should create a puzzle bank', () => {
+    game.createPuzzleBank(data);
+    expect(game.puzzleBank.length).to.eql(96);
+  });
+
+  it('should choose a random puzzle', () => {
+    game.createNewPuzzle();
+    expect(game.createNewPuzzle(data)).to.be.an.instanceOf(Puzzle);
+  });
+
+  it('should choose a random wheel', () => {
+    // game.createNewWheel();
+    expect(game.createNewWheel(data)).to.be.an.instanceOf(Wheel);
+  });
 
   it('should display puzzle', () => {
     domUpdates.startGame(game);
