@@ -33,6 +33,6 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
   $('.spash__page').hide()
-  domUpdates.startGame(game);
   game.createPlayers(playerOne, playerTwo, playerThree);
+  domUpdates.startGame(game);
 });
