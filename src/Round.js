@@ -19,6 +19,7 @@ class Round {
 
   compareLetterToAnswer(spinResult) {
     //set variable to value of clicked button (let guessedLetter)
+    let guessedLetter = 'A';
     this.puzzle.lettersUsed.push(guessedLetter);
     this.puzzle.correctAnswer.forEach(letter => {
       if (guessedLetter === letter) {
@@ -39,10 +40,10 @@ class Round {
       this.compareLetterToAnswer(spinResult);
       //player makes a guess for a consonant
     } else if (spinResult === 'LOSE A TURN') {
-      //this.switchPlayer()
+      this.switchPlayer();
     } else {
-      //this.currentPlayer.currentScore = 0
-      //&& this.switchPlayer()
+      this.currentPlayer.currentScore = 0;
+      this.switchPlayer();
     }
 
   }

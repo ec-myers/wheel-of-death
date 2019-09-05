@@ -24,12 +24,7 @@ describe('Round', function () {
       correct_answer: 'Armchair',
     });
     wheel = new Wheel(
-      [700,
-      600,
-      650,
-      500,
-      700,
-      'BANKRUPT']);
+      [700]);
     round = new Round(players, puzzle, wheel);
     });
 
@@ -72,5 +67,13 @@ describe('Round', function () {
   it('should switch players if vowel guess is incorrect ', () => {
     round.buyAVowel('O');
     expect(round.currentPlayer).to.eql(round.players[1]);
+  });
+
+  it('should add guessed letter to array if correct', () => {
+    // let wheel = new Wheel(700);
+    let round.wheel = 
+    console.log("wheel", wheel);
+    round.spinWheel();
+    expect(puzzle.lettersUsed).to.eql(['A']);
   });
 });
