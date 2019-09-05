@@ -3,6 +3,7 @@ import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './DomUpdates.js';
 import Puzzle from './Puzzle';
+import Wheel from './Wheel';
 
 class Game {
   constructor(data) {
@@ -26,13 +27,16 @@ class Game {
 
   createRound() {
     if (this.roundCounter < 4) {
-      let puzzle = this.getNewPuzzle();
-      this.currentRound = new Round(this.players, puzzle, this.wheelData);
+      let puzzle = this.createNewPuzzle();
+      let wheel = this.createNewWheel(this.wheelData);
+      console.log(wheel);
+      console.log(puzzle);
+      this.currentRound = new Round(this.players, puzzle, wheel);
       this.roundCounter++;
     } //else we'll go to bonus round - need condl logic to kick into that
   }
 
-  getNewPuzzle() {
+  createNewPuzzle() {
     let randomNum = Math.floor(Math.random() * this.puzzleBank.length)
     return new Puzzle(this.puzzleBank[randomNum]);
   }
@@ -44,6 +48,16 @@ class Game {
     let fourWordAnswers = data.puzzles.four_word_answers.puzzle_bank;
     let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
     return allPuzzles;
+  }
+
+  createNewWheel(data) {
+    let wheel = new Wheel();
+    const pushMe = () => {
+      let randomNum = Math.floor(Math.random() * 22);
+      wheel.items.length < 6 ? (wheel.items.push(data[randomNum]) && pushMe()) : wheel;
+    };
+    pushMe();
+    return wheel;
   }
 
   endGame() {

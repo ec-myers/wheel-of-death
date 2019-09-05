@@ -1,9 +1,3 @@
-import Player from './Player.js';
-import Game from './Game.js';
-import Puzzle from './Puzzle.js';
-import Wheel from './Wheel.js';
-import Turn from './Turn.js';
-
 class Round {
   constructor(players, puzzle, wheel) {
     this.players = players;
