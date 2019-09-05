@@ -1,5 +1,8 @@
+import Player from './Player';
+
 class Round {
   constructor(players, puzzle, wheel) {
+    this.players = [];
     this.players = players;
     this.currentPlayer = this.players[0];
     this.puzzle = puzzle;

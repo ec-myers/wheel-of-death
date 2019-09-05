@@ -15,7 +15,7 @@ class Game {
   }
 
   startGame() {
-    this.createRound(this.players[0]);
+    this.createRound();
   }
 
   createPlayers(p1, p2, p3) {
@@ -32,6 +32,7 @@ class Game {
       console.log(wheel);
       console.log(puzzle);
       this.currentRound = new Round(this.players, puzzle, wheel);
+      console.log(this.currentRound)
       this.roundCounter++;
     } //else we'll go to bonus round - need condl logic to kick into that
   }
