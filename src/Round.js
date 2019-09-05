@@ -12,6 +12,7 @@ class Round {
     this.puzzleBank = [];
     this.puzzle = this.getNewPuzzle();
     this.wheel = wheel;
+    //should we set wheel to the getNewWheel method?
     // this.endRound = game.endGame()
   }
 
@@ -41,7 +42,7 @@ class Round {
   }
 
   getNewWheel() {
-
+    return this.wheel.makeNewWheel();
   }
 
   //multiple letters in one word?
@@ -60,13 +61,27 @@ class Round {
 //taking in a guessed letter
 //compare that letter to each letter in our this.correct answer array 
 //if the guess matches any letters in the array then append to DOM
+//also multiply value from spinWheel by # of times letter appears in answer
 //also grant another turn 
 // if not then end the round
 //subtrack from their score
 //can you go negative?
 
 spinWheel() {
-  //Each time a player spins the wheel we have         
+    let currentWheel = this.wheel.makeNewWheel();
+    //should we set wheel in this constructor to the result of the
+    //makeNewWheel method?
+    let randomIndex = Math.floor(Math.random() * currentWheel.length)
+    let spinResult = currentWheel[randomIndex];
+    if (typeof spinResult === Number) {
+      //player makes a guess for a consonant
+    } else if (spinResult === 'LOSE A TURN') {
+      //this.switchPlayer()
+    } else {
+      //this.currentPlayer.grandTotal = 0
+      //&& this.switchPlayer()
+    }
+
 }
 
 
