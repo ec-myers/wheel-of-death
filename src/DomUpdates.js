@@ -5,7 +5,23 @@ export default {
 
   startGame(game) {
     game.startGame();
-    this.showPuzzle(game.round.puzzle)
+    this.showPuzzle(game.currentRound.puzzle)
+  },
+
+  enableVowels() {
+    $('.section__vowels').prop("disabled", false);
+  },
+
+  disableVowels() {
+    $('.section__vowels').prop("disabled", true);
+  },
+
+  enableBuyVowelBtn() {
+    $('.').prop("disabled", true);
+  },
+
+  showLetter() {
+    $('.container__displayPuzzle').show();
   },
 
   showPuzzle(puzzle) {
@@ -30,6 +46,8 @@ export default {
     letterList += `</ul>`;
     return letterList;
   },
+
+  
 
 
 

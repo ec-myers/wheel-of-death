@@ -5,14 +5,11 @@ import Wheel from './Wheel.js';
 import Turn from './Turn.js';
 
 class Round {
-  constructor(game, currentPlayer, puzzles, wheel) {
-    this.players = game.players;
-    this.currentPlayer = currentPlayer;
-    this.allPuzzles = puzzles;
-    this.puzzleBank = [];
-    this.puzzle = this.getNewPuzzle();
+  constructor(players, puzzle, wheel) {
+    this.players = players;
+    this.currentPlayer = this.players[0];
+    this.puzzle = puzzle;
     this.wheel = wheel;
-    // this.endRound = game.endGame()
   }
 
   switchPlayer() {
@@ -25,20 +22,6 @@ class Round {
     }
   }
 
-  getNewPuzzle() {
-    this.createPuzzleBank();
-    let randomNum = Math.floor(Math.random() * this.puzzleBank.length)
-    return new Puzzle(this.puzzleBank[randomNum]);
-  }
-
-  createPuzzleBank() {
-    let oneWordAnswers = this.allPuzzles.one_word_answers.puzzle_bank;
-    let twoWordAnswers = this.allPuzzles.two_word_answers.puzzle_bank;
-    let threeWordAnswers = this.allPuzzles.three_word_answers.puzzle_bank;
-    let fourWordAnswers = this.allPuzzles.four_word_answers.puzzle_bank;
-    let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
-    return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle));
-  }
 
   getNewWheel() {
 
