@@ -17,30 +17,35 @@ class Round {
     }
   }
 
-  //multiple letters in one word?
-  compareGuessAnswer(guess) {
-    this.correctAnswer.toLowerCase().split('')
-    this.correctAnswer.forEach(letter => {
-      if (guess === letter) {
+  compareLetterToAnswer(spinResult) {
+    //set variable to value of clicked button (let guessedLetter)
+    this.puzzle.lettersUsed.push(guessedLetter);
+    this.puzzle.correctAnswer.forEach(letter => {
+      if (guessedLetter === letter) {
+        this.puzzle.correctGuesses.push(guessedLetter);
         //append to DOM
-        this.spinAgain
-        return 'Winner, Guesss Again...'
+        this.currentPlayer.currentScore += spinResult;
+        this.spinWheel();
     } else {
-      
+      this.switchPlayer();
     }
     })
   }
-//taking in a guessed letter
-//compare that letter to each letter in our this.correct answer array 
-//if the guess matches any letters in the array then append to DOM
-//also grant another turn 
-// if not then end the round
-//subtrack from their score
-//can you go negative?
 
-spinWheel() {
-  //Each time a player spins the wheel we have         
-}
+  spinWheel() {
+    let randomIndex = Math.floor(Math.random() * this.wheel.length);
+    let spinResult = this.wheel[randomIndex];
+    if (typeof spinResult === Number) {
+      this.compareLetterToAnswer(spinResult);
+      //player makes a guess for a consonant
+    } else if (spinResult === 'LOSE A TURN') {
+      //this.switchPlayer()
+    } else {
+      //this.currentPlayer.currentScore = 0
+      //&& this.switchPlayer()
+    }
+
+  }
 
   buyAVowel(vowel) {
     this.currentPlayer.currentScore -= 100;
