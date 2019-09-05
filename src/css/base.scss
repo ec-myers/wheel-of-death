@@ -1,5 +1,6 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 // $primary-background: rgb(252, 247, 248);
+@import 'variables';
 
 body {
   margin: 0;
@@ -7,36 +8,51 @@ body {
   // background-color: $primary-background;
   background-image: url(https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif);
 // background-color: rgba(252, 247, 248, .5)
-background-repeat: no-repeat; 
-background-position: center; 
-background-size: cover;
-font-family: 'Concert One', cursive;
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+  font-family: 'Concert One', cursive;
 }
 
-
 .header {
+  padding: 0px 25px;
   display: flex;
-  justify-content: center;
-  font-family: 'Creepster', cursive;
-  font-size: 2em;
-  color: #a2e831;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+}
+
+.header__btn--quit {
+  height: 30px;
+  border-radius: 20px;
+  font-weight: 900;
+  box-shadow: 4px 4px 5px rgb(41, 39, 39);
 }
 
 .header__title {
- text-shadow: 2px 2px rgb(53, 52, 52)
+ margin: 27px 0px 10px 15px;
+ font-family: 'Creepster', cursive;
+ font-size: 3em;
+ color: #a2e831;
+ text-shadow: 2px 2px rgba(53, 52, 52, .5)
 }
 
+.hidden {
+  display: none;
+}
 
-.spash__page {
+.splash__page {
   display:flex;
   flex-direction: row; 
   justify-content: center;
-  width: 35%;
+  width: 80%;
+  height:100%;
   padding: 4%;
-  margin: auto; 
+  margin: 30px auto; 
   background-color: rgb(64, 48, 78);
   opacity: .95;
-  box-shadow: 4px 4px 5px rgb(41, 39, 39);
+  box-shadow: 3px 3px 4px rgba(46, 45, 45, .5);
   border-radius: 15px;
 
 }
@@ -52,6 +68,7 @@ font-family: 'Concert One', cursive;
 .splash__player--input--title {
   color: whitesmoke;
   padding: 5px;
+  text-shadow: 2px 2px rgba(53, 52, 52, .5)
 }
 
 .splash__start--button{
