@@ -1,9 +1,5 @@
 
 import $ from 'jquery';
-// import Game from './Game.js';
-// import data from './data.js';
-// let game = new Game(data);
-
 
 export default {
   enableVowels() {
