@@ -26,6 +26,14 @@ $('.header__btn--quit').click( () => {
   location.reload();
 });
 
+$('#guess__input--js').on('keypress', function() {
+  if ($('#guess__input--js').val() !== '') {
+    $('#guess__input--btn--js').prop('disabled', false)
+  } else{
+    $('#guess__input--btn--js').prop('disabled', true);
+  }
+});
+
 $('#splash__start--button--js').on('click', function() {
   let playerOne = $('#splash__player--input--one--js').val();
   let playerTwo = $('#splash__player--input--two--js').val();
@@ -68,5 +76,4 @@ $('#section__vowels--js').on('click', (e) => {
     game.currentRound.buyAVowel(guessedVowel);
   }
 });
-
 

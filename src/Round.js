@@ -27,6 +27,14 @@ class Round {
     return result;
   }
 
+  spinWheel() {
+    let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
+    let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
+    domUpdates.showWheelOutput(result);
+    domUpdates.enableSubmitAndVowelBtns(this);
+    return result;
+  } 
+  
   compareWheelOutput() {
     //only want to enable consonants if it is a number
     if (this.wheel.currentSpinResult === 'LOSE A TURN') {

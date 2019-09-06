@@ -16,6 +16,7 @@ class Game {
 
   startGame() {
     this.createRound();
+    domUpdates.disableSubmitAndVowelBtns(this);
     domUpdates.showPuzzle(this.currentRound.puzzle);
   }
 
