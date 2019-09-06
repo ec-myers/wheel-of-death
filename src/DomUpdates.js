@@ -1,13 +1,11 @@
 
 import $ from 'jquery';
+// import Game from './Game.js';
+// import data from './data.js';
+// let game = new Game(data);
+
 
 export default {
-
-  startGame(game) {
-    game.startGame();
-    this.showPuzzle(game.currentRound.puzzle)
-  },
-
   enableVowels() {
     $('.section__vowels').prop("disabled", false);
   },
@@ -18,6 +16,10 @@ export default {
 
   enableBuyVowelBtn() {
     $('.').prop("disabled", true);
+  },
+
+  showWheelOutput(result) {
+    $('#wheel__output--js').text(result);
   },
 
   showLetter() {

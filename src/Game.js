@@ -16,6 +16,7 @@ class Game {
 
   startGame() {
     this.createRound();
+    domUpdates.showPuzzle(this.currentRound.puzzle);
   }
 
   createPlayers(p1, p2, p3) {
