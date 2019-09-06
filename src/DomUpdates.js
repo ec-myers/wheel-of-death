@@ -3,11 +3,6 @@ import $ from 'jquery';
 
 export default {
 
-  startGame(game) {
-    game.startGame();
-    this.showPuzzle(game.currentRound.puzzle)
-  },
-
   disableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
     $('#guess__input--btn--js').prop('disabled', true);
@@ -25,6 +20,10 @@ export default {
 
   enableVowels() {
     $('.section__vowels').prop('disabled', false);
+  },
+
+  showWheelOutput(result) {
+    $('#wheel__output--js').text(result);
   },
 
   showLetter() {

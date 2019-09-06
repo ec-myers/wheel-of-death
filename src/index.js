@@ -5,24 +5,24 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import $ from 'jquery';
 import data from './data.js';
 import Game from './Game.js';
-import $ from 'jquery';
-import Round from './Round';
-import domUpdates from './DomUpdates';
+import './images/background.png';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
-import './images/background.png'
 
 let game = new Game(data);
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
+
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
 });
 
-$('.header__btn--quit').click(event => {
+
+$('.header__btn--quit').click( () => {
   location.reload();
 });
 
@@ -44,8 +44,36 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  $('.spash__page').hide()
+  $('.splash__page').hide()
   game.createPlayers(playerOne, playerTwo, playerThree);
-  domUpdates.startGame(game);
+  game.startGame();
+});
+
+$('#btn__spin--js').on('click', () => {
+  //disable spin button
+  console.log(game.currentRound);
+  game.currentRound.spinWheel();
+  game.currentRound.compareWheelOutput();
+});
+
+$('#section__consonants--js').on('click', (e) => {
+  e.preventDefault();
+  let guessedLetter = $(e.target).closest('.btn__letter').val();
+
+  game.currentRound.compareLetterToAnswer(guessedLetter);
+});
+
+$('#guess__btn--vowel--js').on('click', () => {
+  //enable vowels
+  //disable used vowels (usedLetters)
+});
+
+$('#section__vowels--js').on('click', (e) => {
+  e.preventDefault();
+  let guessedVowel = $(e.target).closest('.btn__letter').val();
+
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    game.currentRound.buyAVowel(guessedVowel);
+  }
 });
 
