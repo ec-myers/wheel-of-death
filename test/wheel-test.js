@@ -42,7 +42,12 @@ describe('Wheel', () => {
     expect(wheel).to.be.an.instanceOf(Wheel);
   });
 
-  it('should generate a new random wheel with 6 elements', () => {
-    expect(wheel.makeNewWheel().length).to.equal(6);
+  it('should contain no items before game starts', () => {
+    expect(wheel.items.length).to.equal(0);
   });
-})
+
+  it('should have a currentSpinResult with a value of null', () => {
+    expect(wheel.currentSpinResult).to.equal(null);
+  });
+
+});

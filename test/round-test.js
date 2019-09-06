@@ -23,10 +23,10 @@ describe('Round', function () {
       description: 'Location or object(s) found within a typical house.',
       correct_answer: 'Armchair',
     });
-    wheel = new Wheel(
-      [700]);
+    wheel = new Wheel();
+    wheel.items = [700];
     round = new Round(players, puzzle, wheel);
-    });
+  });
 
   it('should have three players', () => {
     expect(round.players).to.equal(players);
@@ -59,21 +59,31 @@ describe('Round', function () {
     expect(puzzle.correctGuesses).to.eql(['A']);
   });
 
-  it('should not switch players if vowel guess is correct ', () => {
-    round.buyAVowel('A');
+  it('should return a value from the wheel when spun ', () => {
+    expect(round.spinWheel()).to.equal(700);
+  });
+
+  it('should not switch players if the consonant guess is correct ', () => {
+    let guessedLetter = 'A';
+    round.compareLetterToAnswer(guessedLetter);
     expect(round.currentPlayer).to.eql(round.players[0]);
   });
 
-  it('should switch players if vowel guess is incorrect ', () => {
-    round.buyAVowel('O');
+  it('should switch players if consonant guess is incorrect ', () => {
+    let guessedLetter = 'D';
+    round.compareLetterToAnswer(guessedLetter);
     expect(round.currentPlayer).to.eql(round.players[1]);
   });
 
   it('should add guessed letter to array if correct', () => {
-    // let wheel = new Wheel(700);
-    let round.wheel = 
-    console.log("wheel", wheel);
-    round.spinWheel();
-    expect(puzzle.lettersUsed).to.eql(['A']);
+    let guessedLetter = 'A';
+    round.compareLetterToAnswer(guessedLetter);
+    expect(puzzle.correctGuesses).to.eql(['A']);
+  });
+
+  it('should add guessed letter to array if incorrect', () => {
+    let guessedLetter = 'D';
+    round.compareLetterToAnswer(guessedLetter);
+    expect(puzzle.lettersUsed).to.eql(['D']);
   });
 });

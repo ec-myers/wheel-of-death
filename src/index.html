@@ -67,21 +67,20 @@
             <button class='guess__btn--vowel' id='guess__btn--vowel--js'>Buy A Vowel</button>
             <p><span lass="btn__spin--display" id="btn__spin--display"></span></p>
             <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
-            <input class='guess__input' id='guess__input--js'>
+            <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
             <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
             <p><span class="span__player--turn" id="span__player--turn--js"></span>it's your turn!</p>
           </div>
       </div>
       </container>
-      <p>Wheel Img Here</p>
+      <p class="wheel__output" id="wheel__output--js">Wheel Img Here</p>
       <container class="main__container--puzzle">
         <div class="container__puzzle--div">
-          <label class="div__puzzle--label">Puzzle:</label>
           <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
           <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
           <section class="section__displayPuzzle" id="section__displayPuzzle--js"></section>
         </section>
-        <section class="section__consonants">
+        <section class="section__consonants" id="section__consonants--js">
           <button class="btn__letter" id="consB" disabled>B</button>
           <button class="btn__letter" id="consC" disabled>C</button>
           <button class="btn__letter" id="consD" disabled>D</button>
@@ -104,17 +103,16 @@
           <button class="btn__letter" id="consY" disabled>Y</button>
           <button class="btn__letter" id="consZ" disabled>Z</button>
         </section>
-        <section class="section__vowels">
+        <section class="section__vowels" id="section__vowels--js">
           <button class="btn__vowel" id="vowelA" disabled>A</button>
           <button class="btn__vowel" id="vowelE" disabled>E</button>
           <button class="btn__vowel" id="vowelI" disabled>I</button>
           <button class="btn__vowel" id="vowelO" disabled>O</button>
-          <button class="btn_vowel" id="vowelU" disabled>U</button>
+          <button class="btn__vowel" id="vowelU" disabled>U</button>
         </section>
         </div>
       </container>
       <footer class="main__footer">
-        Maybe some random links in the footer?
       </footer>
   </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->

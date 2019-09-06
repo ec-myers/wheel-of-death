@@ -1,8 +1,8 @@
 class Wheel {
   constructor() {
     this.items = [];
+    this.currentSpinResult = null;
   }
-
 }
 
-export default Wheel
+export default Wheel;
