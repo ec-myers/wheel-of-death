@@ -46,6 +46,6 @@ describe('Puzzle', () => {
   });
 
   it('should have a correct answer', () => {
-    expect(puzzle.correctAnswer).to.equal('Armchair');
+    expect(puzzle.correctAnswer).to.eql(['A', 'R', 'M', 'C', 'H', 'A', 'I', 'R']);
   });
 })
