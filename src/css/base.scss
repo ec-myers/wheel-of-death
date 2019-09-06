@@ -107,7 +107,7 @@ body {
 }
 
 .container__ul--player--info {
-  border: solid 2px;
+  border: solid 1px;
   background-color: #40304e;
   display: flex;
   flex-direction: row;
@@ -124,7 +124,7 @@ body {
   background-color: #40304e;
   border-right: solid 1px;
   font-size: 1.5em;
-  padding: 15px;
+  padding: 25px;
   text-align: center;
 }
 
@@ -153,6 +153,7 @@ body {
 .guess__input--btn {
   border-radius: 2px;
   background-color: #a2e831b6;
+  box-shadow: 4px 4px 5px rgb(41, 39, 39);
   font-size: 1.0em;
   font-weight: bold;
   height: 35px;
@@ -163,7 +164,7 @@ body {
 .guess__input {
   border: none;
   background-color: white;
-  font-size: 1.0em;
+  font-size: .8em;
   height: 33px;
   text-align: center;
 }
@@ -174,11 +175,36 @@ ul {
 }
 
 .section__consonants {
-  display: inline;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.section__vowels {
+  display: flex;
+  justify-content: center;
+}
+
+.btn__letter,
+.btn__vowels {
+  border-radius: 5px;
+  background-color: #40304e;
+  color: white;
+  font-size: 1.0em;
+  font-weight: bold;
+  height: 30px;
+  margin: 0px 10px;
+  width: 30px;
 }
 
 p {
   color: white;
+}
+
+h3 {
+  color: #a2e831;
+  font-size: 3.0em;
+  text-align: center;
 }
 
 .container__puzzle--div {
@@ -191,4 +217,8 @@ p {
   font-weight: bold;
   justify-content: space-evenly;
   list-style-type: none;
+}
+
+footer {
+  height: 200px;
 }
