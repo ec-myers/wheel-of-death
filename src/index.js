@@ -32,7 +32,7 @@ $('#guess__input--js').on('keypress', function() {
   } else{
     $('#btn__spin--js').prop('disabled', true);
   }
-})
+});
 
 $('#splash__start--button--js').on('click', function() {
   let playerOne = $('#splash__player--input--one--js').val();

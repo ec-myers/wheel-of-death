@@ -1,3 +1,5 @@
+import DomUpdates from "./DomUpdates";
+
 class Round {
   constructor(players, puzzle, wheel) {
     this.players = [];
@@ -38,6 +40,7 @@ class Round {
     let spinResult = this.wheel[randomIndex];
     if (typeof spinResult === Number) {
       this.compareLetterToAnswer(spinResult);
+      domUpdates.enableSubmitAndVowelBtns(this);
       //player makes a guess for a consonant
     } else if (spinResult === 'LOSE A TURN') {
       this.switchPlayer();

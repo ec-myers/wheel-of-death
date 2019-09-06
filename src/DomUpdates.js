@@ -8,18 +8,19 @@ export default {
     this.showPuzzle(game.currentRound.puzzle)
   },
 
-  disableSubmitAndVowelsBtns() {
+  disableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
     $('#guess__input--btn--js').prop('disabled', true);
     $('#btn__spin--js').prop('disabled', true);
   },
+  
+  enableSubmitAndVowelBtns() {
+    $('#guess__btn--vowel--js').prop('disabled', false);
+    $('#guess__input--btn--js').prop('disabled', false);
+  },
 
   enableVowels() {
     $('.section__vowels').prop('disabled', false);
-  },
-
-  enableBuyVowelBtn() {
-    $('.').prop('disabled', true);
   },
 
   showLetter() {
