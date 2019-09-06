@@ -28,9 +28,9 @@ $('.header__btn--quit').click(event => {
 
 $('#guess__input--js').on('keypress', function() {
   if ($('#guess__input--js').val() !== '') {
-    $('#btn__spin--js').prop('disabled', false)
+    $('#guess__input--btn--js').prop('disabled', false)
   } else{
-    $('#btn__spin--js').prop('disabled', true);
+    $('#guess__input--btn--js').prop('disabled', true);
   }
 });
 

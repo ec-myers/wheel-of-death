@@ -11,12 +11,16 @@ export default {
   disableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
     $('#guess__input--btn--js').prop('disabled', true);
-    $('#btn__spin--js').prop('disabled', true);
   },
   
   enableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', false);
     $('#guess__input--btn--js').prop('disabled', false);
+    $('#btn__spin--js').prop('disabled', false);
+  },
+
+  enableLetterBtns() {
+    $('.btn__letter').prop('disabled', false)
   },
 
   enableVowels() {
