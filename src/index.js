@@ -36,7 +36,7 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  $('.spash__page').hide()
+  $('.splash__page').hide()
   game.createPlayers(playerOne, playerTwo, playerThree);
   domUpdates.startGame(game);
   // fetch(
