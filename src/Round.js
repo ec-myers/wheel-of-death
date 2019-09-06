@@ -21,14 +21,6 @@ class Round {
 
   spinWheel() {
     let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
-
-    let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
-    domUpdates.showWheelOutput(result);
-    return result;
-  }
-
-  spinWheel() {
-    let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
     domUpdates.showWheelOutput(result);
     domUpdates.enableSubmitAndVowelBtns(this);
@@ -63,6 +55,13 @@ class Round {
     }
     this.switchPlayer();
   }
+
+  checkSolvePuzzle(guess) {
+    guess === this.puzzle.correctAnswer.join() ?
+    (this.currentPlayer.currentScore += 100) : this.switchPlayer();
+  }
+ 
+//&& endRound() in truthy turnary 
 
   buyAVowel(vowel) {
     this.currentPlayer.currentScore -= 100;
