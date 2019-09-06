@@ -39,4 +39,18 @@ $('#splash__start--button--js').on('click', function() {
   $('.spash__page').hide()
   game.createPlayers(playerOne, playerTwo, playerThree);
   domUpdates.startGame(game);
+  // fetch(
+  //   "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data"
+  // )
+  //   .then(response => response.json())
+  //   .then(data => startGame(data.data, player1, player2, player3))
+  //   .catch(error => console.log(error));
 });
+
+$('.guess__input--btn').on('click', function () {
+  let guessInput = $('.guess__input').val().toUpperCase();
+  game.currentRound.checkSolvePuzzle(guessInput)
+  console.log("guessInput", guessInput);
+})
+
+// guess__input -check solve puzzle = .toUpperCase()

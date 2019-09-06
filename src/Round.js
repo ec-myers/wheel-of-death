@@ -19,7 +19,7 @@ class Round {
 
   compareLetterToAnswer(spinResult) {
     //set variable to value of clicked button (let guessedLetter)
-    let guessedLetter = 'A';
+    // let guessedLetter = 'A';
     this.puzzle.lettersUsed.push(guessedLetter);
     this.puzzle.correctAnswer.forEach(letter => {
       if (guessedLetter === letter) {
@@ -47,6 +47,13 @@ class Round {
     }
 
   }
+
+  checkSolvePuzzle(guess) {
+  guess === this.puzzle.correctAnswer.join() ?
+    (this.currentPlayer.currentScore += 100) : this.switchPlayer();
+    }
+ 
+//&& endRound() in truthy turnary 
 
   buyAVowel(vowel) {
     this.currentPlayer.currentScore -= 100;
