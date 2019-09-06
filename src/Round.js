@@ -17,35 +17,39 @@ class Round {
     }
   }
 
-  compareLetterToAnswer(spinResult) {
-    //set variable to value of clicked button (let guessedLetter)
-    let guessedLetter = 'A';
-    this.puzzle.lettersUsed.push(guessedLetter);
-    this.puzzle.correctAnswer.forEach(letter => {
-      if (guessedLetter === letter) {
-        this.puzzle.correctGuesses.push(guessedLetter);
-        //append to DOM
-        this.currentPlayer.currentScore += spinResult;
-        this.spinWheel();
-    } else {
-      this.switchPlayer();
-    }
-    })
+  spinWheel() {
+    let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
+
+    return this.wheel.currentSpinResult = this.wheel.items[randomIndex];
   }
 
-  spinWheel() {
-    let randomIndex = Math.floor(Math.random() * this.wheel.length);
-    let spinResult = this.wheel[randomIndex];
-    if (typeof spinResult === Number) {
-      this.compareLetterToAnswer(spinResult);
-      //player makes a guess for a consonant
-    } else if (spinResult === 'LOSE A TURN') {
+  compareWheelOutput() {
+    //only want to enable consonants if it is a number
+    if (this.wheel.currentSpinResult === 'LOSE A TURN') {
       this.switchPlayer();
-    } else {
+      //update currentPlayer name on DOM
+    } else if (this.wheel.currentSpinResult === 'BANKRUPT') {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
+      // update currentPlayer name on DOM
+    } else {
+      //enableConsonants
+      //disable used consonants
     }
+  }
 
+  compareLetterToAnswer(guessedLetter) {
+    this.puzzle.lettersUsed.push(guessedLetter);
+    //can not break execution of forEach, need traditional for loop
+    for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
+      if (guessedLetter === this.puzzle.correctAnswer[i]) {
+        this.puzzle.correctGuesses.push(guessedLetter);
+        //append to DOM
+        this.currentPlayer.currentScore += this.wheel.currentSpinResult;
+        return;
+      } 
+    }
+    this.switchPlayer();
   }
 
   buyAVowel(vowel) {
