@@ -38,10 +38,6 @@ body {
  text-shadow: 2px 2px rgba(53, 52, 52, .5)
 }
 
-// .hidden {
-//   display: none;
-// }
-
 .splash__page {
   display:flex;
   flex-direction: row; 
@@ -108,4 +104,9 @@ body {
  font-family: 'Creepster', cursive;
  color: #c2c1c0;
  size: 3em;
+}
+
+ul {
+  color: white;
+  text-decoration: underline;
 }

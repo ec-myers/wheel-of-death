@@ -27,7 +27,7 @@ export default {
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
-    // $('#list__displayPuzzle--letter').hide();
+    $('#list__displayPuzzle--letter');
     $('#span__category--js').text(puzzle.category);
     $('#span__hint--js').text(puzzle.description);
   },
