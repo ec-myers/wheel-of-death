@@ -26,6 +26,14 @@ $('.header__btn--quit').click(event => {
   location.reload();
 });
 
+$('#guess__input--js').on('keypress', function() {
+  if ($('#guess__input--js').val() !== '') {
+    $('#btn__spin--js').prop('disabled', false)
+  } else{
+    $('#btn__spin--js').prop('disabled', true);
+  }
+})
+
 $('#splash__start--button--js').on('click', function() {
   let playerOne = $('#splash__player--input--one--js').val();
   let playerTwo = $('#splash__player--input--two--js').val();
@@ -40,3 +48,4 @@ $('#splash__start--button--js').on('click', function() {
   game.createPlayers(playerOne, playerTwo, playerThree);
   domUpdates.startGame(game);
 });
+

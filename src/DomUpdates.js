@@ -8,9 +8,10 @@ export default {
     this.showPuzzle(game.currentRound.puzzle)
   },
 
-  disableSubmitAndVowels() {
+  disableSubmitAndVowelsBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
-    $('#guess__input--btn--js').prop('disabled', true)
+    $('#guess__input--btn--js').prop('disabled', true);
+    $('#btn__spin--js').prop('disabled', true);
   },
 
   enableVowels() {
@@ -47,14 +48,5 @@ export default {
     letterList += `</ul>`;
     return letterList;
   },
-
-  
-
-
-
-
-
-
-
 }
 
