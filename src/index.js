@@ -64,8 +64,6 @@ $('.guess__input--btn').on('click', function () {
 
 // guess__input -check solve puzzle = .toUpperCase()
 
-});
-
 $('#btn__spin--js').on('click', () => {
   //disable spin button
   console.log(game.currentRound);
