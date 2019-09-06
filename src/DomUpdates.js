@@ -8,16 +8,17 @@ export default {
     this.showPuzzle(game.currentRound.puzzle)
   },
 
-  enableVowels() {
-    $('.section__vowels').prop("disabled", false);
+  disableSubmitAndVowels() {
+    $('#guess__btn--vowel--js').prop('disabled', true);
+    $('#guess__input--btn--js').prop('disabled', true)
   },
 
-  disableVowels() {
-    $('.section__vowels').prop("disabled", true);
+  enableVowels() {
+    $('.section__vowels').prop('disabled', false);
   },
 
   enableBuyVowelBtn() {
-    $('.').prop("disabled", true);
+    $('.').prop('disabled', true);
   },
 
   showLetter() {
@@ -27,7 +28,7 @@ export default {
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
-    $('#list__displayPuzzle--letter');
+    // $('#list__displayPuzzle--letter').hide();
     $('#span__category--js').text(puzzle.category);
     $('#span__hint--js').text(puzzle.description);
   },

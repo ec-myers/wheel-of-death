@@ -16,6 +16,7 @@ class Game {
 
   startGame() {
     this.createRound();
+    domUpdates.disableSubmitAndVowels(this)
   }
 
   createPlayers(p1, p2, p3) {
