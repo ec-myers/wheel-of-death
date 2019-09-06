@@ -1,3 +1,5 @@
+import domUpdates from './DomUpdates.js';
+
 class Round {
   constructor(players, puzzle, wheel) {
     this.players = [];
@@ -20,7 +22,9 @@ class Round {
   spinWheel() {
     let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
 
-    return this.wheel.currentSpinResult = this.wheel.items[randomIndex];
+    let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
+    domUpdates.showWheelOutput(result);
+    return result;
   }
 
   compareWheelOutput() {
