@@ -10,14 +10,16 @@
   </head>
   <body>
     <div class="home-container">
-    <header class="header"> 
+    <header class="header hidden"> 
       <h1 class="header__title">Wheel of Death</h1>
       <button class="header__btn--quit" id="header__btn--quit">QUIT</button>
     </header>
   <!-- ***************** SPLASH PAGE *********************** -->
-  <div class="hidden">
+  <div class="intro_page">
+    <div class="splash-gif">
     <container class='splash__page'>
       <section class='splash__page--header'>
+        <h1 class="header__splash--title">Wheel of Death</h1>
         <img class='splash__page--img'>
         <img class='splash__page--logo'>
       </section>
@@ -38,7 +40,9 @@
       </section>
     </container>
     </div>
-    <div class='player__one--info' id='player__one--info--js'>
+    </div>
+    <main class="main_game">
+     <div class='player__one--info' id='player__one--info--js'>
       <p class='player__one--name' id='player__one--name--js'></p>
       <p class='player__one--score' id='player__one--score--js'></p>
     </div>
@@ -51,7 +55,7 @@
       <p class='player__three--score' id='player__three--score--js'></p>
     </div>
     <!-- *************** MAIN PAGE****************** -->
-    <main class="body__main">
+    <main class="body__main hidden">
       <container class="main__container--players">
         <h2 class="container__h2--contestants">Our Contestants:</h2>
         <div class="container__div--ul--players">
@@ -120,4 +124,5 @@
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
     </div>
   </body>
+ </main>
 </html>

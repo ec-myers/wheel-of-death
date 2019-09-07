@@ -13,6 +13,8 @@ import domUpdates from './DomUpdates';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
 import './images/background.png'
+import './images/splashGIF.gif'
+import './images/splashbackground.png'
 
 let game = new Game(data);
 
@@ -24,6 +26,8 @@ $(document).ready(function () {
 
 $('.header__btn--quit').click(event => {
   location.reload();
+
+  $('.splash-gif').fadeIn('slow').delay(1000).hide(0);
 });
 
 $('#splash__start--button--js').on('click', function() {
@@ -36,7 +40,8 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  $('.spash__page').hide()
+  $('.splash__page').hide();
+  $('.hidden').removeClass();
   game.createPlayers(playerOne, playerTwo, playerThree);
   domUpdates.startGame(game);
   // fetch(
