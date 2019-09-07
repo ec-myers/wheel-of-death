@@ -66,15 +66,13 @@ $('.guess__input--btn').on('click', function () {
 
 $('#btn__spin--js').on('click', () => {
   //disable spin button
-  console.log(game.currentRound);
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
 });
 
 $('#section__consonants--js').on('click', (e) => {
   e.preventDefault();
-  let guessedLetter = $(e.target).closest('.btn__letter').val();
-
+  let guessedLetter = $(e.target).closest('.btn__letter').text();
   game.currentRound.compareLetterToAnswer(guessedLetter);
 });
 

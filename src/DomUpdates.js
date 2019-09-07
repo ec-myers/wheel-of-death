@@ -26,8 +26,8 @@ export default {
     $('#wheel__output--js').text(result);
   },
 
-  showLetter() {
-    $('.container__displayPuzzle').show();
+  showLetter(guess) {
+    $(`.${guess}`).show();
   },
 
   highlightCurrentPlayerBorder(currentPlayer) {
@@ -52,7 +52,7 @@ export default {
       } else if (letter === "-" || letter === "'" || letter === "&") {
         letterList += `<p class="list__displayPuzzle--symbol"><span class="span__displayPuzzle--symbol" id="list__displayPuzzle--symbol">${letter}</span></p>`;
       } else {
-        letterList += `<p class="list__displayPuzzle--letter"><span class="span__displayPuzzle--letter" id="list__displayPuzzle--${letter}">${letter}</span></p>`;
+        letterList += `<p class="list__displayPuzzle--letter"><span class="span__displayPuzzle--letter ${letter}">${letter}</span></p>`;
       }
     });
     letterList += `</div>`;

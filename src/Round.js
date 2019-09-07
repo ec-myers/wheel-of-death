@@ -37,18 +37,21 @@ class Round {
       this.switchPlayer();
       // update currentPlayer name on DOM
     } else {
-      //enableConsonants
+      domUpdates.enableLetterBtns();
+      //disable wheel 
+      //propt player to guess a consonant
       //disable used consonants
     }
   }
 
   compareLetterToAnswer(guessedLetter) {
     this.puzzle.lettersUsed.push(guessedLetter);
+    console.log(guessedLetter)
     //can not break execution of forEach, need traditional for loop
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
       if (guessedLetter === this.puzzle.correctAnswer[i]) {
         this.puzzle.correctGuesses.push(guessedLetter);
-        //append to DOM
+        domUpdates.showLetter(guessedLetter);
         this.currentPlayer.currentScore += this.wheel.currentSpinResult;
         return;
       } 
@@ -60,7 +63,7 @@ class Round {
     guess === this.puzzle.correctAnswer.join() ?
     (this.currentPlayer.currentScore += 100) : this.switchPlayer();
   }
- 
+
 //&& endRound() in truthy turnary 
 
   buyAVowel(vowel) {
