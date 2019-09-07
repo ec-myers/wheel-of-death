@@ -31,10 +31,7 @@ class Game {
     if (this.roundCounter < 4) {
       let puzzle = this.createNewPuzzle();
       let wheel = this.createNewWheel(this.wheelData);
-      console.log(wheel);
-      console.log(puzzle);
       this.currentRound = new Round(this.players, puzzle, wheel);
-      console.log(this.currentRound)
       this.roundCounter++;
     } //else we'll go to bonus round - need condl logic to kick into that
   }

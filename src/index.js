@@ -58,7 +58,7 @@ $('#splash__start--button--js').on('click', function() {
 
 $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
-  game.currentRound.checkSolvePuzzle(guessInput)
+  game.currentRound.checkSolvePuzzle(guessInput);
   console.log("guessInput", guessInput);
 })
 
