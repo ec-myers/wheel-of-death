@@ -58,7 +58,25 @@ class Round {
 
   checkSolvePuzzle(guess) {
     guess === this.puzzle.correctAnswer.join() ?
-    (this.currentPlayer.currentScore += 100) : this.switchPlayer();
+    (this.currentPlayer.currentScore += 1000) : this.switchPlayer();
+  }
+
+  endRound() {
+    let sorted = this.players.map(player => {
+      return player.currentScore
+    }).sort((a,b) => {
+      return b - a;
+    })
+    let highScore = sorted[0];
+    let winner = this.players.find(player => {
+      return player.currentScore === highScore
+    })
+    return winner.currentScore += winner.bank;
+
+    //sort players by current score
+    //player with highest current score gets that added to their bank
+    //if not final round, instantiate new round
+    
   }
  
 //&& endRound() in truthy turnary 
