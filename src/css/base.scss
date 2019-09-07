@@ -174,6 +174,15 @@ ul {
   text-decoration: underline;
 }
 
+.letter__label {
+  color: #a2e831;
+  display: flex;
+  font-family: 'Creepster', cursive;
+  font-size: 2em;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
 .section__consonants {
   display: flex;
   justify-content: center;
@@ -182,11 +191,31 @@ ul {
 
 .section__vowels {
   display: flex;
-  justify-content: center;
+  height: 35px;
+  justify-content: space-evenly;
+  margin: 0px 250px;
 }
 
-.btn__letter,
-.btn__vowels {
+.vowel__label {
+  color: #a2e831;
+  display: flex;
+  font-family: 'Creepster', cursive;
+  font-size: 2em;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.btn__vowel {
+  border-radius: 5px;
+  background-color: #40304e;
+  color: white;
+  font-size: 1.0em;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
+}
+
+.btn__letter {
   border-radius: 5px;
   background-color: #40304e;
   color: white;
@@ -203,6 +232,7 @@ p {
 
 h3 {
   color: #a2e831;
+  font-family: 'Creepster', cursive;
   font-size: 3.0em;
   text-align: center;
 }
