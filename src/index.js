@@ -6,27 +6,36 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 // import data from './data.js';
-import Game from './Game.js';
 import $ from 'jquery';
-import Round from './Round';
-import domUpdates from './DomUpdates';
+
+import Game from './Game.js';
+import './images/background.png';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
 import './images/background.png'
 import './images/splashGIF.gif'
 import './images/splashbackground.png'
 
-
 let game; 
 
 console.log('This is the JavaScript entry file - your code begins here.');
+
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
 });
 
-$('.header__btn--quit').click(event => {
+
+$('.header__btn--quit').click( () => {
   location.reload();
+});
+
+$('#guess__input--js').on('keypress', function() {
+  if ($('#guess__input--js').val() !== '') {
+    $('#guess__input--btn--js').prop('disabled', false)
+  } else{
+    $('#guess__input--btn--js').prop('disabled', true);
+  }
 });
 
 $('#splash__start--button--js').on('click', function() {
@@ -64,3 +73,42 @@ $('#splash__start--button--js').on('click', function() {
     domUpdates.buildGameOnDOM(game)
   };
 // guess__input -check solve puzzle = .toUpperCase()
+
+
+});
+
+$('.guess__input--btn').on('click', function () {
+  let guessInput = $('.guess__input').val().toUpperCase();
+  game.currentRound.checkSolvePuzzle(guessInput)
+  console.log("guessInput", guessInput);
+})
+
+// guess__input -check solve puzzle = .toUpperCase()
+
+$('#btn__spin--js').on('click', () => {
+  //disable spin button
+  console.log(game.currentRound);
+  game.currentRound.spinWheel();
+  game.currentRound.compareWheelOutput();
+});
+
+$('#section__consonants--js').on('click', (e) => {
+  e.preventDefault();
+  let guessedLetter = $(e.target).closest('.btn__letter').val();
+
+  game.currentRound.compareLetterToAnswer(guessedLetter);
+});
+
+$('#guess__btn--vowel--js').on('click', () => {
+  //enable vowels
+  //disable used vowels (usedLetters)
+});
+
+$('#section__vowels--js').on('click', (e) => {
+  e.preventDefault();
+  let guessedVowel = $(e.target).closest('.btn__letter').val();
+
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    game.currentRound.buyAVowel(guessedVowel);
+  }
+});
