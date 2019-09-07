@@ -23,7 +23,7 @@ class Round {
     let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
     domUpdates.showWheelOutput(result);
-    domUpdates.enableSubmitAndVowelBtns(this);
+    domUpdates.enableSubmitAndVowelBtns();
     return result;
   } 
   
