@@ -18,6 +18,10 @@ export default {
     $('.btn__letter').prop('disabled', false)
   },
 
+  disableLetterBtns() {
+    $('.btn__letter').prop('disabled', true)
+  },
+
   enableVowels() {
     $('.section__vowels').prop('disabled', false);
   },
@@ -57,6 +61,10 @@ export default {
     });
     letterList += `</div>`;
     return letterList;
+  },
+
+  displayPlayerName(currentPlayer) {
+    $('#span__player--turn--js').text(currentPlayer);
   },
 
 }

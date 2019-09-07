@@ -46,7 +46,6 @@ class Round {
 
   compareLetterToAnswer(guessedLetter) {
     this.puzzle.lettersUsed.push(guessedLetter);
-    console.log(guessedLetter)
     //can not break execution of forEach, need traditional for loop
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
       if (guessedLetter === this.puzzle.correctAnswer[i]) {

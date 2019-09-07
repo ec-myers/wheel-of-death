@@ -9,6 +9,7 @@ import $ from 'jquery';
 import data from './data.js';
 import Game from './Game.js';
 import './images/background.png';
+import domUpdates from './DomUpdates';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
 
@@ -74,6 +75,7 @@ $('#section__consonants--js').on('click', (e) => {
   e.preventDefault();
   let guessedLetter = $(e.target).closest('.btn__letter').text();
   game.currentRound.compareLetterToAnswer(guessedLetter);
+  domUpdates.disableLetterBtns();
 });
 
 $('#guess__btn--vowel--js').on('click', () => {
