@@ -117,6 +117,20 @@ body {
   padding: 30px;
 }
 
+.wheel__output--label {
+  color: white;
+  display: flex;
+  font-size: 3em;
+  justify-content: center;
+}
+
+.wheel__output {
+  display: flex;
+  font-size: 3em;
+  justify-content: center;
+  margin-top: 0;
+}
+
 .ul__player--one--name,
 .ul__player--two--name,
 .ul__player--three--name {
