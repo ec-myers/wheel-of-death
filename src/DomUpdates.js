@@ -3,8 +3,8 @@ import $ from 'jquery';
 
 export default {
 
-  startGame(game) {
-    game.startGame();
+  buildGameOnDOM(game) {
+    // game.startGame();
     this.showPuzzle(game.currentRound.puzzle)
   },
 
@@ -45,15 +45,7 @@ export default {
     });
     letterList += `</ul>`;
     return letterList;
-  },
-
-  
-
-
-
-
-
-
+  }
 
 }
 

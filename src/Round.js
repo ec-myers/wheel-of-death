@@ -48,6 +48,7 @@ class Round {
 
   }
 
+
   checkSolvePuzzle(guess) {
   guess === this.puzzle.correctAnswer.join() ?
     (this.currentPlayer.currentScore += 100) : this.switchPlayer();
@@ -71,3 +72,4 @@ class Round {
 
 
 export default Round;
+

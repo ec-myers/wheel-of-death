@@ -5,7 +5,7 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-import data from './data.js';
+// import data from './data.js';
 import Game from './Game.js';
 import $ from 'jquery';
 import Round from './Round';
@@ -16,7 +16,8 @@ import './images/background.png'
 import './images/splashGIF.gif'
 import './images/splashbackground.png'
 
-let game = new Game(data);
+
+let game; 
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
@@ -26,8 +27,6 @@ $(document).ready(function () {
 
 $('.header__btn--quit').click(event => {
   location.reload();
-
-  $('.splash-gif').fadeIn('slow').delay(1000).hide(0);
 });
 
 $('#splash__start--button--js').on('click', function() {
@@ -40,22 +39,28 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text('$0');
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
+  fetch(
+    "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data"
+  )
+    .then(data => data.json())
+    .then(data => startGame(data.data, playerOne, playerTwo, playerThree, console.log(data.data)))
+    .catch(error => console.log(error));
   $('.splash__page').hide();
   $('.hidden').removeClass();
-  game.createPlayers(playerOne, playerTwo, playerThree);
-  domUpdates.startGame(game);
-  // fetch(
-  //   "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data"
-  // )
-  //   .then(response => response.json())
-  //   .then(data => startGame(data.data, player1, player2, player3))
-  //   .catch(error => console.log(error));
-});
-
-$('.guess__input--btn').on('click', function () {
-  let guessInput = $('.guess__input').val().toUpperCase();
-  game.currentRound.checkSolvePuzzle(guessInput)
-  console.log("guessInput", guessInput);
-})
-
+    // domUpdates.startGame(game);
+  });
+  
+  $('.guess__input--btn').on('click', function () {
+    let guessInput = $('.guess__input').val().toUpperCase();
+    game.currentRound.checkSolvePuzzle(guessInput)
+    console.log("guessInput", guessInput);
+  });
+  
+ function startGame(data, playerOne, playerTwo, playerThree) {
+  console.log("startGame", data, playerOne, playerTwo, playerThree)
+    game = new Game(data)
+    game.createPlayers(playerOne, playerTwo, playerThree);
+    game.createRound()
+    domUpdates.buildGameOnDOM(game)
+  };
 // guess__input -check solve puzzle = .toUpperCase()
