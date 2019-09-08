@@ -6,6 +6,7 @@ export default {
   buildGameOnDOM(game) {
     // game.startGame();
     this.showPuzzle(game.currentRound.puzzle)
+  },  
 
   disableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
