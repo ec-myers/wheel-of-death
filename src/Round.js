@@ -62,21 +62,17 @@ class Round {
   }
 
   endRound() {
-    let sorted = this.players.map(player => {
+    let highScore = this.players.map(player => {
       return player.currentScore
-    }).sort((a,b) => {
-      return b - a;
+    }).sort((a,b) => b - a)
+    return this.players.forEach(player => {
+      if (player.currentScore !== highScore[0]) {
+        player.currentScore = 0
+      } else {
+        player.bank += highScore[0]
+        player.currentScore = 0
+      }
     })
-    let highScore = sorted[0];
-    let winner = this.players.find(player => {
-      return player.currentScore === highScore
-    })
-    return winner.currentScore += winner.bank;
-
-    //sort players by current score
-    //player with highest current score gets that added to their bank
-    //if not final round, instantiate new round
-    
   }
  
 //&& endRound() in truthy turnary 
