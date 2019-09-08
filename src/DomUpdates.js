@@ -33,12 +33,6 @@ export default {
     $(`.${guess}`).show();
   },
 
-  highlightCurrentPlayerBorder(currentPlayer) {
-    console.log(currentPlayer)
-    // let currentPlayer = round.currentPlayer;
-    $(`${currentPlayer}`).addClass()
-  },
-
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);

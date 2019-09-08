@@ -36,11 +36,12 @@ body {
 }
 
 .header__title {
-  margin: 27px 0px 10px 15px;
-  font-family: 'Creepster', cursive;
-  font-size: 3em;
   color: #a2e831;
-  text-shadow: 2px 2px rgba(53, 52, 52, .5)
+  font-family: 'Creepster', cursive;
+  font-size: 6em;
+  margin: 0px 0px 10px 15px;
+  text-shadow: 2px 2px rgba(53, 52, 52, .5);
+  text-align: center;
 }
 
 .hidden {
@@ -135,6 +136,7 @@ body {
   background-repeat : no-repeat; 
   background-position : center; 
   background-size : cover;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .main__container--players {
@@ -149,6 +151,24 @@ body {
   font-size: 3em;
 }
 
+.ul__label--current--round {
+  color: #a2e831;
+  font-size: 1.5em;
+  margin-left: 28px;
+}
+
+.div__player--one--total--score,
+.div__player--two--total--score,
+.div__player--three--total--score {
+  color: white;
+  border: solid;
+  border-left: 0px;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-right: 25px;
+  padding: 25px;
+}
+
 .container__ul--player--info {
   border: solid 1px;
   background-color: #40304e;
@@ -158,6 +178,7 @@ body {
   list-style-type: none;
   margin: 0px 30px;
   padding: 30px;
+  width: 90%;
 }
 
 ul {
@@ -196,7 +217,6 @@ ul {
   background-color: #40304e;
   border-left: solid 1px;
   font-size: 1.5em;
-  margin-right: 50px;
   padding: 25px;
   text-align: center;
 }
