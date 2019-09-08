@@ -1,18 +1,8 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
-
-// An example of how you tell webpack to use a CSS (SCSS) file
-import './css/base.scss';
-// import data from './data.js';
 import $ from 'jquery';
-
 import Game from './Game.js';
-import './images/background.png';
 import domUpdates from './DomUpdates';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html
-
+import './css/base.scss';
+import './images/background.png';
 import './images/background.png'
 import './images/splashGIF.gif'
 import './images/splashbackground.png'
@@ -26,7 +16,6 @@ $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
 });
 
-
 $('.header__btn--quit').click( () => {
   location.reload();
 });
@@ -34,10 +23,16 @@ $('.header__btn--quit').click( () => {
 $('#guess__input--js').on('keypress', function() {
   if ($('#guess__input--js').val() !== '') {
     $('#guess__input--btn--js').prop('disabled', false)
-  } else{
+  } else {
     $('#guess__input--btn--js').prop('disabled', true);
   }
 });
+
+fetch(
+  "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
+  .then(response => response.json())
+  .then(dataset => game = new Game(dataset.data))
+  .catch(error => console.log(error));
 
 $('#splash__start--button--js').on('click', function() {
   let playerOne = $('#splash__player--input--one--js').val();
@@ -49,37 +44,23 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--score--js').text();
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
-  fetch(
-    "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data"
-  )
-    .then(data => data.json())
-    .then(data => startGame(data.data, playerOne, playerTwo, playerThree, console.log(data.data)))
-    .catch(error => console.log(error));
   $('.splash__page').hide();
   $('.hidden').removeClass();
-    // domUpdates.startGame(game);
-  });
+  game.createPlayers(playerOne, playerTwo, playerThree);
+  game.startGame();
+});
   
-  $('.guess__input--btn').on('click', function () {
-    let guessInput = $('.guess__input').val().toUpperCase();
-    game.currentRound.checkSolvePuzzle(guessInput)
-    console.log("guessInput", guessInput);
-  });
-  
- function startGame(data, playerOne, playerTwo, playerThree) {
-  console.log("startGame", data, playerOne, playerTwo, playerThree)
-    game = new Game(data)
-    game.createPlayers(playerOne, playerTwo, playerThree);
-    game.createRound()
-    domUpdates.buildGameOnDOM(game)
-  };
-// guess__input -check solve puzzle = .toUpperCase()
-
 $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
   game.currentRound.checkSolvePuzzle(guessInput)
   console.log("guessInput", guessInput);
-})
+});
+  
+$('.guess__input--btn').on('click', function () {
+  let guessInput = $('.guess__input').val().toUpperCase();
+  game.currentRound.checkSolvePuzzle(guessInput)
+  console.log("guessInput", guessInput);
+});
 
 // guess__input -check solve puzzle = .toUpperCase()
 
