@@ -3,9 +3,10 @@ import Game from './Game.js';
 import domUpdates from './DomUpdates';
 import './css/base.scss';
 import './images/background.png';
-import './images/background.png'
-import './images/splashGIF.gif'
-import './images/splashbackground.png'
+import './images/background.png';
+import './images/splashGIF.gif';
+import './images/splashbackground.png';
+import './images/pumpkin.png';
 
 let game; 
 

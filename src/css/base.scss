@@ -259,6 +259,14 @@ ul {
   margin-bottom: 25px;
 }
 
+.img__pumpkin {
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 .section__consonants {
   display: flex;
   justify-content: center;
@@ -304,6 +312,9 @@ ul {
 
 p {
   color: white;
+  font-size: 2.0em;
+  margin-top: 15px;
+  text-align: center;
 }
 
 h3 {
@@ -315,6 +326,7 @@ h3 {
 
 .section__displayPuzzle {
   border: solid 5px white;
+  background-color: #40304e;
   margin: 10px;
   width: 95%;
 }
