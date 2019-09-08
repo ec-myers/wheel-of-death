@@ -13,9 +13,6 @@ class Game {
     this.players = [];
     this.roundCounter = 0;
   }
-  // startRound() {
-  //   this.createRound();
-  // }
 
 
   createPlayers(p1, p2, p3) {

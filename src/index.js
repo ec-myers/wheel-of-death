@@ -10,6 +10,7 @@ import $ from 'jquery';
 
 import Game from './Game.js';
 import './images/background.png';
+import domUpdates from './DomUpdates';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
 import './images/background.png'
@@ -43,9 +44,9 @@ $('#splash__start--button--js').on('click', function() {
   let playerTwo = $('#splash__player--input--two--js').val();
   let playerThree = $('#splash__player--input--three--js').val();
   $('#ul__player--one--name--js').text(playerOne);
-  $('#ul__player--one--score--js').text('$0');
+  $('#ul__player--one--score--js').text();
   $('#ul__player--two--name--js').text(playerTwo);
-  $('#ul__player--two--score--js').text('$0');
+  $('#ul__player--two--score--js').text();
   $('#ul__player--three--name--js').text(playerThree);
   $('#ul__player--three--score--js').text('$0');
   fetch(
@@ -74,9 +75,6 @@ $('#splash__start--button--js').on('click', function() {
   };
 // guess__input -check solve puzzle = .toUpperCase()
 
-
-});
-
 $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
   game.currentRound.checkSolvePuzzle(guessInput)
@@ -87,16 +85,15 @@ $('.guess__input--btn').on('click', function () {
 
 $('#btn__spin--js').on('click', () => {
   //disable spin button
-  console.log(game.currentRound);
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
 });
 
 $('#section__consonants--js').on('click', (e) => {
   e.preventDefault();
-  let guessedLetter = $(e.target).closest('.btn__letter').val();
-
+  let guessedLetter = $(e.target).closest('.btn__letter').text();
   game.currentRound.compareLetterToAnswer(guessedLetter);
+  domUpdates.disableLetterBtns();
 });
 
 $('#guess__btn--vowel--js').on('click', () => {

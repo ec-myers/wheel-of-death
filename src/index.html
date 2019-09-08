@@ -61,29 +61,31 @@
         <div class="container__div--ul--players">
           <ul class="container__ul--player--info">
             <li class="ul__player--one--name" id="ul__player--one--name--js">Player One Name</li>
-            <li class="ul__player--one--score" id="ul__player--one--score--js">Player One Score</li>
+            <li class="ul__player--one--score" id="ul__player--one--score--js">$ <span class="span__player--1--score"></span></li>
             <li class="ul__player--two--name" id="ul__player--two--name--js">Player Two Name</li>
-            <li class="ul__player--two--score" id="ul__player--two--score--js">Player Two Score</li>
+            <li class="ul__player--two--score" id="ul__player--two--score--js">$ <span class="span__player--2--score"></span></li>
             <li class="ul__player--three--name" id="ul__player--three--name--js">Player Three Name</li>
-            <li class="ul__player--three--score" id="ul__player--three--score--js">Player Three Score</li>
+            <li class="ul__player--three--score" id="ul__player--three--score--js">$ <span class="span__player--3--score"></span></li>
           </ul>
           <div class='guess__input--div'>
             <button class='guess__btn--vowel' id='guess__btn--vowel--js'>Buy A Vowel</button>
-            <p><span lass="btn__spin--display" id="btn__spin--display"></span></p>
             <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
             <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
             <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
-            <p><span class="span__player--turn" id="span__player--turn--js"></span>it's your turn!</p>
+            <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
           </div>
       </div>
       </container>
-      <p class="wheel__output" id="wheel__output--js">Wheel Img Here</p>
+      <label class="wheel__output--label">Spin Result: </label>
+      <p class="wheel__output" id="wheel__output--js"></p>
       <container class="main__container--puzzle">
-        <div class="container__puzzle--div">
           <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
           <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
-          <section class="section__displayPuzzle" id="section__displayPuzzle--js"></section>
+          <section class="section__displayPuzzle" id="section__displayPuzzle--js">
+            <!-- ***************** Div With Puzzle *************** -->
+          </section>
         </section>
+        <label class="letter__label">Spooky Letter Selections:</label>
         <section class="section__consonants" id="section__consonants--js">
           <button class="btn__letter" id="consB" disabled>B</button>
           <button class="btn__letter" id="consC" disabled>C</button>
@@ -107,6 +109,7 @@
           <button class="btn__letter" id="consY" disabled>Y</button>
           <button class="btn__letter" id="consZ" disabled>Z</button>
         </section>
+        <label class="vowel__label">Spooky Vowel Selections:</label>
         <section class="section__vowels" id="section__vowels--js">
           <button class="btn__vowel" id="vowelA" disabled>A</button>
           <button class="btn__vowel" id="vowelE" disabled>E</button>
@@ -114,7 +117,6 @@
           <button class="btn__vowel" id="vowelO" disabled>O</button>
           <button class="btn__vowel" id="vowelU" disabled>U</button>
         </section>
-        </div>
       </container>
       <footer class="main__footer">
       </footer>
