@@ -57,10 +57,23 @@ class Round {
     this.switchPlayer();
   }
 
+  // checkSolvePuzzle(guess) {
+  //   console.log("guess", guess.toUpperCase())
+  //   console.log("puzzle answer", this.puzzle.correctAnswer.join(""))
+  //   if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
+  //     console.log("hello")
+  //     this.currentPlayer.currentScore += 1000
+  //   } else {
+  //     console.log("current player now", this.currentPlayer)
+  //     this.switchPlayer()
+  //     console.log("now player", this.currentPlayer)
+  //   }
+
+  // }
+
   checkSolvePuzzle(guess) {
-    guess === this.puzzle.correctAnswer.join() ?
-    (this.currentPlayer.currentScore += 1000) && this.endRound() : this.switchPlayer();
-    console.log("players", this.players);
+    guess.toUpperCase() === this.puzzle.correctAnswer.join("") ?
+    (this.currentPlayer.currentScore += 1000) : this.switchPlayer();
   }
 
   endRound() {

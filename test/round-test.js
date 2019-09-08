@@ -87,9 +87,9 @@ describe('Round', function () {
     expect(puzzle.lettersUsed).to.eql(['D']);
   });
 
-  it.only('should increase the current player score by 1000 if their full guess is correct', () => {
-    let guess = 'armchair';
-    round.checkSolvePuzzle(guess);
+  it('should increase the current player score by 1000 if their full guess is correct', () => {
+    let input = 'Armchair';
+    round.checkSolvePuzzle(input);
     expect(currentPlayer.currentScore).to.equal(1200);
 
   })
