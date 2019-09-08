@@ -59,12 +59,10 @@ $('#splash__start--button--js').on('click', function() {
 
 $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val()
-  //removed toUpperCase on the variable assignment because it had to
-  //be in the method logic for the test to pass
-  console.log("hi")
   game.currentRound.checkSolvePuzzle(guessInput)
-  console.log("hello")
-    // game.createRound()
+  console.log("round counter1", game.roundCounter)
+  game.createRound()
+  console.log("round counter 2", game.roundCounter)
 })
 
 // guess__input -check solve puzzle = .toUpperCase()

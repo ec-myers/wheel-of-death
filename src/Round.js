@@ -58,16 +58,41 @@ class Round {
     this.switchPlayer();
   }
 
-  checkSolvePuzzle(guess) {
+  checkSolveInput(guess) {
     if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
-      this.currentPlayer.currentScore += 1000
-      //domupdates to update players score
-      domUpdates.displayPuzzle(this.puzzle.correctAnswer)
-      this.endRound()
+      console.log("method called")
+      console.log("true")
+      return true
     } else {
-      this.switchPlayer();
+      console.log("made it to the else")
+      return false
     }
   }
+
+  checkSolvePuzzle(guess) {
+    if (this.checkSolveInput(guess)) {
+      console.log("welcome", this.checkSolveInput(guess));
+      this.currentPlayer.currentScore += 1000
+      domUpdates.displayPuzzle(this.puzzle.correctAnswer)
+      console.log("end round below")
+      this.endRound()
+      console.log("end round called")
+    } else {
+      this.switchPlayer()
+      console.log("current player", this.currentPlayer)
+    }
+  }
+
+  // checkSolvePuzzle(guess) {
+  //   if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
+  //     this.currentPlayer.currentScore += 1000
+  //     //domupdates to update players score
+  //     domUpdates.displayPuzzle(this.puzzle.correctAnswer)
+  //     this.endRound()
+  //   } else {
+  //     this.switchPlayer();
+  //   }
+  // }
 
   endRound() {
     let highScore = this.players.map(player => {
