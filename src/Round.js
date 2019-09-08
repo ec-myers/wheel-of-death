@@ -1,5 +1,6 @@
 import domUpdates from './DomUpdates.js';
 import Game from './Game.js';
+import DomUpdates from './DomUpdates.js';
 
 class Round {
   constructor(players, puzzle, wheel) {
@@ -58,41 +59,34 @@ class Round {
   }
 
   // checkSolvePuzzle(guess) {
-  //   console.log("guess", guess.toUpperCase())
-  //   console.log("puzzle answer", this.puzzle.correctAnswer.join(""))
-  //   if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
-  //     console.log("hello")
-  //     this.currentPlayer.currentScore += 1000
-  //   } else {
-  //     console.log("current player now", this.currentPlayer)
-  //     this.switchPlayer()
-  //     console.log("now player", this.currentPlayer)
-  //   }
-
+  //   guess.toUpperCase() === this.puzzle.correctAnswer.join("") ?
+  //   (this.currentPlayer.currentScore += 1000)  : this.switchPlayer();
   // }
 
   checkSolvePuzzle(guess) {
-    guess.toUpperCase() === this.puzzle.correctAnswer.join("") ?
-    (this.currentPlayer.currentScore += 1000) : this.switchPlayer();
+    if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
+      this.currentPlayer.currentScore += 1000
+      console.log("player score", this.currentPlayer)
+      domUpdates.displayPuzzle(this.puzzle.correctAnswer)
+      // this.endRound()
+    } else {
+      this.switchPlayer();
+    }
   }
 
   endRound() {
     let highScore = this.players.map(player => {
       return player.currentScore
     }).sort((a,b) => b - a)
-    console.log("high score", highScore);
+    console.log("high score", highScore)
     return this.players.forEach(player => {
-      if (player.currentScore !== highScore[0]) {
+      if (player.currentScore === highScore[0]) {
+        player.grandTotal += highScore[0]
+      } 
         player.currentScore = 0
-      } else {
-        player.bank += highScore[0]
-        player.currentScore = 0
-        console.log("players", this.players)
-      }
-      Game.createRound();
-    })
-   
-  }
+      })
+    }
+  
  
 //&& endRound() in truthy turnary 
 
