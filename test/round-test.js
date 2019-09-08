@@ -86,4 +86,11 @@ describe('Round', function () {
     round.compareLetterToAnswer(guessedLetter);
     expect(puzzle.lettersUsed).to.eql(['D']);
   });
+
+  it.only('should increase the current player score by 1000 if their full guess is correct', () => {
+    let guess = 'armchair';
+    round.checkSolvePuzzle(guess);
+    expect(currentPlayer.currentScore).to.equal(1200);
+
+  })
 });

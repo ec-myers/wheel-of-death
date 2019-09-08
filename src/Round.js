@@ -1,4 +1,5 @@
 import domUpdates from './DomUpdates.js';
+import Game from './Game.js';
 
 class Round {
   constructor(players, puzzle, wheel) {
@@ -58,21 +59,26 @@ class Round {
 
   checkSolvePuzzle(guess) {
     guess === this.puzzle.correctAnswer.join() ?
-    (this.currentPlayer.currentScore += 1000) : this.switchPlayer();
+    (this.currentPlayer.currentScore += 1000) && this.endRound() : this.switchPlayer();
+    console.log("players", this.players);
   }
 
   endRound() {
     let highScore = this.players.map(player => {
       return player.currentScore
     }).sort((a,b) => b - a)
+    console.log("high score", highScore);
     return this.players.forEach(player => {
       if (player.currentScore !== highScore[0]) {
         player.currentScore = 0
       } else {
         player.bank += highScore[0]
         player.currentScore = 0
+        console.log("players", this.players)
       }
+      Game.createRound();
     })
+   
   }
  
 //&& endRound() in truthy turnary 
