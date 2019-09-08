@@ -23,7 +23,7 @@ class Round {
     let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
     domUpdates.showWheelOutput(result);
-    domUpdates.enableSubmitAndVowelBtns(this);
+    domUpdates.enableSubmitAndVowelBtns();
     return result;
   } 
   
@@ -31,13 +31,15 @@ class Round {
     //only want to enable consonants if it is a number
     if (this.wheel.currentSpinResult === 'LOSE A TURN') {
       this.switchPlayer();
-      //update currentPlayer name on DOM
+      domUpdates.displayPlayerName(this.currentPlayer.name);
     } else if (this.wheel.currentSpinResult === 'BANKRUPT') {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
-      // update currentPlayer name on DOM
+      domUpdates.displayPlayerName(this.currentPlayer.name);
     } else {
-      //enableConsonants
+      domUpdates.enableLetterBtns();
+      //disable wheel 
+      //propt player to guess a consonant
       //disable used consonants
     }
   }
@@ -48,19 +50,21 @@ class Round {
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
       if (guessedLetter === this.puzzle.correctAnswer[i]) {
         this.puzzle.correctGuesses.push(guessedLetter);
-        //append to DOM
+        domUpdates.showLetter(guessedLetter);
         this.currentPlayer.currentScore += this.wheel.currentSpinResult;
+        domUpdates.displayPlayerScore(this.players);
         return;
       } 
     }
     this.switchPlayer();
+    domUpdates.displayPlayerName(this.currentPlayer.name);
   }
 
   checkSolvePuzzle(guess) {
     guess === this.puzzle.correctAnswer.join() ?
     (this.currentPlayer.currentScore += 100) : this.switchPlayer();
   }
- 
+
 //&& endRound() in truthy turnary 
 
   buyAVowel(vowel) {
@@ -74,6 +78,7 @@ class Round {
       }
     }
     this.switchPlayer();
+    domUpdates.displayPlayerName(this.currentPlayer)
   }
 }
 
