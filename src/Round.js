@@ -39,7 +39,7 @@ class Round {
       this.switchPlayer();
       // update currentPlayer name on DOM
     } else {
-      //enableConsonants
+      domUpdates.enableLetterBtns()
       //disable used consonants
     }
   }
@@ -58,15 +58,9 @@ class Round {
     this.switchPlayer();
   }
 
-  // checkSolvePuzzle(guess) {
-  //   guess.toUpperCase() === this.puzzle.correctAnswer.join("") ?
-  //   (this.currentPlayer.currentScore += 1000)  : this.switchPlayer();
-  // }
-
   checkSolvePuzzle(guess) {
     if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
       this.currentPlayer.currentScore += 1000
-      console.log("player score", this.currentPlayer)
       domUpdates.displayPuzzle(this.puzzle.correctAnswer)
       // this.endRound()
     } else {
@@ -78,7 +72,6 @@ class Round {
     let highScore = this.players.map(player => {
       return player.currentScore
     }).sort((a,b) => b - a)
-    console.log("high score", highScore)
     return this.players.forEach(player => {
       if (player.currentScore === highScore[0]) {
         player.grandTotal += highScore[0]
@@ -87,9 +80,6 @@ class Round {
       })
     }
   
- 
-//&& endRound() in truthy turnary 
-
   buyAVowel(vowel) {
     this.currentPlayer.currentScore -= 100;
     this.puzzle.lettersUsed.push(vowel);

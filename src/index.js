@@ -57,7 +57,9 @@ $('#splash__start--button--js').on('click', function() {
 });
 
 $('.guess__input--btn').on('click', function () {
-  let guessInput = $('.guess__input').val().toUpperCase();
+  let guessInput = $('.guess__input').val()
+  //removed toUpperCase on the variable assignment because it had to
+  //be in the method logic for the test to pass
   game.currentRound.checkSolvePuzzle(guessInput);
 })
 
