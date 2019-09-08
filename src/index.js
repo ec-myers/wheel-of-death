@@ -9,30 +9,15 @@ import './images/splashbackground.png'
 
 let game; 
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
-$(document).ready(function () {
-  $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
-});
-
-$('.header__btn--quit').click( () => {
-  location.reload();
-});
-
-$('#guess__input--js').on('keypress', function() {
-  if ($('#guess__input--js').val() !== '') {
-    $('#guess__input--btn--js').prop('disabled', false)
-  } else {
-    $('#guess__input--btn--js').prop('disabled', true);
-  }
-});
-
 fetch(
   "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
   .then(response => response.json())
   .then(dataset => game = new Game(dataset.data))
   .catch(error => console.log(error));
+
+$(document).ready(function () {
+  $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
+});
 
 $('#splash__start--button--js').on('click', function() {
   let playerOne = $('#splash__player--input--one--js').val();
@@ -49,17 +34,23 @@ $('#splash__start--button--js').on('click', function() {
   game.createPlayers(playerOne, playerTwo, playerThree);
   game.startGame();
 });
-  
-$('.guess__input--btn').on('click', function () {
-  let guessInput = $('.guess__input').val().toUpperCase();
-  game.currentRound.checkSolvePuzzle(guessInput)
-  console.log("guessInput", guessInput);
+
+$('.header__btn--quit').click( () => {
+  location.reload();
 });
   
 $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
   game.currentRound.checkSolvePuzzle(guessInput)
   console.log("guessInput", guessInput);
+});
+
+$('#guess__input--js').on('keypress', function() {
+  if ($('#guess__input--js').val() !== '') {
+    $('#guess__input--btn--js').prop('disabled', false)
+  } else {
+  $('#guess__input--btn--js').prop('disabled', true);
+}
 });
 
 // guess__input -check solve puzzle = .toUpperCase()

@@ -1,4 +1,3 @@
-// import data from './data.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './DomUpdates.js';
