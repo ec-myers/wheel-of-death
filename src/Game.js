@@ -27,6 +27,11 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
+  //i think this needs to be updated to account for whether or not a round has been played
+  //and what to do with the scores
+  //propose a two-fold conditional: one for if the round counter is at 0, which would
+  //look exactly the same as below, and another if roundCounter is > 0 and < 4, which
+  //would use the endRound logic from the Round file
   createRound() {
     if (this.roundCounter < 4) {
       let puzzle = this.createNewPuzzle();

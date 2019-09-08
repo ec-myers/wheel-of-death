@@ -61,8 +61,9 @@ class Round {
   checkSolvePuzzle(guess) {
     if (guess.toUpperCase() === this.puzzle.correctAnswer.join("")) {
       this.currentPlayer.currentScore += 1000
+      //domupdates to update players score
       domUpdates.displayPuzzle(this.puzzle.correctAnswer)
-      // this.endRound()
+      this.endRound()
     } else {
       this.switchPlayer();
     }

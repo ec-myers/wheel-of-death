@@ -9,6 +9,7 @@ import $ from 'jquery';
 import data from './data.js';
 import Game from './Game.js';
 import './images/background.png';
+import Round from './Round';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html
 
 
@@ -60,7 +61,10 @@ $('.guess__input--btn').on('click', function () {
   let guessInput = $('.guess__input').val()
   //removed toUpperCase on the variable assignment because it had to
   //be in the method logic for the test to pass
-  game.currentRound.checkSolvePuzzle(guessInput);
+  console.log("hi")
+  game.currentRound.checkSolvePuzzle(guessInput)
+  console.log("hello")
+    // game.createRound()
 })
 
 // guess__input -check solve puzzle = .toUpperCase()
