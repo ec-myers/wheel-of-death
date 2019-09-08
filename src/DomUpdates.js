@@ -67,6 +67,7 @@ export default {
       console.log(player.id)
       console.log(player.currentScore)
       $(`.span__player--${player.id}--score`).text(player.currentScore);
+      $(`.ul__player--${player.id}--total--score`).text(player.grandTotal);
     })
   },
 }
