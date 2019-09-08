@@ -67,5 +67,14 @@ export default {
     $('#span__player--turn--js').text(currentPlayer);
   },
 
+  displayPlayerScore(players) {
+    console.log(players)
+    players.forEach(player => {
+      console.log(player.id)
+      console.log(player.currentScore)
+      $(`.span__player--${player.id}--score`).text(player.currentScore);
+    })
+  },
+
 }
 

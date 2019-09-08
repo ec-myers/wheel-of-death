@@ -31,11 +31,11 @@ class Round {
     //only want to enable consonants if it is a number
     if (this.wheel.currentSpinResult === 'LOSE A TURN') {
       this.switchPlayer();
-      //update currentPlayer name on DOM
+      domUpdates.displayPlayerName(this.currentPlayer.name);
     } else if (this.wheel.currentSpinResult === 'BANKRUPT') {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
-      // update currentPlayer name on DOM
+      domUpdates.displayPlayerName(this.currentPlayer.name);
     } else {
       domUpdates.enableLetterBtns();
       //disable wheel 
@@ -52,10 +52,12 @@ class Round {
         this.puzzle.correctGuesses.push(guessedLetter);
         domUpdates.showLetter(guessedLetter);
         this.currentPlayer.currentScore += this.wheel.currentSpinResult;
+        domUpdates.displayPlayerScore(this.players);
         return;
       } 
     }
     this.switchPlayer();
+    domUpdates.displayPlayerName(this.currentPlayer.name);
   }
 
   checkSolvePuzzle(guess) {
@@ -76,6 +78,7 @@ class Round {
       }
     }
     this.switchPlayer();
+    domUpdates.displayPlayerName(this.currentPlayer)
   }
 }
 
