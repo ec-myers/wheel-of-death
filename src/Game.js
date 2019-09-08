@@ -14,12 +14,6 @@ class Game {
     this.roundCounter = 0;
   }
 
-  startGame() {
-    this.createRound();
-    domUpdates.disableSubmitAndVowelBtns();
-    domUpdates.showPuzzle(this.currentRound.puzzle);
-    domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
-  }
 
   createPlayers(p1, p2, p3) {
     let playerOne = new Player(1, p1);
@@ -53,6 +47,8 @@ class Game {
     let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
     return allPuzzles;
   }
+
+  
 
   createNewWheel(data) {
     let wheel = new Wheel();

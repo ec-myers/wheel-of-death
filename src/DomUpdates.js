@@ -3,6 +3,10 @@ import $ from 'jquery';
 
 export default {
 
+  buildGameOnDOM(game) {
+    // game.startGame();
+    this.showPuzzle(game.currentRound.puzzle)
+
   disableSubmitAndVowelBtns() {
     $('#guess__btn--vowel--js').prop('disabled', true);
     $('#guess__input--btn--js').prop('disabled', true);
@@ -12,6 +16,7 @@ export default {
     $('#guess__btn--vowel--js').prop('disabled', false);
     $('#guess__input--btn--js').prop('disabled', false);
     $('#btn__spin--js').prop('disabled', false);
+
   },
 
   enableLetterBtns() {
@@ -61,6 +66,7 @@ export default {
     });
     letterList += `</div>`;
     return letterList;
+
   },
 
   displayPlayerName(currentPlayer) {
