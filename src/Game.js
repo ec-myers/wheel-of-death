@@ -17,7 +17,7 @@ class Game {
     let puzzle = this.createNewPuzzle();
     let wheel = this.createNewWheel(this.wheelData);
     this.currentRound = new Round(this.players, puzzle, wheel);
-    domUpdates.disableSubmitAndVowelBtns();
+    domUpdates.disableSubmitBtn();
     domUpdates.showPuzzle(this.currentRound.puzzle);
     domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
     console.log(wheel);

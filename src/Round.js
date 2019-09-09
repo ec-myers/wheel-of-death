@@ -54,6 +54,7 @@ class Round {
         domUpdates.showLetter(guessedLetter);
         this.currentPlayer.currentScore += this.wheel.currentSpinResult;
         domUpdates.displayPlayerScore(this.players);
+        this.checkCurrentScore();
         return;
       } 
     }
@@ -70,7 +71,13 @@ class Round {
     return false;
   }
 
-//&& endRound() in truthy turnary 
+  checkCurrentScore() {
+    if (this.currentPlayer.currentScore >= 100) {
+      domUpdates.enableBuyVowelBtn();
+    } else {
+      domUpdates.disableBuyVowelBtn();
+    }
+  }
 
   buyAVowel(vowel) {
     this.currentPlayer.currentScore -= 100;
@@ -78,12 +85,14 @@ class Round {
     //can not break execution of forEach, need traditional for loop
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
       if (this.puzzle.correctAnswer[i] === vowel) {
+        domUpdates.showLetter(vowel);
         this.puzzle.correctGuesses.push(vowel);
         return;
       }
     }
     this.switchPlayer();
-    domUpdates.displayPlayerName(this.currentPlayer)
+    this.checkCurrentScore();
+    domUpdates.displayPlayerName(this.currentPlayer.name);
   }
 }
 

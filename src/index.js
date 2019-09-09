@@ -74,8 +74,6 @@ $('#guess__input--js').on('keypress', function() {
   }
 });
 
-// guess__input -check solve puzzle = .toUpperCase()
-
 $('#btn__spin--js').on('click', () => {
   //disable spin button
   game.currentRound.spinWheel();
@@ -94,16 +92,16 @@ $('#section__consonants--js').on('click', (e) => {
 });
 
 $('#guess__btn--vowel--js').on('click', () => {
-  //enable vowels
-  //disable used vowels (usedLetters)
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    domUpdates.enableVowelBtns()
+  }
+    //enable vowels
+    //disable used vowels (usedLetters)
 });
 
 $('#section__vowels--js').on('click', (e) => {
   e.preventDefault();
-  let guessedVowel = $(e.target).closest('.btn__letter').val();
-
-  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
-    game.currentRound.buyAVowel(guessedVowel);
-  }
+  let guessedVowel = $(e.target).closest('.btn__vowel').text();
+  game.currentRound.buyAVowel(guessedVowel);
 });
 
