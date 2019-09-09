@@ -79,3 +79,11 @@ $('#section__vowels--js').on('click', (e) => {
     game.currentRound.buyAVowel(guessedVowel);
   }
 });
+
+$('#btn__spin--js').on('click', () => {
+  $('.img__pumpkin').addClass('img__pumpkin--rotate');
+  setTimeout(() => {
+    $('.img__pumpkin').removeClass('img__pumpkin--rotate');
+  }, 3500)
+});
+

@@ -267,6 +267,21 @@ ul {
   width: 20%;
 }
 
+.img__pumpkin--rotate {
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  animation: spin 4s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(5turn);
+  }
+}
+
 .section__consonants {
   display: flex;
   justify-content: center;
