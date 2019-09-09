@@ -10,7 +10,7 @@ class Game {
     this.wheelData = data.wheel;
     this.currentRound;
     this.players = [];
-    this.roundCounter = 0;
+    this.roundCounter = 1;
   }
 
   startGame() {

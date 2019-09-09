@@ -13,7 +13,7 @@ fetch(
   "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
   .then(response => response.json())
   .then(dataset => game = new Game(dataset.data))
-  .catch(error => console.log(error));
+  .catch(error => console.log(error))
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
@@ -44,7 +44,10 @@ $('#guess__input--btn--js').on('click', function () {
   let correctGuess = game.currentRound.checkSolvePuzzle(guessInput);
   
   if (game.roundCounter < 4 && correctGuess) {
-    game.createNewRound();
+    game.currentRound.endRound();
+    game.createNewRound(game.currentRound.currentPlayer);
+    console.log(game.roundCounter);
+    domUpdates.displayRoundNum(game.roundCounter);
     domUpdates.showPuzzle(game.currentRound.puzzle);
   }
   if (game.roundCounter === 4 && correctGuess) {

@@ -67,6 +67,10 @@ export default {
     $('#span__player--turn--js').text(currentPlayer);
   },
 
+  displayRoundNum(currentRound) {
+    $('#span__round--js').text(currentRound);
+  },
+
   displayPlayerScore(players) {
     console.log(players)
     players.forEach(player => {
