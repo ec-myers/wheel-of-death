@@ -80,7 +80,6 @@ class Round {
   }
 
   buyAVowel(vowel) {
-    this.currentPlayer.currentScore -= 100;
     this.puzzle.lettersUsed.push(vowel);
     //can not break execution of forEach, need traditional for loop
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
