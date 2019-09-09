@@ -56,7 +56,7 @@ $('#guess__input--btn--js').on('click', function () {
   }
   if (game.roundCounter === 4 && correctGuess) {
     domUpdates.displayPlayerScore();
-    //displayGameWinner
+    game.currentRound.endGame(game.players)
     //prompt user to press quit and start a new game
   }
   if (game.roundCounter < 4 && !correctGuess) {

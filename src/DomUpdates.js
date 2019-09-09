@@ -76,5 +76,7 @@ export default {
       $(`.ul__player--${player.id}--total--score`).text(player.grandTotal);
     })
   },
+
+  
 }
 

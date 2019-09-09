@@ -68,10 +68,11 @@ class Game {
     return wheel;
   }
 
-  endGame() {
-
+  endGame(players) {
+    let highestScores = players.sort((playerA, playerB) => playerB.grandTotal - playerA.grandTotal);
+    let winningScore = highestScores[0];
+      return winningScore;
   }
-
 }
 
 export default Game;
