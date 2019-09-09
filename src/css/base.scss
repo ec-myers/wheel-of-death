@@ -75,6 +75,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .header__splash--title {
   margin: 10px;
   font-family: 'Creepster', cursive;
@@ -91,7 +92,7 @@ body {
   opacity: .7;
 }
 
-.splash__player--input {
+.splash__player--input-section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -116,9 +117,9 @@ body {
   border-radius: 20px;
 }
 
-.splash__player--input--one,
-.splash__player--input--two,
-.splash__player--input--three {
+// .splash__player--input--two,
+// .splash__player--input--three
+.splash__player--input {
     height: 4em;
     min-width: 47%;
     max-width: 65%;

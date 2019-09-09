@@ -24,6 +24,15 @@ console.log('This is the JavaScript entry file - your code begins here.');
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
+  $(".splash__player--input").keyup(function () {
+    if (
+      $("#splash__player--input--one--js").val() !== "" &&
+      $("#splash__player--input--two--js").val() !== "" &&
+      $("#splash__player--input--three--js").val() !== ""
+    ) {
+      $(".splash__start--button").prop("disabled", false);
+    }
+  });
 });
 
 
