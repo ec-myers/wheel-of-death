@@ -62,8 +62,12 @@ class Round {
   }
 
   checkSolvePuzzle(guess) {
-    guess === this.puzzle.correctAnswer.join() ?
-    (this.currentPlayer.currentScore += 100) : this.switchPlayer();
+    if (guess === this.puzzle.correctAnswer.join("")) {
+      this.currentPlayer.currentScore += 100;
+      this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
+      return true;
+    }
+    return false;
   }
 
 //&& endRound() in truthy turnary 
