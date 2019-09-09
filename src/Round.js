@@ -37,6 +37,7 @@ class Round {
       this.switchPlayer();
       domUpdates.displayPlayerScore(this.players);
       domUpdates.displayPlayerName(this.currentPlayer.name);
+      domUpdates.displayPlayerScore(this.players)
     } else {
       domUpdates.enableLetterBtns();
       //disable wheel 
@@ -54,13 +55,13 @@ class Round {
         domUpdates.showLetter(guessedLetter);
         this.currentPlayer.currentScore += this.wheel.currentSpinResult;
         domUpdates.displayPlayerScore(this.players);
+        this.checkCurrentScore();
         return;
       } 
     }
     this.switchPlayer();
     domUpdates.displayPlayerName(this.currentPlayer.name);
   }
-
 
   checkSolvePuzzle(guess) {
     if (guess === this.puzzle.correctAnswer.join("")) {
@@ -83,21 +84,28 @@ class Round {
       player.currentScore = 0;
     })
   }
-
-//&& endRound() in truthy turnary 
+  
+  checkCurrentScore() {
+    if (this.currentPlayer.currentScore >= 100) {
+      domUpdates.enableBuyVowelBtn();
+    } else {
+      domUpdates.disableBuyVowelBtn();
+    }
+  }
 
   buyAVowel(vowel) {
-    this.currentPlayer.currentScore -= 100;
     this.puzzle.lettersUsed.push(vowel);
     //can not break execution of forEach, need traditional for loop
     for (let i = 0; i < this.puzzle.correctAnswer.length; i++) {
       if (this.puzzle.correctAnswer[i] === vowel) {
+        domUpdates.showLetter(vowel);
         this.puzzle.correctGuesses.push(vowel);
         return;
       }
     }
     this.switchPlayer();
-    domUpdates.displayPlayerName(this.currentPlayer)
+    this.checkCurrentScore();
+    domUpdates.displayPlayerName(this.currentPlayer.name);
   }
 }
 
