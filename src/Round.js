@@ -1,4 +1,5 @@
 import domUpdates from './DomUpdates.js';
+import game from './Game.js';
 
 class Round {
   constructor(players, puzzle, wheel) {
@@ -24,6 +25,7 @@ class Round {
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
     domUpdates.showWheelOutput(result);
     domUpdates.enableSubmitAndVowelBtns();
+    domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
     return result;
   } 
   
@@ -35,10 +37,12 @@ class Round {
     } else if (this.wheel.currentSpinResult === 'BANKRUPT') {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
+      domUpdates.displayPlayerScore(this.players);
       domUpdates.displayPlayerName(this.currentPlayer.name);
       domUpdates.displayPlayerScore(this.players)
     } else {
       domUpdates.enableLetterBtns();
+      domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
       //disable wheel 
       //propt player to guess a consonant
       //disable used consonants
@@ -65,12 +69,25 @@ class Round {
   checkSolvePuzzle(guess) {
     if (guess === this.puzzle.correctAnswer.join("")) {
       this.currentPlayer.currentScore += 100;
-      this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
+      // this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
       return true;
     }
     return false;
   }
 
+  endRound() {
+    let highScore = this.players.map(player => {
+      return player.currentScore
+    }).sort((a, b) => b - a);
+
+    return this.players.forEach(player => {
+      if (player.currentScore === highScore[0]) {
+        player.grandTotal += highScore[0]
+      }
+      player.currentScore = 0;
+    })
+  }
+  
   checkCurrentScore() {
     if (this.currentPlayer.currentScore >= 100) {
       domUpdates.enableBuyVowelBtn();

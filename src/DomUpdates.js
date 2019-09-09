@@ -39,6 +39,19 @@ export default {
     $(`.${guess}`).show();
   },
 
+  disableLettersUsed(lettersUsed) {
+    lettersUsed.forEach(letter => {
+      $(`#cons${letter}`).prop('disabled', true);
+    });
+  },
+
+  disableVowelUsed(lettersUsed) {
+    console.log('lettersUsed', lettersUsed)
+    lettersUsed.forEach(letter => {
+      $(`#vowel${letter}`).prop('disabled', true);
+    });
+  },
+
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
@@ -65,6 +78,10 @@ export default {
 
   displayPlayerName(currentPlayer) {
     $('#span__player--turn--js').text(currentPlayer);
+  },
+
+  displayRoundNum(currentRound) {
+    $('#span__round--js').text(currentRound);
   },
 
   displayPlayerScore(players) {

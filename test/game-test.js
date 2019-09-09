@@ -8,7 +8,7 @@ import spies from 'chai-spies';
 import domUpdates from '../src/DomUpdates.js';
 import data from '../src/data.js';
 
-chai.use(spies)
+chai.use(spies);
 chai.spy.on(domUpdates, 
   ['startGame', 
   'showPuzzle', 
