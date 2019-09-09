@@ -3,9 +3,10 @@ import Game from './Game.js';
 import domUpdates from './DomUpdates';
 import './css/base.scss';
 import './images/background.png';
-import './images/background.png'
-import './images/splashGIF.gif'
-import './images/splashbackground.png'
+import './images/background.png';
+import './images/splashGIF.gif';
+import './images/splashbackground.png';
+import './images/pumpkin.png';
 
 let game; 
 
@@ -17,6 +18,15 @@ fetch(
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
+  $(".splash__player--input").keyup(function () {
+    if (
+      $("#splash__player--input--one--js").val() !== "" &&
+      $("#splash__player--input--two--js").val() !== "" &&
+      $("#splash__player--input--three--js").val() !== ""
+    ) {
+      $(".splash__start--button").prop("disabled", false);
+    }
+  });
 });
 
 $('#splash__start--button--js').on('click', function() {
@@ -24,11 +34,8 @@ $('#splash__start--button--js').on('click', function() {
   let playerTwo = $('#splash__player--input--two--js').val();
   let playerThree = $('#splash__player--input--three--js').val();
   $('#ul__player--one--name--js').text(playerOne);
-  $('#ul__player--one--score--js').text();
   $('#ul__player--two--name--js').text(playerTwo);
-  $('#ul__player--two--score--js').text();
   $('#ul__player--three--name--js').text(playerThree);
-  $('#ul__player--three--score--js').text('$0');
   $('.splash__page').hide();
   $('.hidden').removeClass();
   game.createPlayers(playerOne, playerTwo, playerThree);
@@ -52,7 +59,7 @@ $('#guess__input--btn--js').on('click', function () {
   }
   if (game.roundCounter === 4 && correctGuess) {
     domUpdates.displayPlayerScore();
-    //displayGameWinner
+    game.currentRound.endGame(game.players)
     //prompt user to press quit and start a new game
   }
   if (game.roundCounter < 4 && !correctGuess) {
@@ -70,12 +77,14 @@ $('#guess__input--js').on('keypress', function() {
   }
 });
 
-// guess__input -check solve puzzle = .toUpperCase()
-
 $('#btn__spin--js').on('click', () => {
   //disable spin button
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
+  $('.img__pumpkin').addClass('img__pumpkin--rotate');
+  setTimeout(() => {
+    $('.img__pumpkin').removeClass('img__pumpkin--rotate');
+  }, 3500)
 });
 
 $('#section__consonants--js').on('click', (e) => {
@@ -86,15 +95,18 @@ $('#section__consonants--js').on('click', (e) => {
 });
 
 $('#guess__btn--vowel--js').on('click', () => {
-  //enable vowels
-  //disable used vowels (usedLetters)
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    game.currentRound.currentPlayer.currentScore -= 100;
+    domUpdates.displayPlayerScore(game.players);
+    domUpdates.enableVowelBtns();
+  }
+    //enable vowels
+    //disable used vowels (usedLetters)
 });
 
 $('#section__vowels--js').on('click', (e) => {
   e.preventDefault();
-  let guessedVowel = $(e.target).closest('.btn__letter').val();
-
-  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
-    game.currentRound.buyAVowel(guessedVowel);
-  }
+  let guessedVowel = $(e.target).closest('.btn__vowel').text();
+  game.currentRound.buyAVowel(guessedVowel);
 });
+
