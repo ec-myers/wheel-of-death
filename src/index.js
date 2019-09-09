@@ -57,6 +57,10 @@ $('#btn__spin--js').on('click', () => {
   //disable spin button
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
+  $('.img__pumpkin').addClass('img__pumpkin--rotate');
+  setTimeout(() => {
+    $('.img__pumpkin').removeClass('img__pumpkin--rotate');
+  }, 3500)
 });
 
 $('#section__consonants--js').on('click', (e) => {
@@ -78,12 +82,5 @@ $('#section__vowels--js').on('click', (e) => {
   if (game.currentRound.currentPlayer.hasEnoughMoney()) {
     game.currentRound.buyAVowel(guessedVowel);
   }
-});
-
-$('#btn__spin--js').on('click', () => {
-  $('.img__pumpkin').addClass('img__pumpkin--rotate');
-  setTimeout(() => {
-    $('.img__pumpkin').removeClass('img__pumpkin--rotate');
-  }, 3500)
 });
 
