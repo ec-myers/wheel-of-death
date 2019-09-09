@@ -53,7 +53,6 @@ $('#guess__input--btn--js').on('click', function () {
   if (game.roundCounter < 4 && correctGuess) {
     game.currentRound.endRound();
     game.createNewRound(game.currentRound.currentPlayer);
-    console.log(game.roundCounter);
     domUpdates.displayRoundNum(game.roundCounter);
     domUpdates.showPuzzle(game.currentRound.puzzle);
   }

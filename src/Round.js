@@ -1,4 +1,5 @@
 import domUpdates from './DomUpdates.js';
+import game from './Game.js';
 
 class Round {
   constructor(players, puzzle, wheel) {
@@ -24,6 +25,7 @@ class Round {
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
     domUpdates.showWheelOutput(result);
     domUpdates.enableSubmitAndVowelBtns();
+    domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
     return result;
   } 
   
@@ -40,6 +42,7 @@ class Round {
       domUpdates.displayPlayerScore(this.players)
     } else {
       domUpdates.enableLetterBtns();
+      domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
       //disable wheel 
       //propt player to guess a consonant
       //disable used consonants

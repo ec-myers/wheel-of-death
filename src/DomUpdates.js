@@ -39,6 +39,25 @@ export default {
     $(`.${guess}`).show();
   },
 
+  disableLettersUsed(lettersUsed) {
+    lettersUsed.forEach(letter => {
+      $(`#cons${letter}`).prop('disabled', true);
+    });
+  },
+
+  disableVowelUsed(lettersUsed) {
+    console.log('lettersUsed', lettersUsed)
+    lettersUsed.forEach(letter => {
+      $(`#vowel${letter}`).prop('disabled', true);
+    });
+  },
+
+  highlightCurrentPlayerBorder(currentPlayer) {
+    console.log(currentPlayer)
+    // let currentPlayer = round.currentPlayer;
+    $(`${currentPlayer}`).addClass()
+  },
+
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
