@@ -11,8 +11,8 @@
   <body>
     <div class="home-container">
     <header class="header hidden"> 
-      <h1 class="header__title">Wheel of Death</h1>
       <button class="header__btn--quit" id="header__btn--quit">QUIT</button>
+      <h1 class="header__title">Wheel of Death</h1>
     </header>
   <!-- ***************** SPLASH PAGE *********************** -->
   <div class="intro_page">
@@ -24,19 +24,19 @@
         <img class='splash__page--logo'>
       </section>
       <section class='splash__player--info'>
-        <div class='splash__player--input'>
+        <div class='splash__player--input-section'>
           <p class='splash__player--input--title'>1ST PLAYER</p>
-          <input class='splash__player--input--one' id='splash__player--input--one--js' type='text'>
+          <input class='splash__player--input' id='splash__player--input--one--js' type='text'>
         </div>
-        <div class='splash__player--input'>
+        <div class='splash__player--input-section'>
           <p class='splash__player--input--title'>2ND PLAYER </p>
-          <input class='splash__player--input--two' id='splash__player--input--two--js' type='text'>
+          <input class='splash__player--input' id='splash__player--input--two--js' type='text'>
         </div>
-        <div class='splash__player--input'>
+        <div class='splash__player--input-section'>
           <p class='splash__player--input--title'>3RD PLAYER </p>
-          <input class='splash__player--input--three' id='splash__player--input--three--js' type='text'>
+          <input class='splash__player--input' id='splash__player--input--three--js' type='text'>
         </div>
-        <button class='splash__start--button' id='splash__start--button--js'>START GAME</button>
+        <button class='splash__start--button' id='splash__start--button--js' disabled="true">START GAME</button>
       </section>
     </container>
     </div>
@@ -61,29 +61,33 @@
         <div class="container__div--ul--players">
           <ul class="container__ul--player--info">
             <li class="ul__player--one--name" id="ul__player--one--name--js">Player One Name</li>
-            <li class="ul__player--one--score" id="ul__player--one--score--js">$ <span class="span__player--1--score"></span></li>
+            <li class="ul__player--one--score" id="ul__player--one--score--js">Round $ <span class="span__player--1--score"></span></li>
+            <li class="ul__player--1--total--score" id="div__player--one--total--score--js">Game $ </p>
             <li class="ul__player--two--name" id="ul__player--two--name--js">Player Two Name</li>
-            <li class="ul__player--two--score" id="ul__player--two--score--js">$ <span class="span__player--2--score"></span></li>
+            <li class="ul__player--two--score" id="ul__player--two--score--js">Round $ <span class="span__player--2--score"></span></li>
+            <li class="ul__player--2--total--score" id="div__player--two--total--score--js">Game $ </p>
             <li class="ul__player--three--name" id="ul__player--three--name--js">Player Three Name</li>
-            <li class="ul__player--three--score" id="ul__player--three--score--js">$ <span class="span__player--3--score"></span></li>
+            <li class="ul__player--three--score" id="ul__player--three--score--js">Round $ <span class="span__player--3--score"></span></li>
+            <li class="ul__player--3--total--score" id="div__player--three--total--score--js">Game $ </p>
           </ul>
+          <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
           <div class='guess__input--div'>
-            <button class='guess__btn--vowel' id='guess__btn--vowel--js'>Buy A Vowel</button>
+            <button class='guess__btn--vowel' id='guess__btn--vowel--js' disabled>Buy A Vowel</button>
             <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
             <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
             <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
             <p>Round <span class="span__round" id="span__round--js">1</span></p>
           </div>
-      </div>
+          <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">
+        </div>
       </container>
       <label class="wheel__output--label">Spin Result: </label>
       <p class="wheel__output" id="wheel__output--js"></p>
       <container class="main__container--puzzle">
           <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
-          <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
-          <section class="section__displayPuzzle" id="section__displayPuzzle--js">
+        <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
+        <section class="section__displayPuzzle" id="section__displayPuzzle--js">
             <!-- ***************** Div With Puzzle *************** -->
-          </section>
         </section>
         <label class="letter__label">Spooky Letter Selections:</label>
         <section class="section__consonants" id="section__consonants--js">
@@ -118,8 +122,8 @@
           <button class="btn__vowel" id="vowelU" disabled>U</button>
         </section>
       </container>
-      <footer class="main__footer">
-      </footer>
+    <footer class="main__footer">
+    </footer>
   </main>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
     </div>

@@ -1,4 +1,3 @@
-import data from './data.js';
 import Player from './Player.js';
 import Round from './Round.js';
 import domUpdates from './DomUpdates.js';
@@ -11,9 +10,20 @@ class Game {
     this.wheelData = data.wheel;
     this.currentRound;
     this.players = [];
-    this.roundCounter = 0;
+    this.roundCounter = 1;
   }
 
+  startGame() {
+    let puzzle = this.createNewPuzzle();
+    let wheel = this.createNewWheel(this.wheelData);
+    this.currentRound = new Round(this.players, puzzle, wheel);
+    domUpdates.disableSubmitBtn();
+    domUpdates.showPuzzle(this.currentRound.puzzle);
+    domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
+    console.log(wheel);
+    console.log(puzzle);
+    console.log(this.currentRound)
+  }
 
   createPlayers(p1, p2, p3) {
     let playerOne = new Player(1, p1);
@@ -22,16 +32,16 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
-  createRound() {
+  createNewRound(currentPlayer) {
+    let puzzle = this.createNewPuzzle();
+    let wheel = this.createNewWheel(this.wheelData);
+
     if (this.roundCounter < 4) {
-      let puzzle = this.createNewPuzzle();
-      let wheel = this.createNewWheel(this.wheelData);
-      console.log(wheel);
-      console.log(puzzle);
-      this.currentRound = new Round(this.players, puzzle, wheel);
-      console.log(this.currentRound)
       this.roundCounter++;
-    } //else we'll go to bonus round - need condl logic to kick into that
+      this.currentRound = new Round(this.players, puzzle, wheel)
+      this.currentRound.currentPlayer = currentPlayer;
+      domUpdates.displayPlayerScore(this.players);
+    }
   }
 
   createNewPuzzle() {
@@ -48,8 +58,6 @@ class Game {
     return allPuzzles;
   }
 
-  
-
   createNewWheel(data) {
     let wheel = new Wheel();
     const pushMe = () => {
@@ -60,10 +68,11 @@ class Game {
     return wheel;
   }
 
-  endGame() {
-
+  endGame(players) {
+    let highestScores = players.sort((playerA, playerB) => playerB.grandTotal - playerA.grandTotal);
+    let winningScore = highestScores[0];
+      return winningScore;
   }
-
 }
 
 export default Game;

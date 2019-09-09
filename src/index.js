@@ -1,42 +1,32 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
-
-// An example of how you tell webpack to use a CSS (SCSS) file
-import './css/base.scss';
-// import data from './data.js';
 import $ from 'jquery';
-
 import Game from './Game.js';
-import './images/background.png';
 import domUpdates from './DomUpdates';
-// An example of how you tell webpack to use an image (also need to link to it in the index.html
-
-import './images/background.png'
-import './images/splashGIF.gif'
-import './images/splashbackground.png'
+import './css/base.scss';
+import './images/background.png';
+import './images/background.png';
+import './images/splashGIF.gif';
+import './images/splashbackground.png';
+import './images/pumpkin.png';
 
 let game; 
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
+fetch(
+  "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
+  .then(response => response.json())
+  .then(dataset => game = new Game(dataset.data))
+  .catch(error => console.log(error))
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
-});
-
-
-$('.header__btn--quit').click( () => {
-  location.reload();
-});
-
-$('#guess__input--js').on('keypress', function() {
-  if ($('#guess__input--js').val() !== '') {
-    $('#guess__input--btn--js').prop('disabled', false)
-  } else{
-    $('#guess__input--btn--js').prop('disabled', true);
-  }
+  $(".splash__player--input").keyup(function () {
+    if (
+      $("#splash__player--input--one--js").val() !== "" &&
+      $("#splash__player--input--two--js").val() !== "" &&
+      $("#splash__player--input--three--js").val() !== ""
+    ) {
+      $(".splash__start--button").prop("disabled", false);
+    }
+  });
 });
 
 $('#splash__start--button--js').on('click', function() {
@@ -44,49 +34,56 @@ $('#splash__start--button--js').on('click', function() {
   let playerTwo = $('#splash__player--input--two--js').val();
   let playerThree = $('#splash__player--input--three--js').val();
   $('#ul__player--one--name--js').text(playerOne);
-  $('#ul__player--one--score--js').text();
   $('#ul__player--two--name--js').text(playerTwo);
-  $('#ul__player--two--score--js').text();
   $('#ul__player--three--name--js').text(playerThree);
-  $('#ul__player--three--score--js').text('$0');
-  fetch(
-    "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data"
-  )
-    .then(data => data.json())
-    .then(data => startGame(data.data, playerOne, playerTwo, playerThree, console.log(data.data)))
-    .catch(error => console.log(error));
   $('.splash__page').hide();
   $('.hidden').removeClass();
-    // domUpdates.startGame(game);
-  });
-  
-  $('.guess__input--btn').on('click', function () {
-    let guessInput = $('.guess__input').val().toUpperCase();
-    game.currentRound.checkSolvePuzzle(guessInput)
-    console.log("guessInput", guessInput);
-  });
-  
- function startGame(data, playerOne, playerTwo, playerThree) {
-  console.log("startGame", data, playerOne, playerTwo, playerThree)
-    game = new Game(data)
-    game.createPlayers(playerOne, playerTwo, playerThree);
-    game.createRound()
-    domUpdates.buildGameOnDOM(game)
-  };
-// guess__input -check solve puzzle = .toUpperCase()
+  game.createPlayers(playerOne, playerTwo, playerThree);
+  game.startGame();
+});
 
-$('.guess__input--btn').on('click', function () {
+$('.header__btn--quit').click( () => {
+  location.reload();
+});
+  
+$('#guess__input--btn--js').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
-  game.currentRound.checkSolvePuzzle(guessInput)
-  console.log("guessInput", guessInput);
-})
+  let correctGuess = game.currentRound.checkSolvePuzzle(guessInput);
+  
+  if (game.roundCounter < 4 && correctGuess) {
+    game.currentRound.endRound();
+    game.createNewRound(game.currentRound.currentPlayer);
+    domUpdates.displayRoundNum(game.roundCounter);
+    domUpdates.showPuzzle(game.currentRound.puzzle);
+  }
+  if (game.roundCounter === 4 && correctGuess) {
+    domUpdates.displayPlayerScore();
+    game.currentRound.endGame(game.players)
+    //prompt user to press quit and start a new game
+  }
+  if (game.roundCounter < 4 && !correctGuess) {
+    game.currentRound.switchPlayer();
+    domUpdates.displayPlayerName(game.currentRound.currentPlayer.name);
+  }
+  //disable submit button
+});
 
-// guess__input -check solve puzzle = .toUpperCase()
+$('#guess__input--js').on('keypress', function() {
+  if ($('#guess__input--js').val() !== '') {
+    $('#guess__input--btn--js').prop('disabled', false)
+  } else {
+    $('#guess__input--btn--js').prop('disabled', true);
+  }
+});
 
 $('#btn__spin--js').on('click', () => {
   //disable spin button
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
+  $('.img__pumpkin').addClass('img__pumpkin--rotate');
+  setTimeout(() => {
+    $('.img__pumpkin').removeClass('img__pumpkin--rotate');
+  }, 3500)
 });
 
 $('#section__consonants--js').on('click', (e) => {
@@ -97,15 +94,18 @@ $('#section__consonants--js').on('click', (e) => {
 });
 
 $('#guess__btn--vowel--js').on('click', () => {
-  //enable vowels
-  //disable used vowels (usedLetters)
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    game.currentRound.currentPlayer.currentScore -= 100;
+    domUpdates.displayPlayerScore(game.players);
+    domUpdates.enableVowelBtns();
+  }
+    //enable vowels
+    //disable used vowels (usedLetters)
 });
 
 $('#section__vowels--js').on('click', (e) => {
   e.preventDefault();
-  let guessedVowel = $(e.target).closest('.btn__letter').val();
-
-  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
-    game.currentRound.buyAVowel(guessedVowel);
-  }
+  let guessedVowel = $(e.target).closest('.btn__vowel').text();
+  game.currentRound.buyAVowel(guessedVowel);
 });
+
