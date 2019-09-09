@@ -14,10 +14,15 @@ class Game {
   }
 
   startGame() {
-    this.createRound();
+    let puzzle = this.createNewPuzzle();
+    let wheel = this.createNewWheel(this.wheelData);
+    this.currentRound = new Round(this.players, puzzle, wheel);
     domUpdates.disableSubmitAndVowelBtns();
     domUpdates.showPuzzle(this.currentRound.puzzle);
     domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
+    console.log(wheel);
+    console.log(puzzle);
+    console.log(this.currentRound)
   }
 
   createPlayers(p1, p2, p3) {
@@ -27,16 +32,16 @@ class Game {
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
-  createRound() {
+  createNewRound(currentPlayer) {
+    let puzzle = this.createNewPuzzle();
+    let wheel = this.createNewWheel(this.wheelData);
+
     if (this.roundCounter < 4) {
-      let puzzle = this.createNewPuzzle();
-      let wheel = this.createNewWheel(this.wheelData);
-      console.log(wheel);
-      console.log(puzzle);
-      this.currentRound = new Round(this.players, puzzle, wheel);
-      console.log(this.currentRound)
       this.roundCounter++;
-    } //else we'll go to bonus round - need condl logic to kick into that
+      this.currentRound = new Round(this.players, puzzle, wheel)
+      this.currentRound.currentPlayer = currentPlayer;
+      domUpdates.displayPlayerScore(this.players);
+    }
   }
 
   createNewPuzzle() {

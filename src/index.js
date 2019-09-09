@@ -39,18 +39,32 @@ $('.header__btn--quit').click( () => {
   location.reload();
 });
   
-$('.guess__input--btn').on('click', function () {
+$('#guess__input--btn--js').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
-  game.currentRound.checkSolvePuzzle(guessInput)
-  console.log("guessInput", guessInput);
+  let correctGuess = game.currentRound.checkSolvePuzzle(guessInput);
+  
+  if (game.roundCounter < 4 && correctGuess) {
+    game.createNewRound();
+    domUpdates.showPuzzle(game.currentRound.puzzle);
+  }
+  if (game.roundCounter === 4 && correctGuess) {
+    domUpdates.displayPlayerScore();
+    //displayGameWinner
+    //prompt user to press quit and start a new game
+  }
+  if (game.roundCounter < 4 && !correctGuess) {
+    game.currentRound.switchPlayer();
+    domUpdates.displayPlayerName(game.currentRound.currentPlayer.name);
+  }
+  //disable submit button
 });
 
 $('#guess__input--js').on('keypress', function() {
   if ($('#guess__input--js').val() !== '') {
     $('#guess__input--btn--js').prop('disabled', false)
   } else {
-  $('#guess__input--btn--js').prop('disabled', true);
-}
+    $('#guess__input--btn--js').prop('disabled', true);
+  }
 });
 
 // guess__input -check solve puzzle = .toUpperCase()
