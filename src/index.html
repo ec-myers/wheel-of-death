@@ -11,8 +11,8 @@
   <body>
     <div class="home-container">
     <header class="header hidden"> 
-      <h1 class="header__title">Wheel of Death</h1>
       <button class="header__btn--quit" id="header__btn--quit">QUIT</button>
+      <h1 class="header__title">Wheel of Death</h1>
     </header>
   <!-- ***************** SPLASH PAGE *********************** -->
   <div class="intro_page">
@@ -61,19 +61,23 @@
         <div class="container__div--ul--players">
           <ul class="container__ul--player--info">
             <li class="ul__player--one--name" id="ul__player--one--name--js">Player One Name</li>
-            <li class="ul__player--one--score" id="ul__player--one--score--js">$ <span class="span__player--1--score"></span></li>
+            <li class="ul__player--one--score" id="ul__player--one--score--js">Round $ <span class="span__player--1--score"></span></li>
+            <li class="ul__player--1--total--score" id="div__player--one--total--score--js">Game $ </p>
             <li class="ul__player--two--name" id="ul__player--two--name--js">Player Two Name</li>
-            <li class="ul__player--two--score" id="ul__player--two--score--js">$ <span class="span__player--2--score"></span></li>
+            <li class="ul__player--two--score" id="ul__player--two--score--js">Round $ <span class="span__player--2--score"></span></li>
+            <li class="ul__player--2--total--score" id="div__player--two--total--score--js">Game $ </p>
             <li class="ul__player--three--name" id="ul__player--three--name--js">Player Three Name</li>
-            <li class="ul__player--three--score" id="ul__player--three--score--js">$ <span class="span__player--3--score"></span></li>
+            <li class="ul__player--three--score" id="ul__player--three--score--js">Round $ <span class="span__player--3--score"></span></li>
+            <li class="ul__player--3--total--score" id="div__player--three--total--score--js">Game $ </p>
           </ul>
+          <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
           <div class='guess__input--div'>
             <button class='guess__btn--vowel' id='guess__btn--vowel--js'>Buy A Vowel</button>
             <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
             <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
             <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
-            <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
           </div>
+          <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">
         </div>
       </container>
       <label class="wheel__output--label">Spin Result: </label>

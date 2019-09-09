@@ -36,6 +36,7 @@ class Round {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
       domUpdates.displayPlayerName(this.currentPlayer.name);
+      domUpdates.displayPlayerScore(this.players)
     } else {
       domUpdates.enableLetterBtns();
       //disable wheel 
@@ -59,7 +60,6 @@ class Round {
     this.switchPlayer();
     domUpdates.displayPlayerName(this.currentPlayer.name);
   }
-
 
   checkSolvePuzzle(guess) {
     if (guess === this.puzzle.correctAnswer.join("")) {

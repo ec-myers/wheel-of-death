@@ -33,12 +33,6 @@ export default {
     $(`.${guess}`).show();
   },
 
-  highlightCurrentPlayerBorder(currentPlayer) {
-    console.log(currentPlayer)
-    // let currentPlayer = round.currentPlayer;
-    $(`${currentPlayer}`).addClass()
-  },
-
   showPuzzle(puzzle) {
     let puzzleAnswer = this.displayPuzzle(puzzle.correctAnswer);
     $('#section__displayPuzzle--js').html(`${puzzleAnswer}`);
@@ -73,6 +67,7 @@ export default {
       console.log(player.id)
       console.log(player.currentScore)
       $(`.span__player--${player.id}--score`).text(player.currentScore);
+      $(`.ul__player--${player.id}--total--score`).text(player.grandTotal);
     })
   },
 }
