@@ -35,6 +35,7 @@ class Round {
     } else if (this.wheel.currentSpinResult === 'BANKRUPT') {
       this.currentPlayer.currentScore = 0;
       this.switchPlayer();
+      domUpdates.displayPlayerScore(this.players);
       domUpdates.displayPlayerName(this.currentPlayer.name);
     } else {
       domUpdates.enableLetterBtns();
@@ -64,10 +65,23 @@ class Round {
   checkSolvePuzzle(guess) {
     if (guess === this.puzzle.correctAnswer.join("")) {
       this.currentPlayer.currentScore += 100;
-      this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
+      // this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
       return true;
     }
     return false;
+  }
+
+  endRound() {
+    let highScore = this.players.map(player => {
+      return player.currentScore
+    }).sort((a, b) => b - a);
+
+    return this.players.forEach(player => {
+      if (player.currentScore === highScore[0]) {
+        player.grandTotal += highScore[0]
+      }
+      player.currentScore = 0;
+    })
   }
 
 //&& endRound() in truthy turnary 
