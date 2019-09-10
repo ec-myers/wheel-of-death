@@ -1,9 +1,9 @@
-## Wheel of Death 
+# Wheel of Death 
 
-# A project by: 
+## A project by: 
   Elyse Myers, Sara Karsh, Kate Malone and Garrett Iannuzzi
 
-# Just directly to our application on gitHub pages: 
+## Just directly to our application on gitHub pages: 
 
 # 
 
