@@ -112,6 +112,23 @@ $('#section__vowels--js').on('click', (e) => {
 $('.btn__instructions').click(showInstructionsModal);
 
 
+// $('.modal__close').on('click', (e) => {
+//   console.log("Click!!")
+//   e.target.closest('.help__modal').addClass('.hidden');
+// })
+
+// $('.help__modal').on('click',(e) => {
+//   console.log("click clack")
+// })
+
+
+
+// $('.modal__close').click(e) => {
+//   console.log("Click!!")
+//   e.target.closest('.help__modal').hide();
+// }
+
+
 function showInstructionsModal() {
   $(`<div class='help__modal'>
       <header class='modal__header'>

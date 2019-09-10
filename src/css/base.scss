@@ -285,7 +285,11 @@ ul {
   height: 35px;
   margin: 10px;
   width: 20%;
+  &:hover {
+    cursor: pointer;
+  }
 }
+  
 
 .guess__input {
   border: none;
@@ -371,6 +375,19 @@ ul {
   width: 30px;
 }
 
+.btn__letter:hover,
+.btn__vowel:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px black;
+}
+
+.btn__letter:disabled,
+.btn__vowel:disabled {
+  background-color: #3a39392b;
+  box-shadow: inset 0 0 10px black;
+  color: grey;
+}
+
 p {
   color: white;
   font-size: 2.0em;
@@ -442,13 +459,27 @@ h3 {
 }
 
 .modal__header {
-  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px white;
+}
+
+.modal__ul {
+  list-style: decimal inside
 }
 
 .modal__close {
   background-color: white;
   border-radius: 50%;
   color: black;
-  font-size: 1.5em;
+  font-size: 0.8em;
   float: right;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
 }
