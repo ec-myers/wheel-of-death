@@ -4,13 +4,11 @@ import chai from 'chai';
 import Game from '../src/Game.js';
 import Puzzle from '../src/Puzzle.js';
 import Wheel from '../src/Wheel.js';
-import Round from '../src/Round.js';
-import Player from '../src/Player.js';
 import spies from 'chai-spies';
 import domUpdates from '../src/DomUpdates.js';
 import data from '../src/data.js';
 
-chai.use(spies)
+chai.use(spies);
 chai.spy.on(domUpdates, 
   ['startGame', 
   'showPuzzle', 
@@ -18,9 +16,9 @@ chai.spy.on(domUpdates,
 
 describe('Game', function() {
   let game;
-  
+
   beforeEach(function() {
-    game = new Game(data)
+    game = new Game(data);
   });
 
   it('should be a function', () => {
@@ -55,7 +53,6 @@ describe('Game', function() {
   });
 
   it('should choose a random wheel', () => {
-    // game.createNewWheel();
     expect(game.createNewWheel(data)).to.be.an.instanceOf(Wheel);
   });
 
@@ -64,4 +61,12 @@ describe('Game', function() {
     expect(domUpdates.startGame).to.have.been.called(1);
   });
 
+  it('should be able to determine winner of the game', () => {
+    let players = [ 
+        {id: 1, name: "a", currentScore: 2500, grandTotal: 1100},
+        {id: 2, name: "b", currentScore: 1100, grandTotal: 0},
+        {id: 3, name: "c", currentScore: 4000, grandTotal: 4000}
+      ]
+    expect(game.endGame(players)).to.eql({id: 3, name: "c", currentScore: 4000, grandTotal: 4000});
+  });
 });
