@@ -13,11 +13,11 @@ chai.spy.on(domUpdates,
   ['startGame', 
   'showPuzzle', 
   'displayPuzzle'], () => {});
-
-describe('Game', function() {
+  
+describe('Game', () => {
   let game;
-
-  beforeEach(function() {
+    
+  beforeEach( () => {
     game = new Game(data);
   });
 
@@ -33,8 +33,8 @@ describe('Game', function() {
     expect(game.players.length).to.eql(0);
   });
 
-  it('should have a round counter that starts at zero', () => {
-    expect(game.roundCounter).to.equal(0);
+  it('should have a round counter that starts at one', () => {
+    expect(game.roundCounter).to.equal(1);
   });
 
   it('should have three players when game starts', () => {
@@ -56,17 +56,17 @@ describe('Game', function() {
     expect(game.createNewWheel(data)).to.be.an.instanceOf(Wheel);
   });
 
-  it('should display puzzle', () => {
-    domUpdates.startGame(game);
-    expect(domUpdates.startGame).to.have.been.called(1);
+  it.only('should display puzzle', () => {
+    game.startGame()
+    expect(domUpdates.showPuzzle).to.be.spy;
   });
 
   it('should be able to determine winner of the game', () => {
     let players = [ 
-        {id: 1, name: "a", currentScore: 2500, grandTotal: 1100},
-        {id: 2, name: "b", currentScore: 1100, grandTotal: 0},
-        {id: 3, name: "c", currentScore: 4000, grandTotal: 4000}
-      ]
+      {id: 1, name: "a", currentScore: 2500, grandTotal: 1100},
+      {id: 2, name: "b", currentScore: 1100, grandTotal: 0},
+      {id: 3, name: "c", currentScore: 4000, grandTotal: 4000}
+    ]
     expect(game.endGame(players)).to.eql({id: 3, name: "c", currentScore: 4000, grandTotal: 4000});
   });
 });
