@@ -37,9 +37,7 @@ body {
   background: rgba(77, 70, 89, 0.8);
   border: 2px solid rgba(105, 95, 119, 0.8);
 }
-// .container__div--ul--players {
-//   width: 40%;
-// }
+
 .center_game-box {
   background: rgba(77, 70, 89, 0.8);
   border: 2px solid rgba(105, 95, 119, 0.8);
@@ -287,9 +285,13 @@ ul {
   font-size: 1.0em;
   font-weight: bold;
   height: 35px;
-  margin: 10px; 
+  margin: 10px;
   width: 38%;
+  &:hover {
+    cursor: pointer;
+  }
 }
+  
 
 .btn__spin {
    width: 90%;
@@ -330,8 +332,6 @@ ul {
 }
 
 .section__consonants {
-    /* display: flex; */
-    /* justify-content: center; */
     margin-bottom: 35px;
     margin-top: 30px;
     width: 90%;
@@ -342,10 +342,8 @@ ul {
   flex-direction: column;
   align-items: baseline;
   height: 184px;
-  //comment out justify content?
   justify-content: space-evenly;
   margin: 0px 250px;
-  //comment out margin?
   width: 37%;
 }
 .vowel__label {
@@ -378,6 +376,20 @@ ul {
   margin: 0px auto 10px auto;
   width: 55px;
 }
+
+.btn__letter:hover,
+.btn__vowel:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px black;
+}
+
+.btn__letter:disabled,
+.btn__vowel:disabled {
+  background-color: #3a39392b;
+  box-shadow: inset 0 0 10px black;
+  color: grey;
+}
+
 p {
   color: white;
   font-size: 2.0em;
@@ -394,7 +406,6 @@ h3 {
    border: solid 4px white;
    background-color: #40304e;
    margin: 10px;
-   //take margin 10px off?
    width: 92%;
    margin: auto;
 }
@@ -407,7 +418,6 @@ h3 {
     justify-content: space-between;
     padding: 25px;
     height: 15%;
-    /* margin: 0 auto; */
 }
 .list__displayPuzzle--space,
 .list__displayPuzzle--symbol {
@@ -425,8 +435,58 @@ h3 {
   align-items: center;
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
 }
+
+.help__modal {
+  background: #000000d6;
+  position: absolute;
+  z-index: 1;
+  width: 847px;
+  font-size: 1.5em;
+  height: 700px;
+  overflow: auto;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.help__modal--header {
+  color: white;
+  font-size: 2em;
+  float: right;
+}
+
+.help__modal--content {
+  width: 786px;
+  font-color: white;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px white;
+}
+
+.modal__ul {
+  list-style: decimal inside
+}
+
+.modal__close {
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  font-size: 0.8em;
+  float: right;
+  display: inline-block;
+  width: 30px;
+  justify-content: space-between;
+  height: 30px;
+}
+ 
 .vowels {
   display: flex;
   flex-direction: row;

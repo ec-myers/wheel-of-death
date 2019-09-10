@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <!-- <link rel="stylesheet" type="text/css" href="base.scss"> -->
     <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Concert+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
-
     <title>Wheel of Death</title>
     <meta charset="UTF-8">
   </head>
@@ -16,7 +14,6 @@
       <button class="header__btn--quit" id="header__btn--quit">QUIT</button>
       <h1 class="header__title">Wheel of Death</h1>
     </header>
-  <!-- ***************** SPLASH PAGE *********************** -->
   <div class="intro_page">
     <div class="splash-gif">
     <container class='splash__page'>
@@ -41,8 +38,7 @@
         <button class='splash__start--button' id='splash__start--button--js' disabled="true">START GAME</button>
       </section>
     </container>
-    </div>
-      <!-- ***************** MAIN PAGE *********************** -->
+  </div>
   </div>
   <div class="hidden">
 <div class="center_game-box">
@@ -64,13 +60,11 @@
         </div>
       </container>
       <container class="main__container--puzzle">
-          <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
         <div class="turn-hint-div">
           <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
           <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
         </div>
         <section class="section__displayPuzzle" id="section__displayPuzzle--js">
-            <!-- ***************** Div With Puzzle *************** -->
         </section>
         <div class='guess__input--div'>
             <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
@@ -114,6 +108,9 @@
         </section>
       </div>
       </container>
+      <div class='help__modal_container'>
+      <button class='btn__instructions' id='btn__instructions--js' data-toggle="modal">How to Play</button>
+      </div>
       <div class="results_instructions">
         <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">
         <label class="wheel__output--label">Spin Result: </label>
@@ -123,8 +120,7 @@
     </div>
     </main>
   </div>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
-    </div>
+ </div>
   </body>
  </main>
 </html>
