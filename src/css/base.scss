@@ -58,6 +58,21 @@ body {
   border-radius: 20px;
   font-weight: 900;
   box-shadow: 4px 4px 5px rgb(41, 39, 39);
+  margin: 20px
+}
+
+.btn__instructions {
+  border-radius: 2px;
+  background-color: #a2e831b6;
+  box-shadow: 4px 4px 5px #292727;
+  font-size: 1.0em;
+  font-weight: bold;
+  height: 35px;
+  margin: 10px;
+  width: 16%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .header__title {
   color: #a2e831;
@@ -206,6 +221,20 @@ body {
   border: 3px solid white;
   margin: auto;
   padding: 5px 1px;
+}
+
+.span__round {
+  color: #a2e831;
+  font-family: 'Creepster', cursive;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.span__player--turn {
+  color: #a2e831;
+  font-family: 'Creepster', cursive;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 ul {
@@ -401,6 +430,7 @@ h3 {
   font-family: 'Creepster', cursive;
   font-size: 3.0em;
   text-align: center;
+  margin-bottom: 10px;
 }
 .section__displayPuzzle {
    border: solid 4px white;
