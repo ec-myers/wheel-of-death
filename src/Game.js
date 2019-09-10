@@ -16,19 +16,21 @@ class Game {
   startGame() {
     let puzzle = this.createNewPuzzle();
     let wheel = this.createNewWheel(this.wheelData);
+
     this.currentRound = new Round(this.players, puzzle, wheel);
     domUpdates.disableSubmitBtn();
     domUpdates.showPuzzle(this.currentRound.puzzle);
     domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
     console.log(wheel);
     console.log(puzzle);
-    console.log(this.currentRound)
+    console.log(this.currentRound);
   }
 
   createPlayers(p1, p2, p3) {
     let playerOne = new Player(1, p1);
     let playerTwo = new Player(2, p2);
     let playerThree = new Player(3, p3);
+
     this.players.push(playerOne, playerTwo, playerThree);
   }
 
@@ -38,14 +40,15 @@ class Game {
 
     if (this.roundCounter < 4) {
       this.roundCounter++;
-      this.currentRound = new Round(this.players, puzzle, wheel)
+      this.currentRound = new Round(this.players, puzzle, wheel);
       this.currentRound.currentPlayer = currentPlayer;
       domUpdates.displayPlayerScore(this.players);
     }
   }
 
   createNewPuzzle() {
-    let randomNum = Math.floor(Math.random() * this.puzzleBank.length)
+    let randomNum = Math.floor(Math.random() * this.puzzleBank.length);
+
     return new Puzzle(this.puzzleBank[randomNum]);
   }
 
@@ -55,6 +58,7 @@ class Game {
     let threeWordAnswers = data.puzzles.three_word_answers.puzzle_bank;
     let fourWordAnswers = data.puzzles.four_word_answers.puzzle_bank;
     let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
+
     return allPuzzles;
   }
 
@@ -65,13 +69,15 @@ class Game {
       wheel.items.length < 6 ? (wheel.items.push(data[randomNum]) && pushMe()) : wheel;
     };
     pushMe();
+
     return wheel;
   }
 
   endGame(players) {
     let highestScores = players.sort((playerA, playerB) => playerB.grandTotal - playerA.grandTotal);
     let winningScore = highestScores[0];
-      return winningScore;
+
+    return winningScore;
   }
 }
 
