@@ -111,11 +111,11 @@ $('#section__vowels--js').on('click', (e) => {
 
 $('.btn__instructions').click(showInstructionsModal);
 
-$('.modal__close').click(e) => {
-  console.log("Click!!")
-  e.target.closest('.help__modal').hide();
-}
-
+$('.body__main').click((event) => {
+  if (event.target.className === 'modal__close') {
+    $('.help__modal').remove();
+  }
+})
 
 function showInstructionsModal() {
   $(`<div class='help__modal'>
@@ -145,5 +145,6 @@ function showInstructionsModal() {
           </ul>
         </div>
       </div>
+    </div>
     `).insertBefore('.results_instructions')
 }
