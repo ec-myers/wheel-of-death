@@ -23,6 +23,7 @@ class Round {
   spinWheel() {
     let randomIndex = Math.floor(Math.random() * this.wheel.items.length);
     let result = this.wheel.currentSpinResult = this.wheel.items[randomIndex];
+
     domUpdates.showWheelOutput(result);
     domUpdates.enableSubmitAndVowelBtns();
     domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
@@ -39,12 +40,12 @@ class Round {
       this.switchPlayer();
       domUpdates.displayPlayerScore(this.players);
       domUpdates.displayPlayerName(this.currentPlayer.name);
-      domUpdates.displayPlayerScore(this.players)
+      domUpdates.displayPlayerScore(this.players);
     } else {
       domUpdates.enableLetterBtns();
       domUpdates.disableLettersUsed(this.puzzle.lettersUsed);
       //disable wheel 
-      //propt player to guess a consonant
+      //prompt player to guess a consonant
       //disable used consonants
     }
   }
@@ -69,7 +70,6 @@ class Round {
   checkSolvePuzzle(guess) {
     if (guess === this.puzzle.correctAnswer.join("")) {
       this.currentPlayer.currentScore += 100;
-      // this.currentPlayer.grandTotal += this.currentPlayer.currentScore;
       return true;
     }
     return false;
@@ -94,6 +94,10 @@ class Round {
     } else {
       domUpdates.disableBuyVowelBtn();
     }
+  }
+
+  decrementPlayerScoreForVowel() {
+    this.currentPlayer.currentScore -= 100;
   }
 
   buyAVowel(vowel) {

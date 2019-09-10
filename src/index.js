@@ -95,7 +95,6 @@ $('#section__consonants--js').on('click', (e) => {
 
 $('#guess__btn--vowel--js').on('click', () => {
   if (game.currentRound.currentPlayer.hasEnoughMoney()) {
-    game.currentRound.currentPlayer.currentScore -= 100;
     domUpdates.displayPlayerScore(game.players);
     domUpdates.enableVowelBtns();
   }
