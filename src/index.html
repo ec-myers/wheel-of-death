@@ -45,6 +45,7 @@
       <!-- ***************** MAIN PAGE *********************** -->
   </div>
   <div class="hidden">
+<div class="center_game-box">
   <main class="body__main">
     <div class="container__div--ul--players"></div>
       <container class="main__container--players">
@@ -60,7 +61,7 @@
           <li class="ul__player--3--total--score" id="div__player--three--total--score--js">Game $ </p>
         </ul>
     </container>
-      <div class="center_game-box">
+      <!-- <div class="center_game-box"> -->
       <container class="main__container--puzzle">
           <!-- we could consider just disabling the buttons for the vowels/consonants that have been guessed instead of this area for letters guessed-->
         <div class="turn-hint-div">
@@ -74,6 +75,7 @@
             <input class='guess__input' id='guess__input--js' placeholder="Guess Answer Here!">
             <button class='guess__input--btn' id='guess__input--btn--js'>Submit Guess</button>
         </div>
+        <div class="letter_button-section">
         <section class="section__consonants" id="section__consonants--js">
           <label class="letter__label">Spooky Letter Selections:</label>
           <button class="btn__letter" id="consB" disabled>B</button>
@@ -98,7 +100,6 @@
           <button class="btn__letter" id="consY" disabled>Y</button>
           <button class="btn__letter" id="consZ" disabled>Z</button>
         </section>
-        </div>
         <section class="section__vowels" id="section__vowels--js">
           <label class="vowel__label">Spooky Vowel Selections:</label>
           <button class='guess__btn--vowel' id='guess__btn--vowel--js'>Buy A Vowel</button>
@@ -108,14 +109,15 @@
           <button class="btn__vowel" id="vowelO" disabled>O</button>
           <button class="btn__vowel" id="vowelU" disabled>U</button>
         </section>
-      </container>
       </div>
-    <footer class="main__footer">
-          <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">
-          <label class="wheel__output--label">Spin Result: </label>
-          <p class="wheel__output" id="wheel__output--js"></p>
-          <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
-    </footer>
+      </container>
+      <div class="results_instructions">
+        <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">
+        <label class="wheel__output--label">Spin Result: </label>
+        <p class="wheel__output" id="wheel__output--js"></p>
+        <button class='btn__spin' id='btn__spin--js'>Spin The Wheel</button>
+      </div>
+    </div>
     </main>
   </div>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
