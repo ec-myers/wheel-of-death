@@ -10,14 +10,20 @@ import data from '../src/data.js';
 
 chai.use(spies);
 chai.spy.on(domUpdates, 
-  ['startGame', 
-  'showPuzzle', 
-  'displayPuzzle'], () => {});
+  [ 'disableSubmitBtn',
+  'showPuzzle',
+  'displayPlayerName'], () => {});
   
 describe('Game', () => {
   let game;
+  let playerOne,
+      playerTwo,
+      playerThree;
     
   beforeEach( () => {
+    playerOne = 'Elyse';
+    playerTwo = 'Sara';
+    playerThree = 'Kate';
     game = new Game(data);
   });
 
@@ -56,9 +62,10 @@ describe('Game', () => {
     expect(game.createNewWheel(data)).to.be.an.instanceOf(Wheel);
   });
 
-  it.only('should display puzzle', () => {
-    game.startGame()
-    expect(domUpdates.showPuzzle).to.be.spy;
+  it('should display puzzle on DOM', () => {
+    game.createPlayers(playerOne, playerTwo, playerThree);
+    game.startGame();
+    expect(domUpdates.showPuzzle).to.be.called(1);
   });
 
   it('should be able to determine winner of the game', () => {
