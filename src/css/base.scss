@@ -1,24 +1,52 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 // $primary-background: rgb(252, 247, 248);
 @import 'variables';
-
 * {
   margin: 0;
   padding: 0;
 }
-
+html, body {
+  height: 100%;
+}
 body {
   margin: 0;
+  height: 100%;
   padding: 0;
-  // background-color: $primary-background;
-  // background-image: url(https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif);
-// background-color: rgba(252, 247, 248, .5)
   // background-repeat: no-repeat; 
   // background-position: center; 
   // background-size: cover;
-  font-family: 'Concert One', cursive;
+  font-family: 'Shadows Into Light', cursive;
 }
-
+.home-container {
+  background-image: url('../images/background.png');
+  background-repeat : no-repeat; 
+  background-position : center; 
+  background-size : cover;
+  height: 100vh;
+  // background-color: rgba(0, 0, 0, 0.7);
+}
+.body__main {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+.main_game {
+  width:95%;
+  height: 100vh;
+  margin: auto;
+  background: rgba(77, 70, 89, 0.8);
+  border: 2px solid rgba(105, 95, 119, 0.8);
+}
+// .container__div--ul--players {
+//   width: 40%;
+// }
+.center_game-box {
+  background: rgba(77, 70, 89, 0.8);
+  border: 2px solid rgba(105, 95, 119, 0.8);
+  margin: auto;
+  width: 1500px;
+  padding: 5px;
+}
 .header {
   padding: 0px 25px;
   display: flex;
@@ -27,14 +55,12 @@ body {
   justify-content: space-between;
   height: 10%;
 }
-
 .header__btn--quit {
   height: 30px;
   border-radius: 20px;
   font-weight: 900;
   box-shadow: 4px 4px 5px rgb(41, 39, 39);
 }
-
 .header__title {
   color: #a2e831;
   font-family: 'Creepster', cursive;
@@ -43,11 +69,12 @@ body {
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
   text-align: center;
 }
-
 .hidden {
   display: none;
 }
-
+.splash-gif {
+  height: 100vh;
+}
 .splash__page {
   display: flex;
   flex-direction: column;
@@ -59,15 +86,14 @@ body {
   box-shadow: 3px 3px 4px rgba(80, 65, 65, 0.5);
   border-radius: 15px;
   background-color: transparent;
+  // height: 100%;
 }
-
 .intro_page {
   background-repeat: no-repeat; 
   background-position: center; 
   background-size: cover;
   opacity: .7;
 }
-
 .splash__player--info {
   min-width: 420px;
   width: 30%;
@@ -76,7 +102,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .header__splash--title {
   margin: 10px;
   font-family: 'Creepster', cursive;
@@ -84,7 +109,6 @@ body {
   color: #a2e831;
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
 }
-
 .splash-gif {
   background-image: url('../images/splashGIF.gif');
   background-repeat: no-repeat; 
@@ -92,7 +116,6 @@ body {
   background-size: cover;
   opacity: .7;
 }
-
 .splash__player--input-section {
   display: flex;
   flex-direction: row;
@@ -101,14 +124,12 @@ body {
   justify-content: space-between;
   width: 95%;
 }
-
 .splash__player--input--title {
   color: whitesmoke;
   padding: 5px;
   font-size: 238%;
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
 }
-
 .splash__start--button {
   font-family: 'Creepster', cursive;
   border: solid 1px #a2e831; 
@@ -117,138 +138,167 @@ body {
   font-size: 140%;
   border-radius: 20px;
 }
-
 // .splash__player--input--two,
 // .splash__player--input--three
 .splash__player--input {
-    height: 4em;
-    min-width: 47%;
-    max-width: 65%;
+  height: 4em;
+  min-width: 47%;
+  max-width: 65%;
 }
-
 .splash__start--button {
   margin-top: 14px;
   width: -webkit-fill-available; 
   height: 3em;
 }
-
-.home-container {
-  background-image: url('../images/background.png');
-  background-repeat : no-repeat; 
-  background-position : center; 
-  background-size : cover;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
 .main__container--players {
   display: flex;
   flex-direction: column;
   align-items: center;
+  float: left;
+  width: 30%;
 }
-
 .container__h2--contestants {
   font-family: 'Creepster', cursive;
   color: #a2e831;
   font-size: 3em;
 }
-
 .ul__label--current--round {
   color: #a2e831;
   font-size: 1.5em;
   margin-left: 28px;
 }
-
+.ul__player--1--total--score,
+.ul__player--2--total--score,
+.ul__player--3--total--score,
+.ul__player--one--name,
+.ul__player--two--name,
+.ul__player--three--name,
+.ul__player--one--score,
+.ul__player--two--score,
+.ul__player--three--score {
+  // width: 60px;
+  padding: 10px;
+  background: rgb(28, 24, 36);
+}
 .ul__player--1--total--score,
 .ul__player--2--total--score,
 .ul__player--3--total--score {
-  color: white;
-  border: solid;
-  border-left: 0px;
-  display: inline-block;
   font-size: 1.5em;
-  margin-right: 25px;
-  padding: 25px;
+  text-align: center;
+  border-bottom: 2px solid white;
 }
-
 .container__ul--player--info {
   border: solid 1px;
   background-color: #40304e;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   list-style-type: none;
-  margin: 0px 30px;
-  padding: 30px;
-  width: 90%;
+  width: 193%;;
+}
+
+.turn-hint-div {
+  background-color: #40304e;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 92%;
+  height: 8%;
+  border: 3px solid white;
+  margin: auto;
+  padding: 5px 1px;
 }
 
 ul {
   color: white;
 }
-
 .wheel__output--label {
-  color: white;
-  display: flex;
-  font-size: 3em;
-  justify-content: center;
+    color: white;
+    display: flex;
+    font-size: 3em;
+    justify-content: center;
+    margin: auto;
 }
-
 .wheel__output {
   display: flex;
   font-size: 3em;
   justify-content: center;
   margin-top: 0;
 }
-
 .ul__player--one--name,
 .ul__player--two--name,
 .ul__player--three--name {
-  border: solid 3px;
-  background-color: #40304e;
-  border-right: solid 1px;
   font-size: 1.5em;
-  padding: 25px;
   text-align: center;
 }
-
 .ul__player--one--score,
 .ul__player--two--score,
 .ul__player--three--score {
-  border: solid 3px;
-  background-color: #40304e;
-  border-left: solid 1px;
   font-size: 1.5em;
-  padding: 25px;
+  text-align: center;
+}
+
+.guess__input--btn {    
+  border-radius: 2px;    
+  background-color: #a2e831b6;    
+  box-shadow: 4px 4px 5px #292727;    
+  font-size: 1.0em;
+  font-weight: bold;    
+  height: 35px;     
+  margin: 5px 0px;
+  width: 46%;
+}
+
+.guess__input {
+  border: none;
+  border-radius: 2px; 
+  background-color: white;
+  box-shadow: 4px 4px 5px #292727;    
+  font-size: 1.0em;
+  height: 35px;
+  margin: 5px 0px; 
+  width: 46%;
   text-align: center;
 }
 
 .guess__input--div {
   display: flex;
   justify-content: center;
-  margin: 30px;
+  width: 100%;
+}
+.main__container--puzzle{
+  width: 84%;
+}
+.results_instructions {
+  background-color: #40304e;
+  display: flex;
+  flex-direction: column;
+  border: solid white 3px;
+  padding: 10px;
 }
 
-.guess__btn--vowel,
-.btn__spin--display,
-.btn__spin,
-.guess__input,
-.guess__input--btn {
+.guess__btn--vowel, 
+.btn__spin--display, 
+.btn__spin {
   border-radius: 2px;
   background-color: #a2e831b6;
-  box-shadow: 4px 4px 5px rgb(41, 39, 39);
+  box-shadow: 4px 4px 5px #292727;
   font-size: 1.0em;
   font-weight: bold;
   height: 35px;
-  margin: 10px;
-  width: 20%;
+  margin: 10px; 
+  width: 38%;
 }
 
-.guess__input {
-  border: none;
-  background-color: white;
-  font-size: .8em;
-  height: 33px;
-  text-align: center;
+.btn__spin {
+   width: 90%;
+   margin: auto;
+}
+
+#guess__btn--vowel--js {
+  width: 100%;
+  margin: 15px 0;
 }
 
 .letter__label {
@@ -259,13 +309,10 @@ ul {
   justify-content: center;
   margin-bottom: 25px;
 }
-
 .img__pumpkin {
   height: 250px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
+  margin: auto 10px; 
 }
 
 .img__pumpkin--rotate {
@@ -273,8 +320,7 @@ ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
-  animation: spin 4s;
+  animation: spin 1s;
 }
 
 @keyframes spin {
@@ -284,18 +330,24 @@ ul {
 }
 
 .section__consonants {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 35px;
+    /* display: flex; */
+    /* justify-content: center; */
+    margin-bottom: 35px;
+    margin-top: 30px;
+    width: 90%;
 }
 
 .section__vowels {
   display: flex;
-  height: 35px;
+  flex-direction: column;
+  align-items: baseline;
+  height: 184px;
+  //comment out justify content?
   justify-content: space-evenly;
   margin: 0px 250px;
+  //comment out margin?
+  width: 37%;
 }
-
 .vowel__label {
   color: #a2e831;
   display: flex;
@@ -306,13 +358,14 @@ ul {
 }
 
 .btn__vowel {
-  border-radius: 5px;
-  background-color: #40304e;
-  color: white;
-  font-size: 1.0em;
-  font-weight: bold;
-  height: 30px;
-  width: 30px;
+    border-radius: 5px;
+    background-color: #40304e;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    height: 55px;
+    margin: 0px auto 10px auto;
+    width: 55px;
 }
 
 .btn__letter {
@@ -321,51 +374,61 @@ ul {
   color: white;
   font-size: 1.0em;
   font-weight: bold;
-  height: 30px;
-  margin: 0px 10px;
-  width: 30px;
+  height: 55px;
+  margin: 0px auto 10px auto;
+  width: 55px;
 }
-
 p {
   color: white;
   font-size: 2.0em;
   margin-top: 15px;
   text-align: center;
 }
-
 h3 {
   color: #a2e831;
   font-family: 'Creepster', cursive;
   font-size: 3.0em;
   text-align: center;
 }
-
 .section__displayPuzzle {
-  border: solid 5px white;
-  background-color: #40304e;
-  margin: 10px;
-  width: 95%;
+   border: solid 4px white;
+   background-color: #40304e;
+   margin: 10px;
+   //take margin 10px off?
+   width: 92%;
+   margin: auto;
 }
-
 .container__displayPuzzle {
-  color: white;
-  display: flex;
-  font-size: 2.5em;
-  font-weight: bold;
-  justify-content: space-between;
-  padding: 25px;
+    background-color: #40304e;
+    color: white;
+    display: flex;
+    font-size: 2.5em;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 25px;
+    height: 15%;
+    /* margin: 0 auto; */
 }
-
 .list__displayPuzzle--space,
 .list__displayPuzzle--symbol {
   border-bottom: none;
 }
-
 .list__displayPuzzle--letter {
-  border-bottom: solid 2px white;
-  padding: 15px;
+  border-bottom: white solid 2px;
+  padding: 3px;
+  width: 31px;
+  margin: 7px;
+  font-size: 1em;
 }
-
-footer {
-  height: 200px;
+.letter_button-section {
+  align-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vowels {
+  display: flex;
+  flex-direction: row;
+  width: 104%;
 }

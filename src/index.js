@@ -37,6 +37,7 @@ $('#splash__start--button--js').on('click', function() {
   $('#ul__player--two--name--js').text(playerTwo);
   $('#ul__player--three--name--js').text(playerThree);
   $('.splash__page').hide();
+  $('.splash-gif').hide();
   $('.hidden').removeClass();
   game.createPlayers(playerOne, playerTwo, playerThree);
   game.startGame();
