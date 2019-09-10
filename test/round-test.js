@@ -1,9 +1,14 @@
 const expect = chai.expect;
 
 import chai from 'chai';
+import spies from 'chai-spies';
+import domUpdates from '../src/DomUpdates.js';
 import Round from '../src/Round.js';
 import Wheel from '../src/Wheel.js';
 import Puzzle from '../src/Puzzle.js';
+
+chai.use(spies);
+
 
 describe('Round', function () {
   let round;
@@ -11,8 +16,19 @@ describe('Round', function () {
   let currentPlayer;
   let puzzle;
   let wheel;
-
+  
   beforeEach(function () {
+    chai.spy.on(domUpdates,
+        ['displayPlayerName',
+         'displayPlayerScore',
+         'enableLetterBtns',
+         'disableLettersUsed',
+         'enableBuyVowelBtn',
+         'disableBuyVowelBtn',
+        'showLetter',
+        'showWheelOutput',
+        'enableSubmitAndVowelBtns'
+        ], () => true);
     players = [{ id: 1, name: "Elyse", currentScore: 200, grandTotal: 0 }, { id: 2, name: "Kate", currentScore: 100, grandTotal: 0 }, { id: 3, name: "Sara", currentScore: 400, grandTotal: 0 }];
     currentPlayer = players[0];
     puzzle = new Puzzle({
@@ -26,6 +42,10 @@ describe('Round', function () {
     wheel = new Wheel();
     wheel.items = [700];
     round = new Round(players, puzzle, wheel);
+  });
+
+  afterEach(function () {
+    chai.spy.restore(domUpdates);
   });
 
   it('should have three players', () => {
@@ -44,8 +64,9 @@ describe('Round', function () {
     expect(round.wheel).to.be.an.instanceOf(Wheel);
   });
 
-  it('should decrement player\'s current score by 100 when they buy a vowel', () => {
+  it.only('should decrement player\'s current score by 100 when they buy a vowel', () => {
     round.buyAVowel('e');
+    console.log(currentPlayer)
     expect(currentPlayer.currentScore).to.equal(100);
   });
 

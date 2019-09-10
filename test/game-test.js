@@ -9,23 +9,29 @@ import domUpdates from '../src/DomUpdates.js';
 import data from '../src/data.js';
 
 chai.use(spies);
-chai.spy.on(domUpdates, 
-  [ 'disableSubmitBtn',
-  'showPuzzle',
-  'displayPlayerName'], () => {});
-  
+
+
 describe('Game', () => {
   let game;
   let playerOne,
-      playerTwo,
-      playerThree;
-    
-  beforeEach( () => {
-    playerOne = 'Elyse';
+  playerTwo,
+  playerThree;
+  
+beforeEach( function() {
+  chai.spy.on(domUpdates, 
+    [ 'disableSubmitBtn',
+    'showPuzzle',
+    'displayPlayerName',
+    'showLetter'], () => true);
+  playerOne = 'Elyse';
     playerTwo = 'Sara';
     playerThree = 'Kate';
     game = new Game(data);
   });
+    
+afterEach( function() {
+  chai.spy.restore(domUpdates);
+});
 
   it('should be a function', () => {
     expect(Game).to.be.a('function');
@@ -76,4 +82,5 @@ describe('Game', () => {
     ]
     expect(game.endGame(players)).to.eql({id: 3, name: "c", currentScore: 4000, grandTotal: 4000});
   });
+
 });
