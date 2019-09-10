@@ -3,9 +3,12 @@
 ## A project by: 
   Elyse Myers, Sara Karsh, Kate Malone and Garrett Iannuzzi
 
-## Just directly to our application on gitHub pages: 
+## Jump directly to our application on gitHub pages: 
 
-# 
+## Summary
+
+  - Wheel of death is a comedic take on the classic wheel of fortune. In this game application a user can compete against two friends to solves a mystery phrase. Each user gets to spin the wheel and guess a letter, depending on the outcome of that guess the user will be propmted for their next steps. You have the ability to buy vowels and solve the puzzle. At the end of 4 rounds the user with the most money in the bank is your winner. 
+
 
 
 
