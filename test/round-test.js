@@ -11,24 +11,24 @@ chai.use(spies);
 
 
 describe('Round', function () {
-  let round;
-  let players;
-  let currentPlayer;
-  let puzzle;
-  let wheel;
+  let round,
+    players,
+    currentPlayer,
+    puzzle,
+    wheel;
   
   beforeEach(function () {
     chai.spy.on(domUpdates,
-        ['displayPlayerName',
-         'displayPlayerScore',
-         'enableLetterBtns',
-         'disableLettersUsed',
-         'enableBuyVowelBtn',
-         'disableBuyVowelBtn',
+      ['displayPlayerName',
+        'displayPlayerScore',
+        'enableLetterBtns',
+        'disableLettersUsed',
+        'enableBuyVowelBtn',
+        'disableBuyVowelBtn',
         'showLetter',
         'showWheelOutput',
         'enableSubmitAndVowelBtns'
-        ], () => true);
+      ], () => true);
     players = [{ id: 1, name: "Elyse", currentScore: 200, grandTotal: 0 }, { id: 2, name: "Kate", currentScore: 100, grandTotal: 0 }, { id: 3, name: "Sara", currentScore: 400, grandTotal: 0 }];
     currentPlayer = players[0];
     puzzle = new Puzzle({
@@ -64,9 +64,8 @@ describe('Round', function () {
     expect(round.wheel).to.be.an.instanceOf(Wheel);
   });
 
-  it.only('should decrement player\'s current score by 100 when they buy a vowel', () => {
-    round.buyAVowel('e');
-    console.log(currentPlayer)
+  it('should decrement player\'s current score by 100 when they buy a vowel', () => {
+    round.decrementPlayerScoreForVowel('e');
     expect(currentPlayer.currentScore).to.equal(100);
   });
 

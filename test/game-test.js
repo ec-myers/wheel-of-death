@@ -12,26 +12,26 @@ chai.use(spies);
 
 
 describe('Game', () => {
-  let game;
-  let playerOne,
-  playerTwo,
-  playerThree;
+  let game,
+    playerOne,
+    playerTwo,
+    playerThree;
   
-beforeEach( function() {
-  chai.spy.on(domUpdates, 
-    [ 'disableSubmitBtn',
-    'showPuzzle',
-    'displayPlayerName',
-    'showLetter'], () => true);
-  playerOne = 'Elyse';
+  beforeEach( function() {
+    chai.spy.on(domUpdates, 
+      [ 'disableSubmitBtn',
+        'showPuzzle',
+        'displayPlayerName',
+        'showLetter'], () => true);
+    playerOne = 'Elyse';
     playerTwo = 'Sara';
     playerThree = 'Kate';
     game = new Game(data);
   });
     
-afterEach( function() {
-  chai.spy.restore(domUpdates);
-});
+  afterEach( function() {
+    chai.spy.restore(domUpdates);
+  });
 
   it('should be a function', () => {
     expect(Game).to.be.a('function');
