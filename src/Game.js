@@ -10,14 +10,14 @@ class Game {
     this.wheelData = data.wheel;
     this.currentRound;
     this.players = [];
-    this.roundCounter = 0;
+    this.roundCounter = 1;
   }
 
   startGame() {
     let puzzle = this.createNewPuzzle();
     let wheel = this.createNewWheel(this.wheelData);
     this.currentRound = new Round(this.players, puzzle, wheel);
-    domUpdates.disableSubmitAndVowelBtns();
+    domUpdates.disableSubmitBtn();
     domUpdates.showPuzzle(this.currentRound.puzzle);
     domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
     console.log(wheel);
@@ -68,10 +68,11 @@ class Game {
     return wheel;
   }
 
-  endGame() {
-
+  endGame(players) {
+    let highestScores = players.sort((playerA, playerB) => playerB.grandTotal - playerA.grandTotal);
+    let winningScore = highestScores[0];
+      return winningScore;
   }
-
 }
 
 export default Game;

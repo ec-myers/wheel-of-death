@@ -14,7 +14,7 @@ fetch(
   "https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
   .then(response => response.json())
   .then(dataset => game = new Game(dataset.data))
-  .catch(error => console.log(error));
+  .catch(error => console.log(error))
 
 $(document).ready(function () {
   $('.body').css("background-image", "url('https://cdn.dribbble.com/users/948461/screenshots/3913689/dribbble_halloween_animation.gif')");
@@ -51,12 +51,14 @@ $('#guess__input--btn--js').on('click', function () {
   let correctGuess = game.currentRound.checkSolvePuzzle(guessInput);
   
   if (game.roundCounter < 4 && correctGuess) {
-    game.createNewRound();
+    game.currentRound.endRound();
+    game.createNewRound(game.currentRound.currentPlayer);
+    domUpdates.displayRoundNum(game.roundCounter);
     domUpdates.showPuzzle(game.currentRound.puzzle);
   }
   if (game.roundCounter === 4 && correctGuess) {
     domUpdates.displayPlayerScore();
-    //displayGameWinner
+    game.currentRound.endGame(game.players)
     //prompt user to press quit and start a new game
   }
   if (game.roundCounter < 4 && !correctGuess) {
@@ -73,8 +75,6 @@ $('#guess__input--js').on('keypress', function() {
     $('#guess__input--btn--js').prop('disabled', true);
   }
 });
-
-// guess__input -check solve puzzle = .toUpperCase()
 
 $('#btn__spin--js').on('click', () => {
   //disable spin button
@@ -94,16 +94,18 @@ $('#section__consonants--js').on('click', (e) => {
 });
 
 $('#guess__btn--vowel--js').on('click', () => {
-  //enable vowels
-  //disable used vowels (usedLetters)
+  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
+    game.currentRound.currentPlayer.currentScore -= 100;
+    domUpdates.displayPlayerScore(game.players);
+    domUpdates.enableVowelBtns();
+  }
+    //enable vowels
+    //disable used vowels (usedLetters)
 });
 
 $('#section__vowels--js').on('click', (e) => {
   e.preventDefault();
-  let guessedVowel = $(e.target).closest('.btn__letter').val();
-
-  if (game.currentRound.currentPlayer.hasEnoughMoney()) {
-    game.currentRound.buyAVowel(guessedVowel);
-  }
+  let guessedVowel = $(e.target).closest('.btn__vowel').text();
+  game.currentRound.buyAVowel(guessedVowel);
 });
 

@@ -2,27 +2,33 @@
 import $ from 'jquery';
 
 export default {
-  disableSubmitAndVowelBtns() {
-    $('#guess__btn--vowel--js').prop('disabled', true);
+  disableSubmitBtn() {
     $('#guess__input--btn--js').prop('disabled', true);
   },
   
   enableSubmitAndVowelBtns() {
-    $('#guess__btn--vowel--js').prop('disabled', false);
     $('#guess__input--btn--js').prop('disabled', false);
     $('#btn__spin--js').prop('disabled', false);
   },
 
+  enableBuyVowelBtn() {
+    $('#guess__btn--vowel--js').prop('disabled', false);
+  },
+
+  disableBuyVowelBtn() {
+    $('#guess__btn--vowel--js').prop('disabled', true);
+  },
+
+  enableVowelBtns() {
+    $('.btn__vowel').prop('disabled', false);
+  },
+
   enableLetterBtns() {
-    $('.btn__letter').prop('disabled', false)
+    $('.btn__letter').prop('disabled', false);
   },
 
   disableLetterBtns() {
-    $('.btn__letter').prop('disabled', true)
-  },
-
-  enableVowels() {
-    $('.section__vowels').prop('disabled', false);
+    $('.btn__letter').prop('disabled', true);
   },
 
   showWheelOutput(result) {
@@ -31,6 +37,19 @@ export default {
 
   showLetter(guess) {
     $(`.${guess}`).show();
+  },
+
+  disableLettersUsed(lettersUsed) {
+    lettersUsed.forEach(letter => {
+      $(`#cons${letter}`).prop('disabled', true);
+    });
+  },
+
+  disableVowelUsed(lettersUsed) {
+    console.log('lettersUsed', lettersUsed)
+    lettersUsed.forEach(letter => {
+      $(`#vowel${letter}`).prop('disabled', true);
+    });
   },
 
   showPuzzle(puzzle) {
@@ -61,6 +80,10 @@ export default {
     $('#span__player--turn--js').text(currentPlayer);
   },
 
+  displayRoundNum(currentRound) {
+    $('#span__round--js').text(currentRound);
+  },
+
   displayPlayerScore(players) {
     console.log(players)
     players.forEach(player => {
@@ -70,5 +93,7 @@ export default {
       $(`.ul__player--${player.id}--total--score`).text(player.grandTotal);
     })
   },
+
+  
 }
 
