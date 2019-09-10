@@ -22,3 +22,11 @@
   - Run npm `run start` and visit the specified localhost address in your browser
 
 ## In Game Images: 
+
+
+
+### Contact:
+  - Elyse Myers: @ec-myers
+  - Garrett Iannuzzi: @Garrett-Iannuzzi
+  - Kate Malone: @katemalone
+  - Sara Karsh @slkarsh
