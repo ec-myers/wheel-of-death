@@ -1,6 +1,6 @@
 # Wheel of Death 
 
-### Application by: Elyse Myers, Sara Karsh, Kate Malone and Garrett Iannuzzi
+### Application By: Elyse Myers, Sara Karsh, Kate Malone and Garrett Iannuzzi
 
 ## Our Application On gitHub Pages: 
 
