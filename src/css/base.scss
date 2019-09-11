@@ -5,31 +5,28 @@
   margin: 0;
   padding: 0;
 }
-html, body {
-  height: 100%;
-}
+
 body {
   margin: 0;
   height: 100%;
   padding: 0;
-  // background-repeat: no-repeat; 
-  // background-position: center; 
-  // background-size: cover;
   font-family: 'Shadows Into Light', cursive;
 }
+
 .home-container {
   background-image: url('../images/background.png');
   background-repeat : no-repeat; 
   background-position : center; 
   background-size : cover;
   height: 100vh;
-  // background-color: rgba(0, 0, 0, 0.7);
 }
+
 .body__main {
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
 }
+
 .main_game {
   width:95%;
   height: 100vh;
@@ -41,10 +38,11 @@ body {
 .center_game-box {
   background: rgba(77, 70, 89, 0.8);
   border: 2px solid rgba(105, 95, 119, 0.8);
-  margin: auto;
-  width: 1500px;
+  width: 95%;
+  margin: 0 auto;
   padding: 5px;
 }
+
 .header {
   padding: 0px 25px;
   display: flex;
@@ -53,9 +51,12 @@ body {
   justify-content: space-between;
   height: 10%;
 }
+
 .header__btn--quit {
-  height: 30px;
   border-radius: 20px;
+  height: 30px;
+  float: right;
+  margin: 10px;
   font-weight: 900;
   box-shadow: 4px 4px 5px rgb(41, 39, 39);
   margin: 20px
@@ -74,6 +75,7 @@ body {
     cursor: pointer;
   }
 }
+
 .header__title {
   color: #a2e831;
   font-family: 'Creepster', cursive;
@@ -82,14 +84,16 @@ body {
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
   text-align: center;
 }
+
 .hidden {
   display: none;
 }
+
 .splash-gif {
   height: 100vh;
 }
+
 .splash__page {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -99,29 +103,33 @@ body {
   box-shadow: 3px 3px 4px rgba(80, 65, 65, 0.5);
   border-radius: 15px;
   background-color: transparent;
-  // height: 100%;
 }
+
 .intro_page {
   background-repeat: no-repeat; 
   background-position: center; 
   background-size: cover;
   opacity: .7;
 }
+
 .splash__player--info {
-  min-width: 420px;
-  width: 30%;
+  margin: 0 auto;
+  width: 38%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .header__splash--title {
-  margin: 10px;
-  font-family: 'Creepster', cursive;
-  font-size: 5em;
   color: #a2e831;
+  font-family: 'Creepster', cursive;
+  font-size: 5.2em;
+  padding-top: 200px;
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
+  text-align: center;
 }
+
 .splash-gif {
   background-image: url('../images/splashGIF.gif');
   background-repeat: no-repeat; 
@@ -129,6 +137,7 @@ body {
   background-size: cover;
   opacity: .7;
 }
+
 .splash__player--input-section {
   display: flex;
   flex-direction: row;
@@ -137,12 +146,14 @@ body {
   justify-content: space-between;
   width: 95%;
 }
+
 .splash__player--input--title {
   color: whitesmoke;
   padding: 5px;
   font-size: 238%;
   text-shadow: 2px 2px rgba(53, 52, 52, .5);
 }
+
 .splash__start--button {
   font-family: 'Creepster', cursive;
   border: solid 1px #a2e831; 
@@ -151,48 +162,43 @@ body {
   font-size: 140%;
   border-radius: 20px;
 }
-// .splash__player--input--two,
-// .splash__player--input--three
+
 .splash__player--input {
+  font-size: 1.0em;
+  font-weight: bold;
   height: 4em;
   min-width: 47%;
   max-width: 65%;
+  padding-left: 10px;
 }
+
 .splash__start--button {
   margin-top: 14px;
   width: -webkit-fill-available; 
   height: 3em;
 }
+
 .main__container--players {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  float: left;
   width: 30%;
 }
+
+.hidden {
+  margin: 0 auto;
+  width: 95%;
+}
+
 .container__h2--contestants {
   font-family: 'Creepster', cursive;
   color: #a2e831;
   font-size: 3em;
 }
+
 .ul__label--current--round {
   color: #a2e831;
   font-size: 1.5em;
   margin-left: 28px;
 }
-.ul__player--1--total--score,
-.ul__player--2--total--score,
-.ul__player--3--total--score,
-.ul__player--one--name,
-.ul__player--two--name,
-.ul__player--three--name,
-.ul__player--one--score,
-.ul__player--two--score,
-.ul__player--three--score {
-  // width: 60px;
-  padding: 10px;
-  background: rgb(28, 24, 36);
-}
+
 .ul__player--1--total--score,
 .ul__player--2--total--score,
 .ul__player--3--total--score {
@@ -200,6 +206,7 @@ body {
   text-align: center;
   border-bottom: 2px solid white;
 }
+
 .container__ul--player--info {
   border: solid 1px;
   background-color: #40304e;
@@ -240,6 +247,7 @@ body {
 ul {
   color: white;
 }
+
 .wheel__output--label {
     color: white;
     display: flex;
@@ -256,14 +264,20 @@ ul {
 .ul__player--one--name,
 .ul__player--two--name,
 .ul__player--three--name {
-  font-size: 1.5em;
+  font-size: 1.9em;
   text-align: center;
+  height: 80px;
 }
 .ul__player--one--score,
 .ul__player--two--score,
 .ul__player--three--score {
-  font-size: 1.5em;
+  font-size: 1.8em;
   text-align: center;
+  height: 80px;
+}
+
+.container__div--ul--players {
+  width: 50%;
 }
 
 .guess__input--btn {    
@@ -291,6 +305,7 @@ ul {
 
 .guess__input--div {
   display: flex;
+  margin-top: 30px;
   justify-content: center;
   width: 100%;
 }
@@ -487,7 +502,7 @@ h3 {
 
 .help__modal--content {
   width: 786px;
-  font-color: white;
+  color: white;
 }
 
 .modal__header {
