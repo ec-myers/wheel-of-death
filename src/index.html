@@ -12,6 +12,7 @@
     <div class="home-container">
     <header class="header hidden"> 
       <button class="header__btn--quit" id="header__btn--quit">QUIT</button>
+      <button class='btn__instructions' id='btn__instructions--js' data-toggle="modal">How to Play</button>
       <h1 class="header__title">Wheel of Death</h1>
     </header>
   <div class="intro_page">
@@ -61,7 +62,7 @@
       <container class="main__container--puzzle">
         <div class="turn-hint-div">
           <p><span class="span__player--turn" id="span__player--turn--js"></span> it's your turn!</p>
-          <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
+          <p>Round <span class="span__round" id="span__round--js">1</span></p>
         </div>
         <section class="section__displayPuzzle" id="section__displayPuzzle--js">
         </section>
@@ -71,7 +72,7 @@
         </div>
         <div class="letter_button-section">
         <section class="section__consonants" id="section__consonants--js">
-          <label class="letter__label">Spooky Letter Selections:</label>
+          <h3>Hint: <span class="span__category" id="span__category--js"></span></h3>
           <button class="btn__letter" id="consB" disabled>B</button>
           <button class="btn__letter" id="consC" disabled>C</button>
           <button class="btn__letter" id="consD" disabled>D</button>
@@ -107,7 +108,6 @@
       </div>
       </container>
       <div class='help__modal_container'>
-      <button class='btn__instructions' id='btn__instructions--js' data-toggle="modal">How to Play</button>
       </div>
       <div class="results_instructions">
         <img class="img__pumpkin" src="/images/pumpkin.png" alt="A pumkin wheel">

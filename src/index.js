@@ -50,6 +50,7 @@ $('.header__btn--quit').click( () => {
 $('#guess__input--btn--js').on('click', function () {
   let guessInput = $('.guess__input').val().toUpperCase();
   let correctGuess = game.currentRound.checkSolvePuzzle(guessInput);
+  $('.guess__input').val(" ");
   
   if (game.roundCounter < 4 && correctGuess) {
     game.currentRound.endRound();
