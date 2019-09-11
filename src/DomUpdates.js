@@ -23,6 +23,10 @@ export default {
     $('.btn__vowel').prop('disabled', false);
   },
 
+  disableVowelBtns() {
+    $('.btn__vowel').prop('disabled', true);
+  },
+
   enableLetterBtns() {
     $('.btn__letter').prop('disabled', false);
   },
@@ -46,7 +50,6 @@ export default {
   },
 
   disableVowelUsed(lettersUsed) {
-    console.log('lettersUsed', lettersUsed)
     lettersUsed.forEach(letter => {
       $(`#vowel${letter}`).prop('disabled', true);
     });
@@ -73,7 +76,6 @@ export default {
     });
     letterList += `</div>`;
     return letterList;
-
   },
 
   displayPlayerName(currentPlayer) {
@@ -85,10 +87,7 @@ export default {
   },
 
   displayPlayerScore(players) {
-    console.log(players)
     players.forEach(player => {
-      console.log(player.id)
-      console.log(player.currentScore)
       $(`.span__player--${player.id}--score`).text(player.currentScore);
       $(`.ul__player--${player.id}--total--score`).text(player.grandTotal);
     })

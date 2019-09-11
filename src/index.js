@@ -55,13 +55,15 @@ $('#guess__input--btn--js').on('click', function () {
   if (game.roundCounter < 4 && correctGuess) {
     game.currentRound.endRound();
     game.createNewRound(game.currentRound.currentPlayer);
+    game.currentRound.puzzle.lettersUsed = [];
     domUpdates.displayRoundNum(game.roundCounter);
     domUpdates.showPuzzle(game.currentRound.puzzle);
+    domUpdates.disableLetterBtns();
+    domUpdates.disableVowelBtns();
   }
   if (game.roundCounter === 4 && correctGuess) {
     domUpdates.displayPlayerScore();
     game.currentRound.endGame(game.players)
-    //prompt user to press quit and start a new game
   }
   if (game.roundCounter < 4 && !correctGuess) {
     game.currentRound.switchPlayer();
@@ -79,7 +81,6 @@ $('#guess__input--js').on('keypress', function() {
 });
 
 $('#btn__spin--js').on('click', () => {
-  //disable spin button
   game.currentRound.spinWheel();
   game.currentRound.compareWheelOutput();
   $('.img__pumpkin').addClass('img__pumpkin--rotate');
@@ -101,8 +102,6 @@ $('#guess__btn--vowel--js').on('click', () => {
     domUpdates.displayPlayerScore(game.players);
     domUpdates.enableVowelBtns();
   }
-    //enable vowels
-    //disable used vowels (usedLetters)
 });
 
 $('#section__vowels--js').on('click', (e) => {

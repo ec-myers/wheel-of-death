@@ -103,12 +103,14 @@ class Round {
       if (this.puzzle.correctAnswer[i] === vowel) {
         domUpdates.showLetter(vowel);
         this.puzzle.correctGuesses.push(vowel);
+        domUpdates.disableVowelUsed(this.puzzle.lettersUsed);
         return;
       }
     }
     this.switchPlayer();
     this.checkCurrentScore();
     domUpdates.displayPlayerName(this.currentPlayer.name);
+    domUpdates.disableVowelUsed(this.puzzle.lettersUsed);
   }
 }
 

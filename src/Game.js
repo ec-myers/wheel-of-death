@@ -20,9 +20,7 @@ class Game {
     domUpdates.disableSubmitBtn();
     domUpdates.showPuzzle(this.currentRound.puzzle);
     domUpdates.displayPlayerName(this.currentRound.currentPlayer.name);
-    console.log(wheel);
     console.log(puzzle);
-    console.log(this.currentRound)
   }
 
   createPlayers(p1, p2, p3) {
@@ -41,11 +39,13 @@ class Game {
       this.currentRound = new Round(this.players, puzzle, wheel)
       this.currentRound.currentPlayer = currentPlayer;
       domUpdates.displayPlayerScore(this.players);
+      console.log(puzzle);
     }
   }
 
   createNewPuzzle() {
-    let randomNum = Math.floor(Math.random() * this.puzzleBank.length)
+    let randomNum = Math.floor(Math.random() * this.puzzleBank.length);
+
     return new Puzzle(this.puzzleBank[randomNum]);
   }
 
@@ -55,6 +55,7 @@ class Game {
     let threeWordAnswers = data.puzzles.three_word_answers.puzzle_bank;
     let fourWordAnswers = data.puzzles.four_word_answers.puzzle_bank;
     let allPuzzles = [...oneWordAnswers, ...twoWordAnswers, ...threeWordAnswers, ...fourWordAnswers];
+
     return allPuzzles;
   }
 
@@ -71,7 +72,8 @@ class Game {
   endGame(players) {
     let highestScores = players.sort((playerA, playerB) => playerB.grandTotal - playerA.grandTotal);
     let winningScore = highestScores[0];
-      return winningScore;
+
+    return winningScore;
   }
 }
 
