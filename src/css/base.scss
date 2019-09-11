@@ -335,7 +335,6 @@ ul {
     cursor: pointer;
   }
 }
-  
 
 .btn__spin {
    width: 90%;
@@ -343,7 +342,7 @@ ul {
 }
 
 #guess__btn--vowel--js {
-  width: 100%;
+  width: 40%;
   margin: 15px 0;
 }
 
@@ -385,7 +384,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  height: 184px;
+  height: 90px;
   justify-content: space-evenly;
   margin: 0px 250px;
   width: 37%;
