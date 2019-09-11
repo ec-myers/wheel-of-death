@@ -20,7 +20,18 @@ The goals of this project include practicing OOP design, developing good practic
   - Open terminal and run  `git clone` with repo link
   - run `npm install`
   - Run npm `run start` and visit the specified localhost address in your browser
+  
+## In Game Images:
 
+  ### Splash Page:
+  ![Splash Page](src/images/splash-page.png)
+  
+  ### Directions Page:
+   ![Directions Page](src/images/directions-page.png)
+   
+  ### Game Play:
+   ![Game Play](src/images/game-play.png)
+   
 ### Contact:
   - Elyse Myers: @ec-myers
   - Garrett Iannuzzi: @Garrett-Iannuzzi
